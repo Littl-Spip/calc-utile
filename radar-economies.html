@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/radar-economies.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Radar Économies — découvre l'argent que tu perds chaque année (gratuit)</title>
+<meta name="description" content="6 questions, 30 secondes : découvre combien d'argent tu perds chaque année en frais bancaires, crédit immobilier, assurance emprunteur, énergie, télécom et abonnements oubliés. Gratuit, sans inscription, calculs dans ton navigateur.">
+<meta name="keywords" content="économiser de l'argent, frais bancaires, renégocier crédit immobilier, assurance emprunteur, changer de fournisseur d'énergie, réduire abonnements">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Comment le Radar Économies calcule-t-il mes pertes ?","acceptedAnswer":{"@type":"Answer","text":"Il compare tes charges actuelles aux meilleures offres du marché français et aux écarts moyens constatés, par exemple le coût moyen d'une assurance emprunteur déléguée ou le tarif des banques en ligne. Chaque ligne affiche son calcul. Les résultats sont des estimations indicatives."}},
+    {"@type":"Question","name":"Mes données sont-elles envoyées quelque part ?","acceptedAnswer":{"@type":"Answer","text":"Non. Tout est calculé dans ton navigateur, rien n'est transmis ni stocké. Aucune inscription et aucun email ne sont demandés."}},
+    {"@type":"Question","name":"Puis-je vraiment récupérer cet argent ?","acceptedAnswer":{"@type":"Answer","text":"Une partie oui, rapidement et gratuitement : changer de banque, d'offre mobile, d'Internet ou de fournisseur d'énergie se fait en quelques minutes. La renégociation d'un crédit immobilier ou la délégation d'assurance emprunteur demande plus de démarches mais représente souvent les plus grosses sommes."}},
+    {"@type":"Question","name":"Est-ce gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, entièrement gratuit et sans inscription. Le site est financé par de la publicité discrète."}}
+  ]
+}
+</script>
+<style>
+  .radar-total{position:sticky;top:72px;z-index:15;background:linear-gradient(160deg,#0b1220 0%,#122040 55%,#0b1220 100%);color:#fff;border-radius:20px;padding:22px 24px;margin:6px 0 26px;box-shadow:0 18px 44px rgba(11,18,32,.28);border:1px solid rgba(255,255,255,.08)}
+  .radar-total .lbl{font-size:.82rem;text-transform:uppercase;letter-spacing:.9px;color:#9fb2d6;font-weight:700}
+  .radar-total .amt{font-size:clamp(2.1rem,6vw,3.2rem);font-weight:800;letter-spacing:-1px;line-height:1.05;font-variant-numeric:tabular-nums;background:linear-gradient(90deg,#7ff0c4,#63b3ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .radar-total .sub{color:#c7d5ef;font-size:.92rem;margin-top:6px}
+  .radar-total .two{display:flex;gap:26px;flex-wrap:wrap;margin-top:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
+  .radar-total .two div{font-size:.85rem;color:#9fb2d6}
+  .radar-total .two b{display:block;font-size:1.15rem;color:#fff;font-variant-numeric:tabular-nums}
+  .sec{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow-sm);transition:.18s}
+  .sec:hover{border-color:#c9d8f7}
+  .sec .hd{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+  .sec .hd .ic{font-size:1.35rem;display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;background:rgba(47,91,234,.08);border-radius:12px;flex:0 0 auto}
+  .sec .hd h3{margin:0;font-size:1.05rem}
+  .sec .hd .tag{margin-left:auto;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(14,166,114,.10);color:var(--accent-dark);border:1px solid rgba(14,166,114,.22);white-space:nowrap}
+  .sec .hd .tag.one{background:rgba(47,91,234,.09);color:var(--primary-dark);border-color:rgba(47,91,234,.22)}
+  .sec p.hint{color:var(--muted);font-size:.88rem;margin:2px 0 10px}
+  .sec .grid{margin-top:4px}
+  .sec .eco{margin-top:12px;display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--muted)}
+  .bar{height:8px;background:#eef2f9;border-radius:99px;overflow:hidden;flex:1}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#0ea672,#2f5bea);border-radius:99px;transition:width .45s ease}
+  .sec .eco b{color:var(--fg);font-variant-numeric:tabular-nums;min-width:112px;text-align:right}
+  .verdict{background:linear-gradient(165deg,#ffffff,#f3f7ff);border:1px solid var(--border);border-radius:20px;padding:24px;box-shadow:var(--shadow-md);margin:22px 0}
+  .verdict h2{margin-top:0}
+  .rank{list-style:none;margin:6px 0 0}
+  .rank li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px dashed var(--border);font-size:.95rem}
+  .rank li:last-child{border-bottom:0}
+  .rank .n{width:26px;height:26px;flex:0 0 auto;border-radius:8px;background:rgba(47,91,234,.10);color:var(--primary-dark);font-weight:800;font-size:.82rem;display:inline-flex;align-items:center;justify-content:center}
+  .rank .g{flex:1}
+  .rank .g small{display:block;color:var(--muted);font-size:.82rem}
+  .rank .v{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rank a{font-weight:700}
+  .letter textarea{width:100%;min-height:190px;padding:14px;border:1px solid var(--border);border-radius:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86rem;line-height:1.55;resize:vertical;background:#fbfcfe}
+  .btn2{display:inline-block;width:auto;background:#fff;color:var(--primary-dark);border:1px solid var(--border);box-shadow:none;padding:11px 16px;margin:12px 8px 0 0;font-size:.92rem}
+  .btn2:hover{background:#f4f7ff;transform:none}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#0b1220;color:#fff;padding:11px 18px;border-radius:12px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  @media(max-width:640px){.radar-total{position:static;top:auto}.sec .hd .tag{display:none}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">Calc<span>Utile</span></a>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="simulateur-credit-immobilier.html">Crédit</a>
+      <a href="salaire-brut-net.html">Salaire</a>
+      <a href="impot-revenu.html">Impôts</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="crumb"><a href="index.html">Accueil</a> › Radar Économies</div>
+  <span class="badge">🔥 Nouveau · 100 % gratuit · sans inscription</span>
+  <h1>Radar Économies : combien d'argent tu perds chaque année&nbsp;?</h1>
+  <p class="lead">Réponds à 6 questions sur tes charges. Le compteur s'actualise en direct et te montre exactement où part ton argent — puis comment le récupérer. Tout se calcule dans ton navigateur.</p>
+
+  <div class="radar-total">
+    <div class="lbl">Argent que tu peux récupérer</div>
+    <div class="amt" id="tot">— €</div>
+    <div class="sub" id="verdict">Déplace-toi dans les 6 blocs ci-dessous&nbsp;: le compteur se met à jour tout seul.</div>
+    <div class="two">
+      <div>Économies récurrentes<b id="totRec">— €/an</b></div>
+      <div>Économies ponctuelles<b id="totOne">— €</b></div>
+      <div>Sur 10 ans (récurrent)<b id="tot10">— €</b></div>
+    </div>
+  </div>
+
+  <!-- 1. BANQUE -->
+  <section class="sec" id="s-banque">
+    <div class="hd"><span class="ic">🏦</span><h3>1 · Frais bancaires</h3><span class="tag">par an</span></div>
+    <p class="hint">Regarde ton relevé : forfait de compte + carte, et le total des frais d'incident sur l'année (rejets, commissions).</p>
+    <div class="grid">
+      <div><label for="i-forfait">Forfait compte + carte (€/mois)</label><input id="i-forfait" type="number" step="0.01" value="9.90"></div>
+      <div><label for="i-incidents">Frais d'incident (€/an)</label><input id="i-incidents" type="number" step="0.01" value="30"></div>
+    </div>
+    <div class="eco"><span>Récupérable&nbsp;:</span><span class="bar"><i id="b-banque"></i></span><b id="v-banque">— €/an</b></div>
+  </section>
+
+  <!-- 2. CRÉDIT IMMOBILIER -->
+  <section class="sec" id="s-credit">
+    <div class="hd"><span class="ic">🏠</span><h3>2 · Crédit immobilier (renégociation)</h3><span class="tag one">sur la durée restante</span></div>
+    <p class="hint">Si ton taux est au-dessus du marché actuel, la renégociation fait baisser ta mensualité. Renseigne ton taux actuel et ce qu'il te reste à rembourser.</p>
+    <div class="grid">
+      <div><label for="i-mens">Mensualité actuelle (€/mois)</label><input id="i-mens" type="number" step="1" value="850"></div>
+      <div><label for="i-taux">Taux actuel (hors assurance, %)</label><input id="i-taux" type="number" step="0.05" value="3.90"></div>
+      <div><label for="i-reste">Mois restants</label><input id="i-reste" type="number" step="1" value="240"></div>
+      <div><label for="i-marche">Taux de marché aujourd'hui (%)</label><input id="i-marche" type="number" step="0.05" value="3.30"></div>
+    </div>
+    <div class="eco"><span>Récupérable&nbsp;:</span><span class="bar"><i id="b-credit"></i></span><b id="v-credit">— €</b></div>
+  </section>
+
+  <!-- 3. ASSURANCE EMPRUNTEUR -->
+  <section class="sec" id="s-assur">
+    <div class="hd"><span class="ic">🛡️</span><h3>3 · Assurance emprunteur (loi Lemoine)</h3><span class="tag one">sur la durée restante</span></div>
+    <p class="hint">Depuis 2022, tu peux changer d'assurance emprunteur <b>à tout moment</b>, sans frais. Entre la banque et un assureur externe, l'écart atteint souvent 60 %.</p>
+    <div class="grid">
+      <div><label for="i-assur">Assurance payée (€/an)</label><input id="i-assur" type="number" step="1" value="640"></div>
+      <div><label for="i-assurAn">Années restantes</label><input id="i-assurAn" type="number" step="1" value="16"></div>
+    </div>
+    <div class="eco"><span>Récupérable&nbsp;:</span><span class="bar"><i id="b-assur"></i></span><b id="v-assur">— €</b></div>
+  </section>
+
+  <!-- 4. ENERGIE -->
+  <section class="sec" id="s-energie">
+    <div class="hd"><span class="ic">⚡</span><h3>4 · Énergie (électricité & gaz)</h3><span class="tag">par an</span></div>
+    <p class="hint">Sans changer de radiateur : juste en passant à une offre mieux placée, l'écart moyen constaté tourne autour de 15 % de la facture.</p>
+    <div class="grid">
+      <div><label for="i-energie">Facture électricité + gaz (€/an)</label><input id="i-energie" type="number" step="1" value="1500"></div>
+    </div>
+    <div class="eco"><span>Récupérable&nbsp;:</span><span class="bar"><i id="b-energie"></i></span><b id="v-energie">— €/an</b></div>
+  </section>
+
+  <!-- 5. TELECOM -->
+  <section class="sec" id="s-tel">
+    <div class="hd"><span class="ic">📱</span><h3>5 · Forfait mobile & Internet</h3><span class="tag">par an</span></div>
+    <p class="hint">Le marché propose aujourd'hui des forfaits mobile très complets autour de 10 €/mois et la fibre autour de 25 €/mois.</p>
+    <div class="grid">
+      <div><label for="i-mobile">Forfait mobile (€/mois)</label><input id="i-mobile" type="number" step="0.01" value="19.99"></div>
+      <div><label for="i-internet">Box Internet (€/mois)</label><input id="i-internet" type="number" step="0.01" value="35"></div>
+    </div>
+    <div class="eco"><span>Récupérable&nbsp;:</span><span class="bar"><i id="b-tel"></i></span><b id="v-tel">— €/an</b></div>
+  </section>
+
+  <!-- 6. ABONNEMENTS -->
+  <section class="sec" id="s-abos">
+    <div class="hd"><span class="ic">🧾</span><h3>6 · Abonnements oubliés</h3><span class="tag">par an</span></div>
+    <p class="hint">Salle de sport, streaming en double, applis payantes, presse, stockage… Note le total mensuel de ce que tu n'utilises plus vraiment.</p>
+    <div class="grid">
+      <div><label for="i-abos">Total des abonnements inutilisés (€/mois)</label><input id="i-abos" type="number" step="0.01" value="25"></div>
+    </div>
+    <div class="eco"><span>Récupérable&nbsp;:</span><span class="bar"><i id="b-abos"></i></span><b id="v-abos">— €/an</b></div>
+  </section>
+
+  <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+  <!-- VERDICT -->
+  <div class="verdict" id="verdictBox">
+    <h2>Où va ton argent&nbsp;? (classé du plus gros au plus petit)</h2>
+    <ol class="rank" id="rank"></ol>
+    <p class="note" id="noteVerdict"></p>
+  </div>
+
+  <!-- LETTRES -->
+  <h2>Prêt à agir en 2 minutes&nbsp;? Ton courrier est déjà écrit</h2>
+  <p class="lead">Choisis le poste, copie le modèle, colle-le dans un email à ta banque, ton assureur ou ton fournisseur. C'est gratuit et ça prend deux minutes.</p>
+  <div class="card letter">
+    <label for="l-type">Quel courrier veux-tu&nbsp;?</label>
+    <select id="l-type">
+      <option value="banque">Contester les frais bancaires (banque)</option>
+      <option value="assur">Demander la délégation d'assurance emprunteur (banque + assureur)</option>
+      <option value="energie">Résilier mon contrat d'énergie</option>
+      <option value="mobile">Résilier mon forfait mobile / ma box</option>
+      <option value="credit">Demander la renégociation de mon crédit immobilier</option>
+    </select>
+    <textarea id="l-txt" spellcheck="false"></textarea>
+    <button class="btn2" id="l-copy">📋 Copier le courrier</button>
+    <button class="btn2" id="l-print">🖨️ Imprimer / PDF</button>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <div class="faq">
+    <details><summary>Comment le Radar calcule-t-il mes pertes&nbsp;?</summary><p>Il compare tes charges aux meilleures offres du marché français et aux écarts moyens constatés (par exemple le coût d'une assurance emprunteur déléguée). Chaque ligne montre son propre calcul. Ce sont des <b>estimations indicatives</b>, pas un devis.</p></details>
+    <details><summary>Mes données sont-elles envoyées quelque part&nbsp;?</summary><p>Non. Tout est calculé dans ton navigateur. Rien n'est transmis, rien n'est stocké, aucun email n'est demandé.</p></details>
+    <details><summary>Puis-je vraiment récupérer cet argent&nbsp;?</summary><p>Une partie oui, très vite et gratuitement : changer de banque, d'offre mobile, de box ou de fournisseur d'énergie se fait en minutes. La renégociation du crédit et la délégation d'assurance demandent plus de démarches, mais représentent souvent les plus grosses sommes.</p></details>
+    <details><summary>Et si je n'ai pas de crédit immobilier&nbsp;?</summary><p>Mets 0 dans les blocs 2 et 3 : le radar fonctionne aussi avec seulement la banque, l'énergie, le téléphone et les abonnements.</p></details>
+    <details><summary>Est-ce gratuit&nbsp;?</summary><p>Oui, entièrement. Le site est financé par de la publicité discrète — jamais par la revente de tes données.</p></details>
+  </div>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — outils de calcul gratuits. Résultats indicatifs, ne constituent pas un conseil financier.</p>
+    <p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p>
+  </div>
+</footer>
+<div class="toast" id="toast">Copié !</div>
+
+<script>
+var eur = function(n){ return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n); };
+var eur2 = function(n){ return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
+var num = function(id){ return parseFloat(String(document.getElementById(id).value).replace(",",".")) || 0; };
+
+var CATS = [
+  { key:"banque",  nom:"Frais bancaires",                  type:"rec", action:"Passer à une banque en ligne (0 € de frais de tenue de compte)", lien:"https://littl-spip.github.io/radar-economies.html" },
+  { key:"credit",  nom:"Crédit immobilier (renégociation)", type:"one", action:"Faire jouer la concurrence et renégocier ton taux", lien:"https://littl-spip.github.io/simulateur-credit-immobilier.html" },
+  { key:"assur",   nom:"Assurance emprunteur (délégation)", type:"one", action:"Déléguer l'assurance à un assureur externe (loi Lemoine)", lien:"https://littl-spip.github.io/capacite-emprunt-immobilier.html" },
+  { key:"energie", nom:"Énergie",                          type:"rec", action:"Comparer et changer d'offre d'électricité / gaz", lien:"https://littl-spip.github.io/radar-economies.html" },
+  { key:"tel",     nom:"Forfait mobile & Internet",        type:"rec", action:"Basculer sur un forfait moins cher à service égal", lien:"https://littl-spip.github.io/radar-economies.html" },
+  { key:"abos",    nom:"Abonnements oubliés",              type:"rec", action:"Résilier ce que tu n'utilises plus", lien:"https://littl-spip.github.io/radar-economies.html" }
+];
+
+function compute(){
+  var r = {};
+
+  // 1. Banque
+  var banque = Math.max(0, num("i-forfait") - 2) * 12 + num("i-incidents");
+
+  // 2. Crédit immobilier : renégociation au taux de marché
+  var credit = 0;
+  var m = num("i-mens"), tx = num("i-taux"), n = Math.round(num("i-reste")), tm = num("i-marche");
+  if (m > 0 && n > 0 && tx > tm && tm > 0) {
+    var i = tx / 1200, i2 = tm / 1200;
+    var capital = i === 0 ? m * n : m * (1 - Math.pow(1 + i, -n)) / i;
+    var m2 = i2 === 0 ? capital / n : capital * i2 / (1 - Math.pow(1 + i2, -n));
+    credit = Math.max(0, (m - m2) * n);
+  }
+
+  // 3. Assurance emprunteur : ~60 % d'écart avec une délégation
+  var assur = num("i-assur") * Math.max(0, num("i-assurAn")) * 0.60;
+
+  // 4. Énergie : ~15 % de la facture
+  var energie = num("i-energie") * 0.15;
+
+  // 5. Télécom
+  var tel = Math.max(0, num("i-mobile") - 10) * 12 + Math.max(0, num("i-internet") - 25) * 12;
+
+  // 6. Abonnements
+  var abos = num("i-abos") * 12;
+
+  r.banque = banque; r.credit = credit; r.assur = assur; r.energie = energie; r.tel = tel; r.abos = abos;
+
+  var rec = banque + energie + tel + abos;
+  var one = credit + assur;
+  var total = rec + one;
+
+  document.getElementById("tot").textContent = eur(total);
+  document.getElementById("totRec").textContent = eur(rec) + "/an";
+  document.getElementById("totOne").textContent = eur(one);
+  document.getElementById("tot10").textContent = eur(rec * 10);
+
+  var v = document.getElementById("verdict");
+  if (total < 1) v.textContent = "Renseigne tes charges ci-dessous : le compteur se met à jour tout seul.";
+  else if (total < 300) v.textContent = "Déjà bien optimisé 👏 — il reste quand même " + eur(total) + " sur la table.";
+  else if (total < 1500) v.textContent = "Tu peux récupérer " + eur(total) + " : de quoi payer de belles vacances.";
+  else if (total < 6000) v.textContent = "C'est beaucoup : " + eur(total) + " dorment sur ton compte chaque année.";
+  else v.textContent = "Attention, c'est énorme : " + eur(total) + ". Commence par le poste n°1 ci-dessous.";
+
+  var max = Math.max(1, banque, credit, assur, energie, tel, abos);
+  CATS.forEach(function(c){
+    document.getElementById("v-" + c.key).textContent = eur(r[c.key]) + (c.type === "rec" ? "/an" : "");
+    document.getElementById("b-" + c.key).style.width = Math.round(r[c.key] / max * 100) + "%";
+  });
+
+  // Classement
+  var sorted = CATS.map(function(c){ return { c: c, val: r[c.key] }; })
+    .filter(function(x){ return x.val >= 1; })
+    .sort(function(a, b){ return b.val - a.val; });
+  var ol = document.getElementById("rank");
+  ol.innerHTML = sorted.map(function(x, k){
+    var pct = total > 0 ? Math.round(x.val / total * 100) : 0;
+    return '<li><span class="n">' + (k + 1) + '</span><span class="g">' + x.c.nom +
+      '<small>' + x.c.action + ' · ' + pct + ' % du total</small></span>' +
+      '<span class="v">' + eur(x.val) + '<br><small style="font-weight:600;color:#5b6b84">' + (x.c.type === "rec" ? "par an" : "sur la durée") + '</small></span></li>';
+  }).join("") || '<li>Aucun poste renseigné pour le moment.</li>';
+
+  var nv = document.getElementById("noteVerdict");
+  if (sorted.length) {
+    nv.innerHTML = "🎯 <b>Première action&nbsp;:</b> " + sorted[0].c.action + " → jusqu'à " + eur(sorted[0].val) + " à récupérer. " +
+      (sorted[0].c.type === "one" ? "C'est un montant étalé sur la durée restante de ton crédit." : "C'est un montant que tu économises chaque année, automatiquement.");
+  } else { nv.textContent = ""; }
+
+  return r;
+}
+
+var LETTERS = {
+  banque: function(r){ return "Objet : contestation des frais bancaires et demande d'offre adaptée\n\nMadame, Monsieur,\n\nAprès analyse de mes relevés, j'ai constaté " + eur(r.banque) + " de frais sur douze mois (tenue de compte, cotisation de carte et frais d'incident).\n\nJe vous demande :\n1. le détail de chaque frais prélevé sur les douze derniers mois ;\n2. le remboursement des frais d'incident, en application des engagements de place ;\n3. une offre de compte sans frais de tenue de compte, ou à défaut les conditions d'une offre moins coûteuse.\n\nÀ défaut d'accord amiable, je saisirai le médiateur de votre établissement.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\n\n[Nom, prénom]\n[Adresse]\n[Numéro de compte]"; },
+  assur: function(r){ return "Objet : demande de délégation d'assurance emprunteur (article L. 313-30 du Code de la consommation)\n\nMadame, Monsieur,\n\nTitulaire du prêt n° [numéro] d'un montant initial de [montant] €, je souhaite substituer à l'assurance de groupe que vous proposez un contrat d'assurance individuel présentant un niveau de garanties équivalent.\n\nVous trouverez ci-joint les conditions du contrat retenu ainsi que le questionnaire médical complété.\n\nJe vous demande de m'indiquer votre accord dans un délai de dix jours ouvrés à compter de la réception de ce courrier, conformément à la réglementation en vigueur, et de m'adresser l'avenant correspondant.\n\nPour information, le coût actuel de cette assurance est d'environ " + eur(num("i-assur")) + " par an, pour " + Math.round(num("i-assurAn")) + " années restantes.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\n\n[Nom, prénom]\n[Référence du prêt]"; },
+  energie: function(r){ return "Objet : résiliation de mon contrat d'énergie et mise en service d'une nouvelle offre\n\nMadame, Monsieur,\n\nJe vous informe de ma décision de résilier mon contrat n° [numéro client] à compter du [date souhaitée], sans frais, conformément aux conditions générales de vente.\n\nJe vous demande de me transmettre, sous quinze jours, ma facture de clôture ainsi que le relevé de mon compteur à la date de résiliation (courbe de charge pour le gaz si applicable).\n\nJe vous remercie de ne plus prélever aucun montant au-delà de cette échéance.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\n\n[Nom, prénom]\n[Numéro client, point de livraison PDL/PCE]\n\nP.-S. : je passerai à une offre moins chère, soit environ " + eur(num("i-energie") * 0.15) + " économisés par an."; },
+  mobile: function(r){ return "Objet : résiliation de mon abonnement (forfait mobile / accès Internet)\n\nMadame, Monsieur,\n\nJe souhaite résilier mon abonnement n° [numéro] à compter du [date souhaitée], mon engagement étant arrivé à son terme.\n\nJe vous demande de m'indiquer, le cas échéant, les frais restants dus ainsi que la date de fin de service, et de ne plus effectuer de prélèvement au-delà.\n\nJ'ai choisi une offre à [prix] €/mois, ce qui représente environ " + eur((Math.max(0, num("i-mobile") - 10) + Math.max(0, num("i-internet") - 25)) * 12) + " d'économie par an.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\n\n[Nom, prénom]\n[Numéro de ligne / identifiant client]"; },
+  credit: function(r){ return "Objet : demande de renégociation de mon crédit immobilier\n\nMadame, Monsieur,\n\nTitulaire du prêt immobilier n° [numéro], je sollicite une renégociation de ses conditions financières.\n\nLe taux actuel de mon prêt s'élève à " + num("i-taux").toFixed(2).replace(".", ",") + " %, alors que les taux proposés aujourd'hui sur le marché pour une durée comparable sont nettement inférieurs.\n\nJe vous demande de m'adresser une proposition de baisse de taux (avec les frais éventuels : avenant, garantie, nouvelle assurance) et, si cette dernière est insuffisante, un accord de principe pour un rachat de crédit par un autre établissement.\n\nIl me reste environ " + Math.round(num("i-reste")) + " mois à rembourser ; l'ensemble des documents relatifs à mon prêt peut vous être transmis sur demande.\n\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\n\n[Nom, prénom]\n[Référence du prêt]"; }
+};
+
+function refreshLetter(){ document.getElementById("l-txt").value = LETTERS[document.getElementById("l-type").value](window.__r || compute()); }
+
+function toast(msg){ var t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 1600); }
+
+window.__r = compute();
+refreshLetter();
+
+Array.prototype.forEach.call(document.querySelectorAll("input[type=number]"), function(el){
+  el.addEventListener("input", function(){ window.__r = compute(); refreshLetter(); });
+});
+document.getElementById("l-type").addEventListener("change", refreshLetter);
+document.getElementById("l-copy").addEventListener("click", function(){
+  var ta = document.getElementById("l-txt");
+  ta.select(); ta.setSelectionRange(0, 99999);
+  var done = function(){ toast("Courrier copié ✅"); };
+  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(ta.value).then(done, function(){ document.execCommand("copy"); done(); }); }
+  else { document.execCommand("copy"); done(); }
+});
+document.getElementById("l-print").addEventListener("click", function(){
+  var w = window.open("", "_blank");
+  if (!w) return;
+  w.document.write("<pre style='font-family:ui-monospace,Menlo,monospace;font-size:13px;white-space:pre-wrap;padding:28px'>" + document.getElementById("l-txt").value.replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</pre>");
+  w.document.close(); w.print();
+});
+</script>
+</body>
+</html>
