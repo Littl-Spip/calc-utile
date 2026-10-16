@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-mot-de-passe.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Générateur de mot de passe sécurisé</title>
+<meta name="description" content="Génère un mot de passe robuste directement dans ton navigateur, sans jamais l'envoyer nulle part. Personnalisable.">
+<meta name="keywords" content="mot de passe securisé, generer, password, securite, entropie">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Générateur de mot de passe sécurisé</div>
+<span class="badge">🔐 Sécurité</span>
+<h1>Générateur de mot de passe sécurisé</h1>
+<p class="lead">Génère un mot de passe robuste, avec les paramètres de ton choix. Aucune donnée n'est envoyée.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Longueur</label><input id="a" type="number" value="16"></div>
+<div><label for="b">Inclure</label><select id="b"><option value="1">Majuscules + minuscules + chiffres + symboles</option><option value="2">Majuscules + minuscules + chiffres</option><option value="3">Minuscules + chiffres</option><option value="4">Chiffres uniquement</option></select></div>
+</div><button id="calc">Générer</button>
+<div class="result" id="res">
+<div class="big" id="out" style="font-family:ui-monospace,Menlo,monospace;font-size:1.2rem;letter-spacing:.5px;word-break:break-all">—</div>
+<div class="kv"><span>Longueur</span><b id="k1">—</b></div>
+<div class="kv"><span>Entropie estimée</span><b id="k2">—</b></div>
+</div>
+<button class="btn2" id="copy">📋 Copier</button></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var sets={1:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}',2:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',3:'abcdefghijklmnopqrstuvwxyz0123456789',4:'0123456789'};
+var buf=new Uint32Array(256);
+function run(){
+var len=+document.getElementById('a').value||16, set=sets[document.getElementById('b').value], L=set.length, out='';
+crypto.getRandomValues(buf);
+for(var i=0;i<len;i++) out+=set[buf[i]%L];
+document.getElementById('out').textContent=out;
+document.getElementById('k1').textContent=len;
+document.getElementById('k2').textContent=Math.round(len*Math.log2(L))+' bits';
+document.getElementById('res').classList.add('show');
+return out;
+}
+document.getElementById('calc').addEventListener('click',run);
+document.getElementById('copy').addEventListener('click',function(){var t=document.getElementById('out').textContent;if(!t||t==='—')return; var d=function(){alert('Copié');}; if(navigator.clipboard) navigator.clipboard.writeText(t).then(d,function(){document.execCommand('copy');d();}); else {document.execCommand('copy');d();}});
+run();</script>
+</body></html>

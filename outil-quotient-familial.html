@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-quotient-familial.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Quotient familial (parts fiscales)</title>
+<meta name="description" content="Estime ton quotient familial selon ta situation familiale pour anticiper ton impôt sur le revenu.">
+<meta name="keywords" content="quotient familial, parts fiscales, impot revenu, foyer, celibataire, enfant">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Quotient familial : calcul des parts</div>
+<span class="badge">🧾 Impôts</span>
+<h1>Quotient familial : calcul des parts</h1>
+<p class="lead">Estime le nombre de parts fiscales de ton foyer selon ta situation (célibataire, marié/pacsé, enfants).</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Statut</label><select id="a"><option value="1">Célibataire / divorcé / séparé</option><option value="2">Marié / pacsé</option></select></div>
+<div><label for="b">Enfants à charge</label><input id="b" type="number" value="0"></div>
+<div><label for="c">Parent isolé (oui/non)</label><select id="c"><option value="0">Non</option><option value="1">Oui (majoration)</option></select></div>
+</div><button id="calc">Calculer les parts</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>parts</small></div>
+<div class="kv"><span>Adultes</span><b id="k1">—</b></div>
+<div class="kv"><span>Enfants</span><b id="k2">—</b></div>
+<div class="kv"><span>Majoration (parent isolé / 1er enfant)</span><b id="k3">—</b></div>
+<div class="note">Le nombre de parts n'est pas plafonné, mais le gain est encadré par des effets de plafond.</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var s=+document.getElementById('a').value, e=+document.getElementById('b').value, pi=+document.getElementById('c').value;
+var ad=s, enc=0;
+if(pi && e>=1){ enc+=0.5; } else if(pi && e===0){ enc+=0.5; }
+// enfants : 1er et 2e = 0.5 chacun, 3e+ = 1 chacun
+var enf=0;
+for(var i=0;i<e;i++){ enf += (i<2)?0.5:1; }
+var tot=ad+enf+enc;
+document.getElementById('out').innerHTML=tot.toString().replace('.',' ,')+' <small>parts</small>';
+document.getElementById('k1').textContent=ad;
+document.getElementById('k2').textContent=enf;
+document.getElementById('k3').textContent=enc;
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

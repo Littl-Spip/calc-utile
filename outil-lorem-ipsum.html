@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-lorem-ipsum.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Générateur de Lorem Ipsum (paragraphes, phrases, mots)</title>
+<meta name="description" content="Génère du texte de remplissage Lorem Ipsum, selon le nombre de mots, phrases ou paragraphes.">
+<meta name="keywords" content="lorem ipsum, texte remplissage, générateur texte">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Générateur Lorem Ipsum</div>
+<span class="badge">📝 Texte</span>
+<h1>Générateur Lorem Ipsum</h1>
+<p class="lead">Génère du texte de remplissage selon tes besoins.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Quantité</label><input id="a" type="number" value="3"></div>
+<div><label for="b">Unité</label><select id="b"><option value="p">paragraphes</option><option value="s">phrases</option><option value="w">mots</option></select></div>
+</div><button id="calc">Générer</button>
+<div class="result" id="res">
+<div class="big" id="out" style="font-family:ui-monospace,Menlo,monospace;font-size:.85rem;white-space:pre-wrap;word-break:break-word">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var L="Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum";
+var words=L.split(' ');
+function run(){
+var n=+document.getElementById('a').value||3, u=document.getElementById('b').value, out='';
+if(u==='w'){ for(var i=0;i<n;i++) out+=words[i%words.length]+' '; }
+else if(u==='s'){ for(var i=0;i<n;i++){ var s=words.slice(i%words.length, (i%words.length)+9).join(' '); out+=s.charAt(0).toUpperCase()+s.slice(1)+'.'+(i<n-1?' ':''); } }
+else { for(var p=0;p<n;p++){ var s=words.map(function(w,i){return (p===0 && i===0)?w.charAt(0).toUpperCase()+w.slice(1):w;}).slice(0,35).join(' '); if(p===0) s+='.'; else s+='.'; out+=s+'\n\n'; } }
+document.getElementById('out').textContent=out.trim();
+document.getElementById('res').classList.add('show');
+}
+document.getElementById('calc').addEventListener('click',run); run();</script>
+</body></html>

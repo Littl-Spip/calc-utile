@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-diff-texte.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Comparateur de texte : différences entre deux versions</title>
+<meta name="description" content="Compare deux textes et affiche les lignes ajoutées, supprimées ou modifiées.">
+<meta name="keywords" content="diff texte, comparer, changements, difference">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Diff de texte</div>
+<span class="badge">🔧 Dev</span>
+<h1>Diff de texte</h1>
+<p class="lead">Compare deux textes ligne par ligne pour repérer les changements.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Texte A</label><textarea id="a" rows="5" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:.9rem"></textarea></div>
+<div><label for="b">Texte B</label><textarea id="b" rows="5" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:.9rem"></textarea></div>
+</div><button id="calc">Comparer</button>
+<div class="result" id="res">
+<div id="out" style="font-family:ui-monospace,Menlo,monospace;font-size:.85rem;white-space:pre-wrap"></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var A=document.getElementById('a').value.split('\n'), B=document.getElementById('b').value.split('\n');
+var set=new Set(B), out='';
+for(var i=0;i<A.length;i++){ if(B.indexOf(A[i])===-1) out+='\x1b[31m- '+A[i]+'\x1b[0m\n'; else out+='  '+A[i]+'\n'; }
+out+='\n=== Lignes ajoutées (dans B) ===\n';
+for(var j=0;j<B.length;j++){ if(A.indexOf(B[j])===-1) out+='+ '+B[j]+'\n'; }
+out=out.replace(/\x1b\[31m/g,'<span style="color:#c0392b">').replace(/\x1b\[0m/g,'</span>');
+document.getElementById('out').innerHTML=out || 'Aucune différence.';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

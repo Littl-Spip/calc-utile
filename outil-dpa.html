@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-dpa.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Date d'accouchement présumée (règle de Naegele)</title>
+<meta name="description" content="Estime la date d'accouchement présumée à partir de la date des dernières règles, selon la règle de Naegele.">
+<meta name="keywords" content="date accouchement, dpa, grossesse, règle de Naegele">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Date d'accouchement présumée</div>
+<span class="badge">👶 Famille</span>
+<h1>Date d'accouchement présumée</h1>
+<p class="lead">Estime la date prévue d'accouchement à partir de la date de tes dernières règles.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Date des dernières règles</label><input id="a" type="date"></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+<div class="kv"><span>Date prévue d'accouchement</span><b id="k1">—</b></div>
+<div class="kv"><span>Terme à ajouter (280 jours)</span><b id="k2">280 jours</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('a').value=new Date().toISOString().slice(0,10);
+document.getElementById('calc').addEventListener('click',function(){
+var s=new Date(document.getElementById('a').value); if(isNaN(s)){alert('Vérifie la date.');return;}
+var d=new Date(s.getTime()+280*86400000);
+var out=d.toISOString().slice(0,10);
+document.getElementById('out').innerHTML=out;
+document.getElementById('k1').textContent=out;
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

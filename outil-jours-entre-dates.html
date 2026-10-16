@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-jours-entre-dates.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Nombre de jours entre deux dates (ouvrables inclus)</title>
+<meta name="description" content="Calcule le nombre de jours entre deux dates, en jours calendaires et en jours ouvrables. Gratuit et instantané.">
+<meta name="keywords" content="jours entre dates, ouvrables, délai, différence dates">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Jours entre deux dates</div>
+<span class="badge">📅 Temps</span>
+<h1>Jours entre deux dates</h1>
+<p class="lead">Combien de jours séparent deux dates ? Utile pour un préavis, un délai, une grossesse ou une vacance.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Date de départ</label><input id="a" type="date"></div>
+<div><label for="b">Date d'arrivée</label><input id="b" type="date"></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>jours</small></div>
+<div class="kv"><span>Jours calendaires</span><b id="k1">—</b></div>
+<div class="kv"><span>Week-ends dans l'intervalle</span><b id="k2">—</b></div>
+<div class="kv"><span>Jours ouvrés estimés</span><b id="k3">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('a').value=new Date().toISOString().slice(0,10);
+document.getElementById('calc').addEventListener('click',function(){
+var s=new Date(document.getElementById('a').value), e=new Date(document.getElementById('b').value);
+if(isNaN(s)||isNaN(e)||e<s){alert('Vérifie les dates.');return;}
+var ms=e-s, days=Math.floor(ms/86400000);
+var we=0;
+for(var d=new Date(s);d<e;d.setDate(d.getDate()+1)){var w=d.getDay(); if(w===0||w===6)we++;}
+document.getElementById('out').innerHTML=days+' <small>jours</small>';
+document.getElementById('k1').textContent=days;
+document.getElementById('k2').textContent=we;
+document.getElementById('k3').textContent=days-we;
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

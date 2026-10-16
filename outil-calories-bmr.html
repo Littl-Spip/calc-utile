@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-calories-bmr.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Calories : besoins journaliers (BMR & TDEE)</title>
+<meta name="description" content="Estime ton métabolisme de base et tes besoins caloriques quotidiens selon ton âge, sexe, poids, taille et activité.">
+<meta name="keywords" content="calories, métabolisme de base, BMR, TDEE, poids, santé">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Besoins caloriques journaliers</div>
+<span class="badge">🏃 Santé</span>
+<h1>Besoins caloriques journaliers</h1>
+<p class="lead">Estime combien de calories tu dépenses par jour, au repos et selon ton niveau d'activité.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Sexe</label><select id="a"><option value="h">Homme</option><option value="f">Femme</option></select></div>
+<div><label for="b">Âge (ans)</label><input id="b" type="number" value="30"></div>
+<div><label for="c">Poids (kg)</label><input id="c" type="number" value="70"></div>
+<div><label for="d">Taille (cm)</label><input id="d" type="number" value="175"></div>
+<div><label for="e">Activité</label><select id="e"><option value="1.2">Sédentaire</option><option value="1.375">Légère (1-3 j/sem)</option><option value="1.55">Modérée (3-5 j/sem)</option><option value="1.725">Intense (6-7 j/sem)</option><option value="1.9">Très intense</option></select></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>kcal/jour</small></div>
+<div class="kv"><span>Métabolisme de base (BMR)</span><b id="k1">—</b></div>
+<div class="kv"><span>Besoins totaux (TDEE)</span><b id="k2">—</b></div>
+<div class="kv"><span>Pour perdre 0,5 kg/semaine</span><b id="k3">—</b></div>
+<div class="kv"><span>Pour prendre 0,5 kg/semaine</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var s=document.getElementById('a').value, a=+document.getElementById('b').value||0, w=+document.getElementById('c').value||0, h=+document.getElementById('d').value||0, act=+document.getElementById('e').value||1.2;
+var bmr = (s==='h')?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;
+var tdee=bmr*act;
+document.getElementById('out').innerHTML=Math.round(tdee)+' <small>kcal/jour</small>';
+document.getElementById('k1').textContent=Math.round(bmr);
+document.getElementById('k2').textContent=Math.round(tdee);
+document.getElementById('k3').textContent=Math.round(tdee-500);
+document.getElementById('k4').textContent=Math.round(tdee+500);
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-tableau-amortissement.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Tableau d'amortissement de crédit immobilier</title>
+<meta name="description" content="Génère le tableau d'amortissement month by month pour ton crédit immobilier : mensualité, capital, intérêts, reste à payer. Gratuit.">
+<meta name="keywords" content="tableau amortissement, crédit immobilier, capital, interets, mensualite">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Tableau d'amortissement de crédit immobilier</div>
+<span class="badge">🏠 Immobilier</span>
+<h1>Tableau d'amortissement de crédit immobilier</h1>
+<p class="lead">Détaille mois par mois comment se rembourse ton prêt : capital et intérêts.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Capital emprunté (€)</label><input id="a" type="number" value="200000"></div>
+<div><label for="b">Taux annuel (%)</label><input id="b" type="number" step="0.01" value="3.5"></div>
+<div><label for="c">Durée (mois)</label><input id="c" type="number" value="240"></div>
+</div><button id="calc">Générer le tableau</button>
+<div class="result" id="res">
+<div class="big" id="mens">— <small>/mois</small></div>
+<div style="max-height:260px;overflow:auto;margin-top:14px"><table><thead><tr><th>Mois</th><th>Mensualité</th><th>Intérêts</th><th>Capital</th><th>Reste</th></tr></thead><tbody id="tb"></tbody></table></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var C=+document.getElementById('a').value||0, taux=+document.getElementById('b').value||0, n=+document.getElementById('c').value||0;
+if(C<=0||n<=0){alert('Vérifie le montant et la durée.');return;}
+var i=taux/100/12, m=i===0?C/n:C*i/(1-Math.pow(1+i,-n));
+var rest=C, tb=document.getElementById('tb'), rows='';
+for(var k=1;k<=n && k<=200;k++){
+var inte=rest*i, cap=m-inte; rest-=cap;
+rows+='<tr><td>'+k+'</td><td>'+eur2(m)+'</td><td>'+eur2(inte)+'</td><td>'+eur2(cap)+'</td><td>'+eur(rest<0?0:rest)+'</td></tr>';
+}
+if(n>200) rows+='<tr><td colspan="5">… '+ (n-200)+' lignes suivantes omises (affichage limité à 200)</td></tr>';
+tb.innerHTML=rows;
+document.getElementById('mens').innerHTML=eur2(m)+' <small>/mois</small>';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

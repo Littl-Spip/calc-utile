@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-cout-voiture.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Coût réel d'un trajet en voiture (carburant + péages + amortissement)</title>
+<meta name="description" content="Estime le coût total d'un trajet en voiture : carburant, péages et coût au kilomètre. Gratuit.">
+<meta name="keywords" content="coût trajet voiture, carburant, péage, usure, transport">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Coût d'un trajet en voiture</div>
+<span class="badge">🚗 Transport</span>
+<h1>Coût d'un trajet en voiture</h1>
+<p class="lead">Calcule combien coûte réellement un trajet en voiture, pour le comparer au train ou au covoiturage.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Distance aller-retour (km)</label><input id="a" type="number" value="200"></div>
+<div><label for="b">Consommation (L/100 km)</label><input id="b" type="number" step="0.1" value="6.5"></div>
+<div><label for="c">Prix du carburant (€/L)</label><input id="c" type="number" step="0.01" value="1.90"></div>
+<div><label for="d">Péages (€ aller-retour)</label><input id="d" type="number" step="0.01" value="15"></div>
+<div><label for="e">Coût usure (€/km)</label><input id="e" type="number" step="0.01" value="0.10"></div>
+</div><button id="calc">Calculer le coût</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+<div class="kv"><span>Carburant</span><b id="k1">—</b></div>
+<div class="kv"><span>Péages</span><b id="k2">—</b></div>
+<div class="kv"><span>Usure</span><b id="k3">—</b></div>
+<div class="kv"><span>Coût au km</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var km=+document.getElementById('a').value||0,cons=+document.getElementById('b').value||0,px=+document.getElementById('c').value||0,pea=+document.getElementById('d').value||0,us=+document.getElementById('e').value||0;
+var carb=km*cons/100*px, u=km*us, tot=carb+pea+u;
+document.getElementById('out').innerHTML=eur(tot);
+document.getElementById('k1').textContent=eur(carb);
+document.getElementById('k2').textContent=eur(pea);
+document.getElementById('k3').textContent=eur(u);
+document.getElementById('k4').textContent=km>0?eur2(tot/km):'—';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

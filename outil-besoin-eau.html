@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-besoin-eau.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Besoin en eau quotidien selon ton poids et ton activité</title>
+<meta name="description" content="Estime ta consommation d'eau recommandée par jour selon ton poids et ton niveau d'activité.">
+<meta name="keywords" content="besoin en eau, hydratation, litres par jour">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Besoin en eau par jour</div>
+<span class="badge">🏃 Santé</span>
+<h1>Besoin en eau par jour</h1>
+<p class="lead">Estime ta consommation d'eau recommandée par jour.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Poids (kg)</label><input id="a" type="number" value="70"></div>
+<div><label for="b">Activité physique</label><select id="b"><option value="1.0">Faible</option><option value="1.2">Modérée</option><option value="1.4">Intense</option></select></div>
+<div><label for="c">Climat chaud ?</label><select id="c"><option value="0">Non</option><option value="0.5">Oui</option></select></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>L/jour</small></div>
+<div class="kv"><span>En litres</span><b id="k1">—</b></div>
+<div class="kv"><span>En verres (25 cl)</span><b id="k2">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var w=+document.getElementById('a').value||0, act=+document.getElementById('b').value||1, hot=+document.getElementById('c').value||0;
+var l=w*0.033*act+hot;
+document.getElementById('out').innerHTML=l.toFixed(2)+' <small>L/jour</small>';
+document.getElementById('k1').textContent=l.toFixed(2)+' L';
+document.getElementById('k2').textContent=Math.round(l/0.25);
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

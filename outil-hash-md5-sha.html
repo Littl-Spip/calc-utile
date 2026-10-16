@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-hash-md5-sha.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Hash SHA-256 / SHA-512 / SHA-1 en ligne</title>
+<meta name="description" content="Calcule le hash cryptographique SHA-1, SHA-256, SHA-384 ou SHA-512 d'un texte. Totalement dans ton navigateur.">
+<meta name="keywords" content="hash SHA256, SHA512, SHA1, cryptographique">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Hash cryptographique en ligne</div>
+<span class="badge">🔐 Sécurité</span>
+<h1>Hash cryptographique en ligne</h1>
+<p class="lead">Calcule un hash SHA-1, SHA-256, SHA-512 pour un texte, sans l'envoyer nulle part.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Texte à hasher</label><textarea id="a" rows="3" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:1rem">Hello CalcUtile</textarea></div>
+<div><label for="b">Algorithme</label><select id="b"><option>SHA-256</option><option>SHA-384</option><option>SHA-512</option><option>SHA-1</option></select></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out" style="font-family:ui-monospace,Menlo,monospace;font-size:.85rem;word-break:break-all">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var txt=document.getElementById('a').value, algo=document.getElementById('b').value;
+crypto.subtle.digest(algo, new TextEncoder().encode(txt)).then(function(b){
+var h=Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');
+document.getElementById('out').textContent=h;
+document.getElementById('res').classList.add('show');
+});
+});</script>
+</body></html>

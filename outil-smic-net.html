@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-smic-net.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>SMIC net 2026 (estimation mensuelle et annuelle)</title>
+<meta name="description" content="Estimation du SMIC net à partir du SMIC brut officiel, avec charges salariales déduites. Gratuit et instantané.">
+<meta name="keywords" content="SMIC net, salaire minimum, cotisations, 2026">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › SMIC net : combien en poche ?</div>
+<span class="badge">💼 Salaire</span>
+<h1>SMIC net : combien en poche ?</h1>
+<p class="lead">Estime le revenu net mensuel et annuel sur la base du SMIC brut, déduction des cotisations salariales faite.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">SMIC brut mensuel (€)</label><input id="a" type="number" value="1801.80"></div>
+<div><label for="b">Statut</label><select id="b"><option value="22">Non-cadre (~22 %)</option><option value="25">Cadre (~25 %)</option></select></div>
+</div><button id="calc">Calculer le net</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+<div class="kv"><span>Brut mensuel</span><b id="k1">—</b></div>
+<div class="kv"><span>Cotisations salariales</span><b id="k2">—</b></div>
+<div class="kv"><span>Net mensuel</span><b id="k3">—</b></div>
+<div class="kv"><span>Net annuel</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var b=+document.getElementById('a').value||0, r=+document.getElementById('b').value||22, c=b*r/100, n=b-c;
+document.getElementById('out').innerHTML=eur(n)+' <small>net/mois</small>';
+document.getElementById('k1').textContent=eur(b);
+document.getElementById('k2').textContent=eur(c);
+document.getElementById('k3').textContent=eur(n);
+document.getElementById('k4').textContent=eur(n*12);
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-rendement-locatif.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Rendement locatif brut et net</title>
+<meta name="description" content="Calcule le rendement locatif brut et net d'un bien selon le loyer, les charges et le prix d'achat. Gratuit et instantané.">
+<meta name="keywords" content="rendement locatif, rendement net, investissement locatif, immobilier, loyer, charges">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Rendement locatif brut et net</div>
+<span class="badge">🏠 Immobilier</span>
+<h1>Rendement locatif brut et net</h1>
+<p class="lead">Estime ce que ton bien te rapporte réellement, net de charges et de taxes.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Loyer mensuel (€)</label><input id="a" type="number" value="800"></div>
+<div><label for="b">Prix d'achat + frais (€)</label><input id="b" type="number" value="150000"></div>
+<div><label for="c">Charges mensuelles (€)</label><input id="c" type="number" value="120"></div>
+<div><label for="d">Taxe foncière (€/an)</label><input id="d" type="number" value="900"></div>
+</div><button id="calc">Calculer le rendement</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+<div class="kv"><span>Rendement brut</span><b id="kb">—</b></div>
+<div class="kv"><span>Charges + taxe/an</span><b id="kc">—</b></div>
+<div class="kv"><span>Rendement net</span><b id="kn">—</b></div>
+<div class="kv"><span>Cash-flow annuel estimé</span><b id="kf">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+<h2>Questions fréquentes</h2><div class="faq"><details><summary>Le rendement brut suffit-il ?</summary><p>Non, il ignore les charges, les taxes et l'impôt. Le rendement net est plus réaliste, mais reste une estimation.</p></details><details><summary>Que mettre dans « charges mensuelles » ?</summary><p>Charges de copropriété, assurance côtée, entretien, vacance locative (compte 1 à 2 mois).</p></details></div>
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var l=+document.getElementById('a').value||0, p=+document.getElementById('b').value||0;
+var ch=+document.getElementById('c').value||0, tf=+document.getElementById('d').value||0;
+if(p<=0){alert('Renseigne un prix.');return;}
+var ba=l*12, cn=(ch*12+tf), net=ba-cn;
+var rb=ba/p*100, rn=net/p*100;
+document.getElementById('out').innerHTML=rn.toFixed(2)+' % <small>net</small>';
+document.getElementById('kb').textContent=rb.toFixed(2)+' %';
+document.getElementById('kc').textContent=eur(cn);
+document.getElementById('kn').textContent=rn.toFixed(2)+' %';
+document.getElementById('kf').textContent=eur(net);
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

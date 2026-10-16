@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-codebase64.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Base64 : encoder ou décoder</title>
+<meta name="description" content="Encode ou décode du texte en Base64, directement dans ton navigateur, sans envoyer la donnée.">
+<meta name="keywords" content="base64, encode, decode, base 64">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Base64 : encoder / décoder</div>
+<span class="badge">🔧 Dev</span>
+<h1>Base64 : encoder / décoder</h1>
+<p class="lead">Encode ou décode du texte en Base64, avec prise en charge de l'Unicode.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Texte ou Base64</label><textarea id="a" rows="3" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:1rem">Bonjour le monde</textarea></div>
+<div><label for="b">Action</label><select id="b"><option value="enc">Encoder → Base64</option><option value="dec">Décoder ← Base64</option></select></div>
+</div><button id="calc">Convertir</button>
+<div class="result" id="res">
+<div class="big" id="out" style="font-family:ui-monospace,Menlo,monospace;font-size:.9rem;word-break:break-all">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+try{
+var t=document.getElementById('a').value, act=document.getElementById('b').value, out;
+if(act==='enc'){ out=btoa(unescape(encodeURIComponent(t))); }
+else { out=decodeURIComponent(escape(atob(t))); }
+document.getElementById('out').textContent=out;
+document.getElementById('res').classList.add('show');
+}catch(e){alert('Entrée invalide pour le décodage.');}
+});</script>
+</body></html>

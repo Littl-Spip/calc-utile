@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-hex-rgb.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Convertisseur de couleur Hex ↔ RGB / HSL</title>
+<meta name="description" content="Convertis une couleur hexadécimale (#rrggbb) en RGB et HSL, et visualise-la.">
+<meta name="keywords" content="hex to rgb, conversion couleur, HSL, complementaire">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Convertisseur de couleur Hex ↔ RGB ↔ HSL</div>
+<span class="badge">🎨 Design</span>
+<h1>Convertisseur de couleur Hex ↔ RGB ↔ HSL</h1>
+<p class="lead">Convertis entre Hex, RGB et HSL, et prévisualise la couleur.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Couleur (hex #rrggbb)</label><input id="a" type="text" value="#3b82f6"></div>
+</div><button id="calc">Convertir</button>
+<div id="swatch" style="height:60px;border-radius:12px;margin-top:12px;background:#3b82f6"></div>
+<div class="result" id="res">
+<div class="kv"><span>Hex</span><b id="k1">—</b></div>
+<div class="kv"><span>RGB</span><b id="k2">—</b></div>
+<div class="kv"><span>HSL</span><b id="k3">—</b></div>
+<div class="kv"><span>Complémentaire</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};function hex2rgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(x=>x+x).join('');var n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255];}
+function rgb2hsl(r,g,b){r/=255;g/=255;b/=255;var max=Math.max(r,g,b),min=Math.min(r,g,b),h=0,s=0,l=(max+min)/2;if(max!==min){var d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;}h*=60;}return [Math.round(h),Math.round(s*100),Math.round(l*100)];}
+document.getElementById('calc').addEventListener('click',function(){
+var h=document.getElementById('a').value; try{
+var rgb=hex2rgb(h), hsl=rgb2hsl(rgb[0],rgb[1],rgb[2]), comp='#'+(0xffffff-parseInt(h.replace('#',''),16)).toString(16).padStart(6,'0');
+document.getElementById('swatch').style.background=h;
+document.getElementById('k1').textContent=h;
+document.getElementById('k2').textContent='rgb('+rgb.join(', ')+')';
+document.getElementById('k3').textContent='hsl('+hsl.join(', ')+')';
+document.getElementById('k4').textContent=comp;
+document.getElementById('res').classList.add('show');
+}catch(e){alert('Hex invalide.');}
+});</script>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-convertisseur-roman.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Convertir nombre en chiffres romains (et inversement)</title>
+<meta name="description" content="Convertis un nombre arabe en chiffres romains et inversement.">
+<meta name="keywords" content="chiffres romains, convertir, romain, nombre">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Convertisseur en chiffres romains</div>
+<span class="badge">🔄 Conversion</span>
+<h1>Convertisseur en chiffres romains</h1>
+<p class="lead">Convertis un nombre en chiffres romains, jusqu'à 3 999.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Nombre ou chiffres romains</label><input id="a" type="text" value="2026"></div>
+</div><button id="calc">Convertir</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var v=document.getElementById('a').value.trim();
+var convToRoman=function(n){
+var map=[['M',1000],['CM',900],['D',500],['CD',400],['C',100],['XC',90],['L',50],['XL',40],['X',10],['IX',9],['V',5],['IV',4],['I',1]],res='';
+for(var i=0;i<map.length;i++){while(n>=map[i][1]){res+=map[i][0];n-=map[i][1];}}
+return res;};
+var convFromRoman=function(s){
+var m={'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000},tot=0,prev=0;
+for(var i=s.length-1;i>=0;i--){var c=m[s[i]]||0; tot += c<prev?-c:c; prev=c;}
+return tot;};
+var n=parseInt(v,10);
+var out=isNaN(n)?convToRoman(convFromRoman(v.toUpperCase())):convToRoman(n);
+document.getElementById('out').textContent=out||'—';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

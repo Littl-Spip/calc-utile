@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-compteur-mots.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Compteur de mots et caractères (avec espaces)</title>
+<meta name="description" content="Compte les mots, caractères (avec et sans espaces), phrases et paragraphes d'un texte.">
+<meta name="keywords" content="compteur mots, caracteres, phrases, paragraphes, lecture">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Compteur de mots et caractères</div>
+<span class="badge">📝 Texte</span>
+<h1>Compteur de mots et caractères</h1>
+<p class="lead">Compte mots, caractères, phrases et paragraphes en direct.</p>
+<div class="card">
+<div><label for="a">Texte</label><textarea id="a" rows="6" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:1rem" oninput="go()">Bonjour, c'est un test. Voici une deuxième phrase.</textarea></div>
+<div class="result show" id="res">
+<div class="kv"><span>Mots</span><b id="k1">—</b></div>
+<div class="kv"><span>Caractères (avec espaces)</span><b id="k2">—</b></div>
+<div class="kv"><span>Caractères (sans espaces)</span><b id="k3">—</b></div>
+<div class="kv"><span>Phrases</span><b id="k4">—</b></div>
+<div class="kv"><span>Paragraphes</span><b id="k5">—</b></div>
+<div class="kv"><span>Temps de lecture estimé</span><b id="k6">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};function go(){
+var t=document.getElementById('a').value;
+var words=t.trim()?(t.trim().split(/s+/).length):0;
+var chars=t.length, noSpace=t.replace(/s/g,'').length;
+var sent=t.split(/[.!?]+/).filter(function(x){return x.trim();}).length;
+var para=t.split(/\n\s*\n/).filter(function(x){return x.trim();}).length|| (t.trim()?1:0);
+document.getElementById('k1').textContent=words;
+document.getElementById('k2').textContent=chars;
+document.getElementById('k3').textContent=noSpace;
+document.getElementById('k4').textContent=sent;
+document.getElementById('k5').textContent=para;
+document.getElementById('k6').textContent=Math.max(1,Math.round(words/200))+' min';
+}
+go();
+document.getElementById('a').addEventListener('input',go);</script>
+</body></html>

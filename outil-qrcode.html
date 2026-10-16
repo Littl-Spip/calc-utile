@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-qrcode.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Générateur de QR code (texte, URL, contact)</title>
+<meta name="description" content="Génère un QR code pour un texte ou une URL, téléchargeable en PNG. Gratuit et sans inscription.">
+<meta name="keywords" content="QR code, generer qr, scan, qr code gratuit">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Générateur de QR code</div>
+<span class="badge">🔧 Dev</span>
+<h1>Générateur de QR code</h1>
+<p class="lead">Crée un QR code à partir d'un texte ou d'une URL, prêt à télécharger.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Texte ou URL</label><input id="a" type="text" value="https://littl-spip.github.io/"></div>
+<div><label for="b">Taille (px)</label><input id="b" type="number" value="256"></div>
+</div><button id="calc">Générer le QR code</button>
+<div style="text-align:center;margin-top:14px" id="box"></div>
+<div class="result" id="res"><div class="note">Clique sur le QR code pour l'ouvrir en grand et le télécharger (clic droit → enregistrer).</div></div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var txt=encodeURIComponent(document.getElementById('a').value), sz=+document.getElementById('b').value||256;
+var url='https://api.qrserver.com/v1/create-qr-code/?size='+sz+'x'+sz+'&data='+txt;
+document.getElementById('box').innerHTML='<a href="'+url+'" target="_blank"><img src="'+url+'" alt="QR code" width="'+sz+'" height="'+sz+'" style="border:1px solid #e6ebf3;border-radius:12px"></a>';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

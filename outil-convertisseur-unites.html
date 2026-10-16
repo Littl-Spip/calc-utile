@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-convertisseur-unites.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Convertisseur d'unités (longueur, poids, température, volume)</title>
+<meta name="description" content="Convertis entre toutes les unités courantes : mètres, pieds, kg, lb, °C, °F, litres, gallons, etc.">
+<meta name="keywords" content="convertisseur unités, mètres, pieds, kg, livre, °C, °F">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Convertisseur d'unités</div>
+<span class="badge">🔄 Conversion</span>
+<h1>Convertisseur d'unités</h1>
+<p class="lead">Convertis une valeur entre les unités de mesure courantes.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Valeur</label><input id="a" type="number" value="10"></div>
+<div><label for="b">De</label><select id="b"><option value="m_km">m → km</option><option value="km_m">km → m</option><option value="ft_m">ft → m</option><option value="m_ft">m → ft</option><option value="kg_lb">kg → lb</option><option value="lb_kg">lb → kg</option><option value="l_gal">L → gal (US)</option><option value="gal_l">gal → L</option><option value="c_f">°C → °F</option><option value="f_c">°F → °C</option><option value="m2_cm2">m² → cm²</option><option value="cm2_m2">cm² → m²</option></select></div>
+</div><button id="calc">Convertir</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var FN={m_km:v=>v/1000,km_m:v=>v*1000,ft_m:v=>v*0.3048,m_ft:v=>v/0.3048,kg_lb:v=>v*2.20462,lb_kg:v=>v/2.20462,l_gal:v=>v/3.78541,gal_l:v=>v*3.78541,c_f:v=>v*9/5+32,f_c:v=>(v-32)*5/9,m2_cm2:v=>v*10000,cm2_m2:v=>v/10000};
+document.getElementById('calc').addEventListener('click',function(){
+var v=+document.getElementById('a').value||0, k=document.getElementById('b').value;
+var r=FN[k](v);
+document.getElementById('out').innerHTML=r.toLocaleString('fr-FR',{maximumFractionDigits:6});
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

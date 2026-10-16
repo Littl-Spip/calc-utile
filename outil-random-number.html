@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-random-number.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Générateur de nombre aléatoire (entier ou décimal)</title>
+<meta name="description" content="Génère un ou plusieurs nombres aléatoires dans un intervalle, avec ou sans doublons.">
+<meta name="keywords" content="générateur nombre aléatoire, hasard, random, tirage">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Générateur de nombres aléatoires</div>
+<span class="badge">🎲 Hasard</span>
+<h1>Générateur de nombres aléatoires</h1>
+<p class="lead">Génère des nombres aléatoires dans l'intervalle choisi.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Minimum</label><input id="a" type="number" value="1"></div>
+<div><label for="b">Maximum</label><input id="b" type="number" value="100"></div>
+<div><label for="c">Quantité</label><input id="c" type="number" value="5"></div>
+<div><label for="d">Options</label><select id="d"><option value="int">Entiers</option><option value="dec">Décimales</option><option value="uniq">Entiers uniques (sans doublon)</option></select></div>
+</div><button id="calc">Générer</button>
+<div class="result" id="res">
+<div class="big" id="out" style="font-size:1.2rem;white-space:pre-wrap">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var min=+document.getElementById('a').value, max=+document.getElementById('b').value, n=+document.getElementById('c').value||1, mode=document.getElementById('d').value;
+var out=[];
+if(mode==='uniq'){ var pool=[]; for(var i=min;i<=max;i++) pool.push(i); for(var i=0;i<n && pool.length;i++){ var idx=Math.floor(Math.random()*pool.length); out.push(pool.splice(idx,1)[0]); } }
+else { for(var i=0;i<n;i++){ var v=min+Math.random()*(max-min); out.push(mode==='int'?Math.round(v):v.toFixed(4)); } }
+document.getElementById('out').textContent=out.join(', ');
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

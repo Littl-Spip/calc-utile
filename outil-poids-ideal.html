@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-poids-ideal.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Poids idéal (formule de Devine, Robinson, Miller, Hamwi)</title>
+<meta name="description" content="Estime ton poids idéal selon ta taille, avec 4 formules reconnues. Gratuit et instantané.">
+<meta name="keywords" content="poids ideal, devise, robinson, miller, hamwi">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Poids idéal selon ta taille</div>
+<span class="badge">🏃 Santé</span>
+<h1>Poids idéal selon ta taille</h1>
+<p class="lead">Estime ton poids idéal selon quatre formules scientifiques reconnues.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Sexe</label><select id="a"><option value="h">Homme</option><option value="f">Femme</option></select></div>
+<div><label for="b">Taille (cm)</label><input id="b" type="number" value="175"></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>kg</small></div>
+<div class="kv"><span>Devine</span><b id="k1">—</b></div>
+<div class="kv"><span>Robinson</span><b id="k2">—</b></div>
+<div class="kv"><span>Miller</span><b id="k3">—</b></div>
+<div class="kv"><span>Hamwi</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var s=document.getElementById('a').value, h=(+document.getElementById('b').value||170)/2.54-60;
+var d=s==='h'?50+2.3*h:45.5+2.3*h, r=s==='h'?52+1.9*h:49+1.7*h, m=s==='h'?56.2+1.41*h:53.1+1.36*h, hw=s==='h'?48+2.7*h:45.5+2.2*h;
+document.getElementById('out').innerHTML=Math.round((d+r+m+hw)/4)+' <small>kg</small>';
+document.getElementById('k1').textContent=Math.round(d)+' kg';
+document.getElementById('k2').textContent=Math.round(r)+' kg';
+document.getElementById('k3').textContent=Math.round(m)+' kg';
+document.getElementById('k4').textContent=Math.round(hw)+' kg';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

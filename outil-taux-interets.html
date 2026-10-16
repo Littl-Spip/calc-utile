@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-taux-interets.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Taux d'intérêt : mensualité, intérêts et durée de crédit</title>
+<meta name="description" content="Deux calculs : à partir d'un capital, d'un taux et d'une durée, estime mensualité et coût total ; ou la durée nécessaire.">
+<meta name="keywords" content="crédit, mensualité, intérêts, durée, taux">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Crédit : taux, durée et coût total</div>
+<span class="badge">💰 Finance</span>
+<h1>Crédit : taux, durée et coût total</h1>
+<p class="lead">Estime la mensualité et le coût total d'un crédit à taux fixe, pour un capital et une durée donnés.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Capital emprunté (€)</label><input id="a" type="number" value="10000"></div>
+<div><label for="b">Taux annuel (%)</label><input id="b" type="number" step="0.01" value="4.5"></div>
+<div><label for="c">Durée (mois)</label><input id="c" type="number" value="48"></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>/mois</small></div>
+<div class="kv"><span>Mensualité</span><b id="k1">—</b></div>
+<div class="kv"><span>Total des intérêts</span><b id="k2">—</b></div>
+<div class="kv"><span>Montant total remboursé</span><b id="k3">—</b></div>
+<div class="kv"><span>Coût du crédit (% du capital)</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var C=+document.getElementById('a').value||0, taux=+document.getElementById('b').value||0, n=+document.getElementById('c').value||0;
+if(C<=0||n<=0){alert('Vérifie le montant et la durée.');return;}
+var i=taux/100/12, m=i===0?C/n:C*i/(1-Math.pow(1+i,-n)), inter=m*n-C;
+document.getElementById('out').innerHTML=eur2(m)+' <small>/mois</small>';
+document.getElementById('k1').textContent=eur2(m);
+document.getElementById('k2').textContent=eur(inter);
+document.getElementById('k3').textContent=eur(m*n);
+document.getElementById('k4').textContent=(inter/C*100).toFixed(2)+' %';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

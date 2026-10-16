@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-taux-endettement.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Taux d'endettement — capacité d'emprunt (loi 35 %)</title>
+<meta name="description" content="Calcule ton taux d'endettement selon tes revenus et charges, et la mensualité maximale autorisée (HCSF 35 %). Gratuit et instantané.">
+<meta name="keywords" content="taux endettement, capacité emprunt, mensualité max, HCSF, 35%, crédit">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Taux d'endettement & mensualité maximale</div>
+<span class="badge">🏠 Immobilier</span>
+<h1>Taux d'endettement & mensualité maximale</h1>
+<p class="lead">Vérifie en un clic si ton dossier respecte la règle des 35 % et combien tu peux emprunter en plus.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Revenus nets mensuels (€)</label><input id="a" type="number" value="2500"></div>
+<div><label for="b">Charges / crédits actuels (€/mois)</label><input id="b" type="number" value="300"></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+<div class="kv"><span>Taux d'endettement actuel</span><b id="k1">—</b></div>
+<div class="kv"><span>Plafond autorisé (35 %)</span><b id="k2">—</b></div>
+<div><span id="msg"></span></div>
+<div class="kv"><span>Mensualité de crédit max disponible</span><b id="k3">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var r=+document.getElementById('a').value||0, c=+document.getElementById('b').value||0;
+if(r<=0){alert('Renseigne un revenu.');return;}
+var rate=c/r*100; var plaf=r*0.35; var disp=Math.max(0,plaf-c);
+document.getElementById('out').innerHTML=rate.toFixed(1)+' % <small>d&apos;endettement</small>';
+document.getElementById('k1').textContent=rate.toFixed(2)+' %';
+document.getElementById('k2').textContent=eur(plaf);
+document.getElementById('k3').textContent=eur(disp);
+var m=document.getElementById('msg');
+if(rate<=30){m.innerHTML='<span style="color:#0ea672;font-weight:700">✅ Marge confortable.</span>';}
+else if(rate<=35){m.innerHTML='<span style="color:#d68a00;font-weight:700">⚠️ Limite acceptable (zone HCSF).</span>';}
+else{m.innerHTML='<span style="color:#c0392b;font-weight:700">❌ Au-delà de la règle des 35 %.</span>';}
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-convertisseur-data.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Convertisseur taille de fichier (o, Ko, Mo, Go, To)</title>
+<meta name="description" content="Convertis une taille de fichier entre octets, kilo-octets, mega-octets, giga et tera-octets.">
+<meta name="keywords" content="conversion octets, ko, mo, go, to, taille fichier">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Convertisseur de taille de fichier</div>
+<span class="badge">🔄 Conversion</span>
+<h1>Convertisseur de taille de fichier</h1>
+<p class="lead">Convertis une taille de fichier entre toutes les unités.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Valeur</label><input id="a" type="number" value="1.5"></div>
+<div><label for="b">De</label><select id="b"><option value="Go">Go → Mo</option><option value="Mo">Mo → Go</option><option value="Ko">Ko → Mo</option><option value="Mo2">Mo → Ko</option><option value="o">o → Ko</option><option value="Ko2">Ko → o</option><option value="To">To → Go</option><option value="Go2">Go → To</option></select></div>
+</div><button id="calc">Convertir</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var FN={Go:v=>v*1024,Mo:v=>v/1024,Ko:v=>v/1024,Mo2:v=>v*1024,o:v=>v/1024,Ko2:v=>v*1024,To:v=>v*1024,Go2:v=>v/1024};
+document.getElementById('calc').addEventListener('click',function(){
+var v=+document.getElementById('a').value||0,k=document.getElementById('b').value;
+document.getElementById('out').innerHTML=FN[k](v).toLocaleString('fr-FR',{maximumFractionDigits:6});
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-budget-mensuel.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Budget mensuel — bilan revenus et charges</title>
+<meta name="description" content="Fais le bilan de ton budget mensuel : regroupe tes revenus et tes charges fixes pour connaître ton reste à vivre. Gratuit.">
+<meta name="keywords" content="budget mensuel, bilan, charges fixes, reste à vivre, epargne, finance">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Budget mensuel : ton bilan et reste à vivre</div>
+<span class="badge">💰 Finance</span>
+<h1>Budget mensuel : ton bilan et reste à vivre</h1>
+<p class="lead">Regroupe toutes tes charges et revenus d'un mois pour voir où tu en es.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Revenus nets mensuels (€)</label><input id="a" type="number" value="2500"></div>
+<div><label for="b">Loyer / crédit immobilier (€)</label><input id="b" type="number" value="750"></div>
+<div><label for="c">Énergie (€)</label><input id="c" type="number" value="140"></div>
+<div><label for="d">Transport (€)</label><input id="d" type="number" value="80"></div>
+<div><label for="e">Assurances (€)</label><input id="e" type="number" value="60"></div>
+<div><label for="f">Télécom + abonnements (€)</label><input id="f" type="number" value="55"></div>
+<div><label for="g">Courses / loisirs / autres (€)</label><input id="g" type="number" value="550"></div>
+</div><button id="calc">Calculer mon budget</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>reste à vivre</small></div>
+<div class="kv"><span>Total charges</span><b id="k1">—</b></div>
+<div class="kv"><span>Reste à vivre</span><b id="k2">—</b></div>
+<div class="kv"><span>Taux d'épargne</span><b id="k3">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var rev=+document.getElementById('a').value||0;
+var ch=+document.getElementById('b').value+ +document.getElementById('c').value+ +document.getElementById('d').value+ +document.getElementById('e').value+ +document.getElementById('f').value+ +document.getElementById('g').value;
+var reste=rev-ch;
+document.getElementById('out').innerHTML=eur(reste)+' <small>reste à vivre</small>';
+document.getElementById('k1').textContent=eur(ch);
+document.getElementById('k2').textContent=eur(reste);
+document.getElementById('k3').textContent=rev>0?(reste/rev*100).toFixed(1)+' %':'—';
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

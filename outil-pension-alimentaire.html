@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-pension-alimentaire.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Pension alimentaire estimative (barème fiscal)</title>
+<meta name="description" content="Estimation de la pension alimentaire dans le cadre d'un divorce ou d'une séparation, selon la table indicatrice. Gratuit.">
+<meta name="keywords" content="pension alimentaire, divorce, garde enfants, contribution">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Pension alimentaire : estimation</div>
+<span class="badge">⚖️ Juridique</span>
+<h1>Pension alimentaire : estimation</h1>
+<p class="lead">Estimation indicative de la pension alimentaire à partir des revenus et du nombre d'enfants.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Revenu net mensuel du payeur (€)</label><input id="a" type="number" value="2000"></div>
+<div><label for="b">Nombre d'enfants</label><input id="b" type="number" value="2"></div>
+<div><label for="c">Mode de garde des enfants</label><select id="c"><option value="classic">Garde classique (un parent)</option><option value="alternee">Garde alternée</option></select></div>
+</div><button id="calc">Estimer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>/enfant/mois</small></div>
+<div class="kv"><span>Total mensuel</span><b id="k1">—</b></div>
+<div class="kv"><span>Total annuel</span><b id="k2">—</b></div>
+<div class="note">Estimation fondée sur la table indicatrice ; le juge adapte selon les situations.</div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var r=+document.getElementById('a').value||0, n=+document.getElementById('b').value||1, mode=document.getElementById('c').value;
+// règle simplifiée : ~10 % du revenu par enfant en garde classique, ~6 % en alternée
+var unit=mode==='alternee'?0.06:0.10;
+var per=r*unit, tot=per*n;
+document.getElementById('out').innerHTML=eur(per)+' <small>/enfant/mois</small>';
+document.getElementById('k1').textContent=eur(tot);
+document.getElementById('k2').textContent=eur(tot*12);
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>

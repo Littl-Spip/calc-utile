@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/outil-salaire-horaire.html">
+<meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
+<title>Salaire brut mensuel en taux horaire</title>
+<meta name="description" content="Convertit un salaire mensuel brut en taux horaire net ou brut selon la durée hebdomadaire légale. Gratuit.">
+<meta name="keywords" content="taux horaire, salaire, conversion heures, temps partiel">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Salaire : conversion en taux horaire</div>
+<span class="badge">💼 Salaire</span>
+<h1>Salaire : conversion en taux horaire</h1>
+<p class="lead">Convertis un salaire mensuel en taux horaire pour comparer une offre d'emploi ou un statut à temps partiel.</p>
+<div class="card">
+<div class="grid">
+<div><label for="a">Salaire mensuel brut (€)</label><input id="a" type="number" value="2500"></div>
+<div><label for="b">Heures par semaine</label><input id="b" type="number" value="35"></div>
+<div><label for="c">Weeks/an</label><input id="c" type="number" value="52"></div>
+</div><button id="calc">Calculer</button>
+<div class="result" id="res">
+<div class="big" id="out">— <small>/h brut</small></div>
+<div class="kv"><span>Heures par an</span><b id="k1">—</b></div>
+<div class="kv"><span>Heures par mois</span><b id="k2">—</b></div>
+<div class="kv"><span>Taux horaire brut</span><b id="k3">—</b></div>
+<div class="kv"><span>Taux horaire net estimé</span><b id="k4">—</b></div>
+</div></div>
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+
+<h2>Autres outils utiles</h2>
+<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+</div></main>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var s=+document.getElementById('a').value||0,h=+document.getElementById('b').value||35,w=+document.getElementById('c').value||52;
+var ha=h*w, hm=ha/12, th=s/hm;
+document.getElementById('out').innerHTML=eur2(th)+' <small>/h brut</small>';
+document.getElementById('k1').textContent=ha.toFixed(0)+' h';
+document.getElementById('k2').textContent=hm.toFixed(1)+' h';
+document.getElementById('k3').textContent=eur2(th);
+document.getElementById('k4').textContent=eur2(th*0.78);
+document.getElementById('res').classList.add('show');
+});</script>
+</body></html>
