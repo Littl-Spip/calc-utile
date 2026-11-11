@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Calcul âge</div>
 <h1>Calcul d'âge</h1>
@@ -28,10 +34,15 @@
 </div></div>
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>Usage</h2><p>Utile pour connaître un âge exact, calculer une ancienneté ou l'âge d'un enfant. Le calcul tient compte des années bissextiles.</p>
+<!-- data-tool-content -->
+<h2>Comment se calcule un âge exact</h2>
+<p>L'âge exact se compte en années, en mois et en jours révolus : on soustrait la date de naissance de la date du jour, puis on « emprunte » des jours et des mois quand la soustraction devient négative, comme en arithmétique classique.</p>
+<p>Exemple : une personne née le 12 mai 1990 a 36 ans et 6 mois au 11 novembre 2026. Le nombre de jours affiché dépend du mois en cours et des années bissextiles traversées.</p>
+<p>L'outil ne gère pas les fuseaux horaires : à cheval sur minuit, un jour d'écart peut apparaître. Pour une démarche administrative (retraite, majorité, permis), c'est la date officielle de naissance qui fait foi, pas un calcul approximatif.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>Le calcul gère-t-il les mois de durées différentes ?</summary><p>Oui, il compte en jours réels puis convertit en années, mois et jours.</p></details><details><summary>Puis-je calculer à une date passée ?</summary><p>Oui, choisis n'importe quelle date de référence.</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>document.getElementById('ref').value=new Date().toISOString().slice(0,10);
 document.getElementById('calc').addEventListener('click',function(){
   var n=new Date(document.getElementById('naissance').value);
@@ -49,4 +60,5 @@ document.getElementById('calc').addEventListener('click',function(){
   document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

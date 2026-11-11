@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/contact.html">
+<title>Contact — CalcUtile</title>
+<meta name="description" content="Signaler une erreur de calcul, proposer un nouvel outil ou poser une question sur CalcUtile.">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">Calc<span>Utile</span></a>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Accueil</a> › Contact</p>
+
+    <article class="article">
+      <h1>Contacter CalcUtile</h1>
+      <p class="lead">Une erreur de calcul, un barème qui a changé, une idée d'outil ou une question sur le site : écris-nous. Les messages sont lus, et les corrections publiées rapidement.</p>
+
+      <div class="card">
+        <h2 style="margin-top:0">Écrire un message</h2>
+        <p>Ton message part depuis ta propre messagerie : aucune donnée n'est stockée sur le site.</p>
+        <label for="c-nom">Ton prénom (optionnel)</label>
+        <input id="c-nom" type="text" placeholder="Prénom" autocomplete="given-name">
+        <label for="c-sujet">Sujet</label>
+        <select id="c-sujet">
+          <option>Signaler une erreur de calcul</option>
+          <option>Proposer un nouvel outil</option>
+          <option>Signaler un problème d'affichage</option>
+          <option>Question sur la confidentialité</option>
+          <option>Autre</option>
+        </select>
+        <label for="c-msg">Message</label>
+        <textarea id="c-msg" rows="6" style="width:100%;padding:12px 13px;border:1px solid var(--border);border-radius:11px;font-size:1rem;font-family:inherit" placeholder="Décris le problème, l'outil concerné et, si possible, les chiffres saisis."></textarea>
+        <button type="button" id="c-send">Ouvrir mon message</button>
+        <p class="note">Si ton logiciel de messagerie ne s'ouvre pas, écris directement à <a href="mailto:llc.levilain@gmail.com">llc.levilain@gmail.com</a>.</p>
+      </div>
+
+      <h2>Ce qui aide à traiter un signalement</h2>
+      <ul>
+        <li>Le nom de l'outil (par exemple « salaire brut en net »).</li>
+        <li>Les valeurs saisies et le résultat affiché.</li>
+        <li>Le résultat attendu, si tu le connais (bulletin de paie, offre de prêt, avis d'imposition).</li>
+      </ul>
+
+      <h2>Délais et limites</h2>
+      <p>Les messages sont traités sous quelques jours, selon leur volume. CalcUtile ne fournit pas de conseil personnalisé : pour une situation individuelle, adresse-toi à un professionnel (banquier, notaire, expert-comptable).</p>
+
+      <h2>Données envoyées</h2>
+      <p>Le formulaire ci-dessus ne transmet rien au site : il ouvre simplement ton logiciel de messagerie avec un message prérempli. Les informations que tu choisis d'envoyer par email servent uniquement à répondre à ta demande.</p>
+
+      <p style="margin-top:26px"><a href="index.html">← Retour à l'accueil</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — outils de calcul gratuits. Résultats indicatifs, ne constituent pas un conseil financier.</p>
+    <p><a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+<script>
+document.getElementById('c-send').addEventListener('click', function () {
+  var nom = document.getElementById('c-nom').value.trim();
+  var sujet = document.getElementById('c-sujet').value;
+  var msg = document.getElementById('c-msg').value.trim();
+  var corps = (nom ? 'Bonjour,\n\nJe m\'appelle ' + nom + '.\n\n' : 'Bonjour,\n\n') + msg + '\n\n— Envoyé depuis CalcUtile';
+  location.href = 'mailto:llc.levilain@gmail.com?subject=' + encodeURIComponent('[CalcUtile] ' + sujet) + '&body=' + encodeURIComponent(corps);
+});
+</script>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

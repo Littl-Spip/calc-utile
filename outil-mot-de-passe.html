@@ -13,7 +13,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Générateur de mot de passe sécurisé</div>
 <span class="badge">🔐 Sécurité</span>
@@ -36,7 +42,7 @@
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var sets={1:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}',2:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',3:'abcdefghijklmnopqrstuvwxyz0123456789',4:'0123456789'};
 var buf=new Uint32Array(256);
 function run(){
@@ -53,4 +59,5 @@ document.getElementById('calc').addEventListener('click',run);
 document.getElementById('copy').addEventListener('click',function(){var t=document.getElementById('out').textContent;if(!t||t==='—')return; var d=function(){alert('Copié');}; if(navigator.clipboard) navigator.clipboard.writeText(t).then(d,function(){document.execCommand('copy');d();}); else {document.execCommand('copy');d();}});
 run();</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

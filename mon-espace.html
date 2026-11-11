@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/mon-espace.html">
+<title>Mon espace — CalcUtile</title>
+<meta name="description" content="Ton espace personnel CalcUtile : historique de tes calculs, outils favoris et statistiques. Stocké uniquement dans ton navigateur, sans compte ni mot de passe.">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">Calc<span>Utile</span></a>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Accueil</a> › Mon espace</p>
+
+    <section class="hero">
+      <div class="space-head">
+        <div class="avatar" id="sp-avatar">C</div>
+        <div style="flex:1;min-width:220px">
+          <h1 style="margin:0 0 4px;font-size:1.6rem">Bonjour <span id="sp-nom">Toi</span></h1>
+          <p class="lead" style="margin:0">Tes calculs et tes outils favoris, gardés sur cet appareil uniquement.</p>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:22px">
+        <div class="kpi" style="border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff">
+          <b id="sp-count" style="display:block;font-size:1.7rem;color:var(--brand-2)">0</b>
+          <span class="note" style="margin:0">calculs enregistrés</span>
+        </div>
+        <div class="kpi" style="border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff">
+          <b id="sp-serie" style="display:block;font-size:1.7rem;color:var(--brand-2)">0</b>
+          <span class="note" style="margin:0">jours d'affilée</span>
+        </div>
+        <div class="kpi" style="border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff">
+          <b id="sp-fav" style="display:block;font-size:1.7rem;color:var(--brand-2)">0</b>
+          <span class="note" style="margin:0">outils favoris</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="callout green">
+      <div class="t">Un compte sans compte</div>
+      <p>Pas d'inscription, pas de mot de passe, pas de serveur : ton espace vit dans le stockage de ton navigateur. Personne d'autre n'y a accès, et rien n'est envoyé. Si tu vides les données de ton navigateur, l'espace se réinitialise — pense à exporter avant.</p>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0">Ton prénom</h2>
+      <label for="sp-prenom">Comment veux-tu être appelé ?</label>
+      <input id="sp-prenom" type="text" placeholder="Ton prénom" maxlength="40">
+      <p class="note">Utilisé uniquement pour personnaliser cette page.</p>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0">Derniers calculs</h2>
+      <div id="sp-histo"></div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0">Outils favoris</h2>
+      <div id="sp-favs"></div>
+      <button type="button" id="sp-addfav">Ajouter cette page aux favoris</button>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-top:0">Sauvegarde</h2>
+      <p class="note" style="margin-bottom:6px">Exporte tes données pour les conserver ou les transférer sur un autre appareil.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button type="button" id="sp-export" style="width:auto;flex:1;min-width:180px">Exporter mes données</button>
+        <button type="button" id="sp-clear" style="width:auto;flex:1;min-width:180px;background:#fff;color:#b42318;border:1px solid #f3c9c4;box-shadow:none">Effacer l'historique</button>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div><strong>Reprendre un calcul</strong><p>Plus de 40 outils gratuits, classés par thème.</p></div>
+      <a href="outils.html">Voir les outils →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — outils de calcul gratuits. Résultats indicatifs, ne constituent pas un conseil financier.</p>
+    <p><a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.CalcUtile) window.CalcUtile.bindSpace();
+});
+</script>
+</body>
+</html>

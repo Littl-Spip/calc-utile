@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Frais de notaire 300 000 €</div>
 <h1>Frais de notaire pour un bien à 300 000 €</h1>
@@ -35,10 +41,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>Pour un bien à 300 000 €</h2>
 <p>Dans l'ancien, compte environ <b>23 100 €</b> de frais ; dans le neuf, environ <b>7 260 €</b>. La différence vient surtout des droits de mutation, bien plus faibles dans le neuf. Voir aussi notre <a href="frais-de-notaire.html">simulateur complet</a> et notre <a href="capacite-emprunt-immobilier.html">calcul de capacité d'emprunt</a>.</p>
+<!-- data-enrich -->
+<h2>Le détail pour 300 000 €</h2>
+<p>À 300 000 €, les frais approchent 22 000 € : c'est le niveau où la différence entre ancien et neuf (environ 15 000 € d'écart) pèse réellement dans le choix du bien.</p>
+<p>Dans l'ancien, les frais se décomposent ainsi : environ 17 400 € de droits de mutation (reversés au département), 2 700 € d'émoluments du notaire, 900 € de contribution de sécurité immobilière et de débours. Les taxes représentent donc près de 80 % du total : c'est pourquoi aucun notaire ne peut vraiment « faire un prix ».</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Scénario</th><th>Frais estimés</th><th>Budget total</th></tr></thead>
+<tbody>
+<tr><td>Achat ancien</td><td>22 050 € (≈ 7,4 %)</td><td>322 050 €</td></tr>
+<tr><td>Achat neuf / VEFA</td><td>7 500 € (≈ 2,5 %)</td><td>307 500 €</td></tr>
+<tr><td>Écart ancien / neuf</td><td>14 550 €</td><td>—</td></tr>
+</tbody></table></div>
+<h2>Et si tu finances les frais ?</h2>
+<p>Intégrer 22 050 € de frais au prêt sur 20 ans à 3,5 % ajoute environ <strong>128 € par mois</strong> et fait passer le capital emprunté de 300 000 à 322 050 €. Sur la durée, cela coûte plusieurs milliers d'euros d'intérêts supplémentaires : mieux vaut les couvrir avec l'apport quand c'est possible.</p>
+<p>Pour un calcul avec ton prix exact et le taux de ton département, utilise le <a href="frais-de-notaire.html">simulateur de frais de notaire</a>. Voir aussi notre guide : <a href="guide-frais-de-notaire.html">ce que tu paies vraiment dans les frais de notaire</a>.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>Ces frais sont-ils négociables ?</summary><p>Les émoluments sont encadrés par décret ; les taxes, elles, sont fixes.</p></details><details><summary>Quand paie-t-on les frais de notaire ?</summary><p>Le jour de la signature de l'acte définitif.</p></details><details><summary>Le neuf est-il vraiment moins cher ?</summary><p>Oui, autour de 2 à 3 % contre 7 à 8 % dans l'ancien.</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};
 document.getElementById('calc').addEventListener('click',function(){
   var prix=+document.getElementById('prix').value||0, t=document.getElementById('type').value;
@@ -55,4 +75,5 @@ document.getElementById('calc').addEventListener('click',function(){
   document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

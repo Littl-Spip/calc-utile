@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Calcul pourcentage</div>
 <h1>Calcul de pourcentage</h1>
@@ -36,10 +42,15 @@
 <div class="result" id="res2"><div class="big" id="var">— <small>variation</small></div></div></div>
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>Formules</h2><p>Pourcentage d'un nombre : <em>nombre × (pourcentage ÷ 100)</em>. Variation : <em>((arrivée − départ) ÷ départ) × 100</em>.</p>
+<!-- data-tool-content -->
+<h2>Les trois calculs de pourcentage à connaître</h2>
+<p>Trois opérations couvrent presque tous les besoins : calculer un pourcentage d'un nombre (x % de y), retrouver le pourcentage qu'un nombre représente par rapport à un autre, et appliquer une variation (hausse ou baisse en pourcentage).</p>
+<p>Exemple : 18 % de 250 € font 45 €. Et passer de 80 € à 92 € représente une hausse de 15 % — car on divise l'écart (12) par la valeur de départ (80), et non par la valeur d'arrivée.</p>
+<p>Le piège classique des soldes : une baisse de 20 % suivie d'une hausse de 20 % ne ramène pas au prix initial, mais à 96 % de celui-ci. De même, une hausse de 100 % ne peut pas être compensée par une baisse de 100 %.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>Comment calculer une remise ?</summary><p>Multiplie le prix par (1 − remise/100), ou utilise la diminution ci-dessus.</p></details><details><summary>Comment calculer une hausse ?</summary><p>Multiplie par (1 + hausse/100).</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>document.getElementById('calc').addEventListener('click',function(){
   var p=+document.getElementById('pct').value||0, v=+document.getElementById('val').value||0;
   document.getElementById('out').textContent=p+' % de '+v+' = '+(v*p/100);
@@ -57,4 +68,5 @@ document.getElementById('calc2').addEventListener('click',function(){
   document.getElementById('res2').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

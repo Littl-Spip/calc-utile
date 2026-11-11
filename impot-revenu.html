@@ -13,7 +13,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html">Calc<span>Utile</span></a>
-    <nav class="top"><a href="index.html">Accueil</a><a href="salaire-brut-net.html">Salaire</a><a href="simulateur-credit-immobilier.html">Crédit</a></nav>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
   </div>
 </header>
 
@@ -66,7 +72,12 @@
     <h2>Comment se calcule l'impôt ?</h2>
     <p>On divise le revenu net imposable par le nombre de parts (quotient familial), on applique le barème progressif au quotient, puis on remultiplie par le nombre de parts. Les enfants augmentent le nombre de parts : +0,5 part pour le 1<sup>er</sup> et le 2<sup>e</sup>, +1 part à partir du 3<sup>e</sup>.</p>
 
-    <h2>Questions fréquentes</h2>
+    <!-- data-tool-content -->
+<h2>Le barème progressif, expliqué simplement</h2>
+<p>L'impôt sur le revenu se calcule par tranches : chaque fraction du revenu imposable est taxée au taux de sa tranche, jamais au taux global. Le quotient familial divise ensuite le revenu par le nombre de parts du foyer, ce qui adoucit la progressivité.</p>
+<p>Exemple pour une personne seule avec 32 000 € de revenu net imposable : la première tranche (jusqu'à 11 497 €) est à 0 %, la suivante à 11 %, ce qui donne environ 2 255 € d'impôt avant réductions. Avec deux parts (couple avec un enfant), le même revenu supporterait un impôt nettement plus faible.</p>
+<p>Le simulateur ne prend pas en compte les crédits d'impôt, les réductions (dons, emploi à domicile, garde d'enfants), les revenus exceptionnels ni la décote. Il donne l'impôt « brut » avant ces ajustements, à comparer avec ton avis d'imposition.</p>
+<h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Qu'est-ce que le TMI ?</summary><p>Le taux marginal d'imposition est le taux appliqué à la dernière tranche de tes revenus. Il ne s'applique pas à tout ton revenu.</p></details>
       <details><summary>Pourquoi mon impôt réel diffère-t-il ?</summary><p>La décote, le plafonnement du quotient familial et les crédits d'impôt (frais de garde, dons, etc.) ne sont pas inclus dans cette estimation simplifiée.</p></details>
@@ -74,7 +85,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — simulation indicative. Seul l'avis des impôts fait foi.</p><p><a href="privacy.html">Confidentialité</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — simulation indicative. Seul l'avis des impôts fait foi.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
@@ -104,5 +115,6 @@ document.getElementById('calc').addEventListener('click', function(){
 });
 </script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

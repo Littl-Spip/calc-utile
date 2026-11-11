@@ -13,7 +13,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Poids idéal selon ta taille</div>
 <span class="badge">🏃 Santé</span>
@@ -37,7 +43,7 @@
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var s=document.getElementById('a').value, h=(+document.getElementById('b').value||170)/2.54-60;
 var d=s==='h'?50+2.3*h:45.5+2.3*h, r=s==='h'?52+1.9*h:49+1.7*h, m=s==='h'?56.2+1.41*h:53.1+1.36*h, hw=s==='h'?48+2.7*h:45.5+2.2*h;
@@ -49,4 +55,5 @@ document.getElementById('k4').textContent=Math.round(hw)+' kg';
 document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

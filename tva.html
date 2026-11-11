@@ -13,7 +13,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html">Calc<span>Utile</span></a>
-    <nav class="top"><a href="index.html">Accueil</a><a href="salaire-brut-net.html">Salaire</a><a href="impot-revenu.html">Impôt</a></nav>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
   </div>
 </header>
 
@@ -55,7 +61,12 @@
       <li><b>2,1 %</b> : médicaments remboursables, presse.</li>
     </ul>
 
-    <h2>Questions fréquentes</h2>
+    <!-- data-tool-content -->
+<h2>Les quatre taux et le piège du calcul inverse</h2>
+<p>En France, quatre taux coexistent : 20 % (taux normal), 10 % (travaux, restauration, transport), 5,5 % (alimentation, livres, énergie) et 2,1 % (médicaments remboursables, presse). Le calcul HT → TTC se fait en multipliant par (1 + taux).</p>
+<p>Exemple : 1 250 € HT à 20 % donnent 1 500 € TTC. Dans l'autre sens, 1 800 € TTC à 20 % donnent 1 500 € HT, car on divise par 1,20 et non on retire 20 % — l'erreur classique qui fausse les devis de 4 %. À 5,5 %, le diviseur est 1,055.</p>
+<p>Pour un professionnel, la TVA collectée n'est pas un revenu : elle est reversée. Un auto-entrepreneur en franchise de TVA ne la facture pas et ne la déduit pas non plus — le simulateur sert alors surtout à vérifier un prix TTC affiché.</p>
+<h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Formule HT → TTC</summary><p>TTC = HT × (1 + taux). Exemple : 100 € HT à 20 % = 120 € TTC.</p></details>
       <details><summary>Formule TTC → HT</summary><p>HT = TTC ÷ (1 + taux). Exemple : 120 € TTC à 20 % = 100 € HT.</p></details>
@@ -63,7 +74,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — outil de calcul gratuit.</p><p><a href="privacy.html">Confidentialité</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — outil de calcul gratuit.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
@@ -82,5 +93,6 @@ document.getElementById('calc').addEventListener('click', function(){
 });
 </script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

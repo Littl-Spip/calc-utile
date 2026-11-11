@@ -72,3 +72,92 @@ footer.site a{color:var(--muted)}
   main{padding:26px 0 50px}
   .hero{border-radius:18px}
 }
+
+/* ==== v2 : guides, articles, espace personnel ==== */
+:root{
+  --ink:#0b1220; --ink-2:#1c2740; --line:#e3e9f2;
+  --brand:#2f5bea; --brand-2:#1e3fb0; --green:#0ea672; --green-2:#0b8a5f;
+  --sand:#f7f5ef; --sky:#eef4ff;
+}
+
+/* --- article de guide --- */
+.article{background:#fff;border:1px solid var(--border);border-radius:20px;padding:clamp(22px,3.4vw,42px);box-shadow:var(--shadow-sm)}
+.article h2{margin-top:36px;padding-top:6px;font-size:1.42rem;letter-spacing:-.3px}
+.article h2:first-of-type{margin-top:8px}
+.article h3{margin-top:24px;font-size:1.08rem}
+.article p{margin:12px 0;color:#26344d;font-size:1.015rem;line-height:1.72}
+.article ul,.article ol{margin:12px 0 12px 22px;color:#26344d;line-height:1.7}
+.article li{margin:7px 0}
+.article strong{color:var(--ink)}
+.article a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.article blockquote{margin:20px 0;padding:14px 18px;border-left:4px solid var(--brand);background:var(--sky);border-radius:0 12px 12px 0;color:#26344d}
+.article .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:22px 0}
+.article .kpi{background:linear-gradient(165deg,#fff,#f4f8ff);border:1px solid var(--line);border-radius:14px;padding:16px}
+.article .kpi b{display:block;font-size:1.5rem;letter-spacing:-.5px;color:var(--brand-2);font-variant-numeric:tabular-nums}
+.article .kpi span{font-size:.82rem;color:var(--muted)}
+.article figure{margin:20px 0}
+.article figcaption{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+/* sommaire */
+.toc{background:#fbfcff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:18px 0 26px}
+.toc p{font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+.toc ol{margin:0 0 0 18px}
+.toc li{margin:5px 0;font-size:.95rem}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+/* encadrés */
+.callout{border:1px solid #cfe0ff;background:linear-gradient(165deg,#f7fbff,#eef5ff);border-radius:14px;padding:16px 18px;margin:20px 0}
+.callout.green{border-color:#bfe8d6;background:linear-gradient(165deg,#f6fffa,#ecfbf3)}
+.callout.warn{border-color:#f5dfb8;background:linear-gradient(165deg,#fffdf7,#fff7e8)}
+.callout p{margin:6px 0}
+.callout .t{font-weight:700;font-size:.9rem;margin-bottom:4px}
+
+/* bandeau d'appel à l'outil */
+.cta-box{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(135deg,#12224a,#2f5bea);color:#fff;border-radius:16px;padding:20px 24px;margin:26px 0;box-shadow:0 14px 34px rgba(30,63,176,.22)}
+.cta-box p{margin:0;color:#dbe5ff;font-size:.95rem}
+.cta-box strong{color:#fff;display:block;font-size:1.05rem;margin-bottom:2px}
+.cta-box a{background:#fff;color:#12224a;font-weight:700;padding:12px 20px;border-radius:11px;text-decoration:none;white-space:nowrap}
+.cta-box a:hover{background:#eaf0ff}
+
+/* questions fréquentes de guide */
+.faq h3{font-size:1rem}
+
+/* hub de guides */
+.guide-card{display:block;background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px;box-shadow:var(--shadow-sm);transition:.18s}
+.guide-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:#c9d8ff;text-decoration:none}
+.guide-card .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green-2)}
+.guide-card h3{margin:8px 0 6px;color:var(--ink);font-size:1.15rem}
+.guide-card p{color:var(--muted);font-size:.93rem;margin:0}
+
+/* espace personnel */
+.space-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.avatar{width:54px;height:54px;border-radius:16px;background:linear-gradient(160deg,#2f5bea,#0ea672);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem}
+.hist-item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.hist-item:last-child{border-bottom:0}
+.hist-item .h-t{font-weight:600;font-size:.95rem}
+.hist-item .h-s{color:var(--muted);font-size:.86rem;margin-top:2px}
+.hist-item button{margin:0;width:auto;padding:7px 12px;font-size:.8rem;background:#fff;color:#b42318;border:1px solid #f3c9c4;box-shadow:none}
+.pill{display:inline-flex;align-items:center;gap:6px;background:rgba(47,91,234,.08);color:var(--brand-2);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:600}
+.save-fab{position:fixed;right:18px;bottom:18px;z-index:60;margin:0;width:auto;padding:12px 18px;border-radius:999px;font-size:.9rem;display:none;box-shadow:0 12px 28px rgba(30,63,176,.35)}
+.save-fab.on{display:inline-flex;align-items:center;gap:8px}
+.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:26px;background:#0b1220;color:#fff;padding:12px 18px;border-radius:12px;font-size:.9rem;opacity:0;transition:.25s;z-index:80;pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* footer enrichi */
+footer.site{padding:34px 0 26px}
+footer.site .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:22px;margin-bottom:22px}
+footer.site h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:#8b97ad;margin-bottom:10px;font-weight:700}
+footer.site ul{list-style:none;margin:0;padding:0}
+footer.site li{margin:6px 0}
+footer.site .f-bas{border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem}
+@media(max-width:720px){footer.site .f-grid{grid-template-columns:1fr 1fr}}
+
+/* navigation : lien "mon espace" mis en avant */
+nav.top a.nav-cta{background:rgba(14,166,114,.10);color:var(--green-2);border:1px solid rgba(14,166,114,.25)}
+nav.top a.nav-cta:hover{background:rgba(14,166,114,.16);color:var(--green-2)}
+
+/* tableaux d'article lisibles sur mobile */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
+.table-wrap table{margin:0;font-size:.9rem;min-width:460px}
+.article table th{background:#f7f9fd}

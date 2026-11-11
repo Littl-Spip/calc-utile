@@ -13,7 +13,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html">Calc<span>Utile</span></a>
-    <nav class="top"><a href="index.html">Accueil</a><a href="capacite-emprunt-immobilier.html">Capacité d'emprunt</a><a href="frais-de-notaire.html">Frais de notaire</a></nav>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
   </div>
 </header>
 
@@ -53,7 +59,12 @@
     <h2>Comment est calculée la mensualité ?</h2>
     <p>La mensualité d'un crédit à taux fixe suit la formule des annuités constantes : <em>M = C × i / (1 − (1 + i)<sup>−n</sup>)</em>, où <em>C</em> est le capital emprunté, <em>i</em> le taux mensuel (taux annuel ÷ 12) et <em>n</em> le nombre de mensualités. L'assurance emprunteur, calculée sur le capital initial, s'ajoute à chaque échéance.</p>
 
-    <h2>Questions fréquentes</h2>
+    <!-- data-tool-content -->
+<h2>La méthode de calcul, sans mystère</h2>
+<p>La mensualité est calculée avec la formule d'amortissement classique : M = C × i / (1 − (1 + i)⁻ⁿ), où C est le capital, i le taux mensuel (taux annuel ÷ 12) et n le nombre de mois. C'est exactement la formule utilisée par les banques pour un prêt à échéances constantes.</p>
+<p>Exemple : 250 000 € sur 25 ans à 3,2 % donnent une mensualité d'environ 1 212 € hors assurance, un total remboursé de 363 600 € et un coût du crédit de 113 600 €. La première mensualité contient environ 667 € d'intérêts et 545 € de capital : le rapport s'inverse progressivement.</p>
+<p>Ce que le simulateur ne fait pas : il n'intègre ni les frais de dossier, ni les frais de garantie, ni l'assurance emprunteur, ni les éventuelles périodes de différé. Le TAEG de ton offre de prêt reste la seule comparaison fiable entre deux banques.</p>
+<h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Le taux d'assurance est-il inclus dans la mensualité affichée ?</summary><p>Oui. La mensualité principale est affichée hors assurance, puis l'assurance vient s'ajouter pour donner la mensualité totale.</p></details>
       <details><summary>Allonger la durée réduit-il le coût ?</summary><p>Non. Allonger la durée baisse la mensualité mais augmente les intérêts totaux. Utilise le simulateur pour comparer 15, 20 et 25 ans.</p></details>
@@ -62,7 +73,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'offre de ta banque.</p><p><a href="privacy.html">Confidentialité</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'offre de ta banque.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
@@ -99,5 +110,6 @@ document.getElementById('calc').addEventListener('click', function(){
 });
 </script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

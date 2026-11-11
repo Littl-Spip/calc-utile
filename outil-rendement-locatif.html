@@ -13,7 +13,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="outils.html">Outils</a><a href="radar-economies.html">Radar Éco</a><a href="impot-revenu.html">Impôts</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Rendement locatif brut et net</div>
 <span class="badge">🏠 Immobilier</span>
@@ -35,11 +41,16 @@
 </div></div>
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
+<!-- data-tool-content -->
+<h2>Rendement brut, rendement net : la vraie différence</h2>
+<p>Le rendement brut se calcule en divisant le loyer annuel par le prix d'acquisition. Le rendement net retire les charges : taxe foncière, assurance, copropriété, gestion, entretien, et parfois la vacance locative. C'est le seul chiffre qui compte pour la rentabilité réelle.</p>
+<p>Exemple : un studio acheté 180 000 € (frais inclus) loué 750 €/mois affiche un brut de 5,0 %. Avec 1 800 € de charges annuelles et une vacance d'un mois, le net tombe à environ 3,6 %. Après impôt et prélèvements sociaux, il peut descendre sous 3 %.</p>
+<p>Le simulateur ne tient pas compte du régime fiscal (micro-foncier, réel, LMNP), de la CSG ni de l'évolution des loyers. Un rendement élevé compense rarement un emplacement médiocre : la vacance et la revente pèsent souvent plus que le taux affiché.</p>
 <h2>Questions fréquentes</h2><div class="faq"><details><summary>Le rendement brut suffit-il ?</summary><p>Non, il ignore les charges, les taxes et l'impôt. Le rendement net est plus réaliste, mais reste une estimation.</p></details><details><summary>Que mettre dans « charges mensuelles » ?</summary><p>Charges de copropriété, assurance côtée, entretien, vacance locative (compte 1 à 2 mois).</p></details></div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var l=+document.getElementById('a').value||0, p=+document.getElementById('b').value||0;
 var ch=+document.getElementById('c').value||0, tf=+document.getElementById('d').value||0;
@@ -54,4 +65,5 @@ document.getElementById('kf').textContent=eur(net);
 document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

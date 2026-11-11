@@ -13,7 +13,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html">Calc<span>Utile</span></a>
-    <nav class="top"><a href="index.html">Accueil</a><a href="impot-revenu.html">Impôt</a><a href="simulateur-credit-immobilier.html">Crédit</a></nav>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
   </div>
 </header>
 
@@ -53,7 +59,12 @@
     <h2>Comment passer du brut au net ?</h2>
     <p>Le salaire net se calcule en retirant du brut les cotisations salariales : Sécurité sociale, retraite, chômage, CSG/CRDS, mutuelle… Pour un non-cadre du privé, comptez environ 22 % du brut, un peu plus pour les cadres. Ce net est « avant impôt » : le prélèvement à la source s'applique ensuite. Pour l'estimer, utilise notre <a href="impot-revenu.html">simulateur d'impôt sur le revenu</a>.</p>
 
-    <h2>Questions fréquentes</h2>
+    <!-- data-tool-content -->
+<h2>Comment on passe du brut au net</h2>
+<p>Le calcul applique les cotisations salariales moyennes du privé : Sécurité sociale (maladie, vieillesse), retraite complémentaire, assurance chômage, CSG/CRDS et contribution au dialogue social. Pour un non-cadre, l'ensemble représente environ 22 % du brut ; pour un cadre, environ 25 % en raison des cotisations de retraite et de prévoyance plus élevées.</p>
+<p>Exemple : 2 800 € brut donnent environ 2 184 € net avant impôt. Les cotisations (616 €) se répartissent grosso modo en 240 € de Sécurité sociale, 230 € de retraite complémentaire, 67 € de chômage et 270 € de CSG/CRDS — l'ordre de grandeur varie selon la convention collective.</p>
+<p>Limite importante : ce calcul ne tient pas compte de ta mutuelle d'entreprise, de ta prévoyance, des tickets-restaurant ni de la part variable. Sur un bulletin réel, l'écart peut atteindre 2 à 4 %. Le seul document qui fait foi reste ton bulletin de paie.</p>
+<h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Pourquoi un cadre paie-t-il plus de cotisations ?</summary><p>Les cadres cotisent davantage à la retraite complémentaire et à la prévoyance, ce qui augmente le total des cotisations (souvent ~25 %).</p></details>
       <details><summary>Le net affiché inclut-il l'impôt ?</summary><p>Non. C'est le net avant prélèvement à la source.</p></details>
@@ -61,7 +72,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimatif. Ton bulletin de paie fait foi.</p><p><a href="privacy.html">Confidentialité</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimatif. Ton bulletin de paie fait foi.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
@@ -86,5 +97,6 @@ document.getElementById('calc').addEventListener('click', function(){
 });
 </script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

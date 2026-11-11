@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Calcul IMC</div>
 <h1>Calcul de l'IMC</h1>
@@ -28,10 +34,15 @@
 </div></div>
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>Comment est calculé l'IMC ?</h2><p>IMC = poids (kg) ÷ taille² (m). Selon l'OMS : &lt; 18,5 insuffisance pondérale · 18,5–25 corpulence normale · 25–30 surpoids · &gt; 30 obésité.</p>
+<!-- data-tool-content -->
+<h2>Ce que l'IMC mesure — et ce qu'il ne mesure pas</h2>
+<p>L'indice de masse corporelle se calcule en divisant le poids (en kg) par le carré de la taille (en mètres). Un IMC entre 18,5 et 25 est considéré comme normal par l'OMS, en dessous de 18,5 comme une insuffisance pondérale, au-dessus de 30 comme une obésité.</p>
+<p>Exemple : 72 kg pour 1,75 m donnent 23,5 — dans la zone normale. Une personne de 95 kg pour la même taille atteint 31,0, au-delà du seuil d'obésité.</p>
+<p>L'IMC ne distingue pas la masse musculaire de la masse grasse : un sportif peut être classé « en surpoids » sans excès de graisse, et une personne âgée peut avoir un IMC normal avec une masse grasse élevée. Il n'est pas adapté aux enfants, aux femmes enceintes ni aux personnes très musclées.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>L'IMC suffit-il ?</summary><p>Non, il ne tient pas compte de la masse musculaire ni de la répartition des graisses.</p></details><details><summary>Pour qui n'est-il pas valable ?</summary><p>Enfants, femmes enceintes et sportifs très musclés.</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>document.getElementById('calc').addEventListener('click',function(){
   var p=+document.getElementById('poids').value||0, t=(+document.getElementById('taille').value||0)/100;
   if(p<=0||t<=0){alert('Renseigne un poids et une taille.');return;}
@@ -42,4 +53,5 @@
   document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Crédit 20 ans</div>
 <h1>Crédit immobilier sur 20 ans</h1>
@@ -36,10 +42,28 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>20 ans : bon compromis ?</h2>
 <p>Allonger la durée réduit la mensualité mais augmente les intérêts totaux. Sur 20 ans, tu rembourses des mensualités plus basses mais davantage d'intérêts au total. Compare plusieurs durées dans notre <a href="simulateur-credit-immobilier.html">simulateur de crédit immobilier</a>.</p>
+<!-- data-enrich -->
+<h2>20 ans : ce que ça change concrètement</h2>
+<p>20 ans est la durée de référence du marché français : elle équilibre mensualité et coût total, et correspond à la quasi-totalité des offres bancaires. Sur 200 000 € à 3,5 %, la mensualité hors assurance est d'environ 1 160 €, pour un coût total de 78 400 €.</p>
+<p>C'est la durée la plus susceptible de bénéficier d'un taux négocié, car les banques la considèrent comme standard. Les frais de dossier et de garantie sont amortis sur une période longue, ce qui dilue leur poids relatif.</p>
+<p>Le principal écueil : la tentation d'emprunter « au maximum de la capacité » et de se retrouver avec un reste à vivre trop faible. Un crédit sur 20 ans doit laisser au moins 30 % du revenu net hors charges de logement.</p>
+<h2>Mensualité selon le montant emprunté (taux 3,5 %)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Capital emprunté</th><th>Mensualité sur 20 ans</th><th>Coût total du crédit</th></tr></thead>
+<tbody>
+<tr><td>100 000 €</td><td>580 €</td><td>39 211 €</td></tr>
+<tr><td>150 000 €</td><td>870 €</td><td>58 817 €</td></tr>
+<tr><td>200 000 €</td><td>1 160 €</td><td>78 422 €</td></tr>
+<tr><td>250 000 €</td><td>1 450 €</td><td>98 028 €</td></tr>
+<tr><td>300 000 €</td><td>1 740 €</td><td>117 633 €</td></tr>
+</tbody></table></div>
+<div class="callout green"><div class="t">Pour qui ?</div><p>La majorité des projets, premier achat comme revente. — mais la vraie question reste le reste à vivre : une mensualité qui dépasse 35 % du revenu net est refusée par la plupart des banques, quelle que soit la durée.</p></div>
+<h2>Comparer avec les autres durées</h2>
+<p>Le même capital emprunté sur 10, 15, 20 et 25 ans ne coûte pas la même chose. Sur 200 000 € à 3,5 % : environ 1 978 €/mois sur 10 ans, 1 430 € sur 15 ans, 1 160 € sur 20 ans et 1 001 € sur 25 ans. Le <a href="simulateur-credit-immobilier.html">simulateur complet</a> permet de tester ton montant exact et de voir le tableau d'amortissement.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>L'assurance est-elle incluse ?</summary><p>Oui, elle s'ajoute à la mensualité principale.</p></details><details><summary>Pourquoi choisir 20 ans ?</summary><p>C'est un équilibre entre mensualité et coût total, à comparer avec d'autres durées.</p></details><details><summary>Le TAEG est-il calculé ?</summary><p>Non, il inclut des frais (dossier, garantie) que ta banque indique dans son offre.</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};
 document.getElementById('calc').addEventListener('click',function(){
   var C=+document.getElementById('capital').value||0;
@@ -59,4 +83,5 @@ document.getElementById('calc').addEventListener('click',function(){
   document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

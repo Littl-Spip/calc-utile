@@ -13,7 +13,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html">Calc<span>Utile</span></a>
-    <nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="capacite-emprunt-immobilier.html">Capacité</a></nav>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
   </div>
 </header>
 
@@ -56,7 +62,12 @@
       <li><b>Débours</b> : frais avancés (documents d'urbanisme, cadastre, etc.).</li>
     </ul>
 
-    <h2>Questions fréquentes</h2>
+    <!-- data-tool-content -->
+<h2>D'où vient le pourcentage de 7 à 8 %</h2>
+<p>Les frais d'acquisition se composent de trois blocs : les droits de mutation (environ 5,8 % dans l'ancien, reversés au département), les émoluments du notaire (tarif réglementé, dégressif, autour de 0,9 %) et les débours (cadastre, pièces d'état civil, contribution de sécurité immobilière).</p>
+<p>Exemple : pour un bien à 320 000 € dans l'ancien, compte environ 23 500 € de frais, dont 18 560 € de taxes, 2 880 € d'émoluments et 2 100 € de débours divers. Dans le neuf, les droits de mutation sont remplacés par une TVA déjà incluse : les frais tombent autour de 2,5 %, soit 8 000 €.</p>
+<p>Le pourcentage exact varie de quelques dixièmes selon le département (taux de droits de mutation) et selon que le bien est meublé ou non. Seul le décompte du notaire, remis avant la signature, donne le montant définitif.</p>
+<h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Pourquoi le neuf coûte-t-il beaucoup moins cher ?</summary><p>Dans le neuf (VEFA), les droits de mutation sont fortement réduits, ce qui fait tomber les frais autour de 2 à 3 %.</p></details>
       <details><summary>Les frais de notaire sont-ils négociables ?</summary><p>Les émoluments sont encadrés par décret et non négociables, mais ils peuvent baisser pour les très gros montants. Les taxes, elles, sont fixes.</p></details>
@@ -64,7 +75,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, le notaire fournira le décompte exact.</p><p><a href="privacy.html">Confidentialité</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, le notaire fournira le décompte exact.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
@@ -87,5 +98,6 @@ document.getElementById('calc').addEventListener('click', function(){
 });
 </script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

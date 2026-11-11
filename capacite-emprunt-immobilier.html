@@ -13,7 +13,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html">Calc<span>Utile</span></a>
-    <nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="frais-de-notaire.html">Frais de notaire</a></nav>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
   </div>
 </header>
 
@@ -50,7 +56,12 @@
     <h2>Comment fonctionne la capacité d'emprunt ?</h2>
     <p>Les banques appliquent en général un taux d'endettement maximum de 35 % des revenus nets, assurance comprise. On part donc de la mensualité maximale admissible, puis on la convertit en capital grâce à la formule inverse du crédit : <em>C = M × (1 − (1 + i)<sup>−n</sup>) / i</em>. L'apport s'ajoute pour obtenir le budget total du projet.</p>
 
-    <h2>Questions fréquentes</h2>
+    <!-- data-tool-content -->
+<h2>Comment se calcule la capacité d'emprunt</h2>
+<p>La règle appliquée par les banques françaises plafonne le taux d'endettement à 35 % des revenus nets, assurance comprise. On part donc du revenu net mensuel du foyer, on retire les crédits en cours (auto, conso, revolving), puis on applique les 35 % au reste.</p>
+<p>Exemple : un foyer à 4 200 € net avec un crédit auto de 300 €/mois dispose de 1 170 € de mensualité maximale (4 200 × 35 % − 300). Sur 20 ans à 3,5 %, cela représente environ 202 000 € de capital emprunté — hors frais de notaire, qui doivent être couverts par l'apport.</p>
+<p>La banque regarde aussi le reste à vivre, l'ancienneté du contrat de travail, l'épargne résiduelle et la stabilité des revenus. Un dossier à 35 % avec un reste à vivre confortable passe mieux qu'un dossier à 30 % avec trois enfants à charge.</p>
+<h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Mon apport est-il suffisant ?</summary><p>En pratique, il faut souvent financer les frais de notaire (7 à 8 % dans l'ancien). Calcule-les avec notre <a href="frais-de-notaire.html">simulateur de frais de notaire</a>.</p></details>
       <details><summary>Puis-je dépasser 35 % d'endettement ?</summary><p>C'est possible dans certains cas (haut revenus, reste à vivre confortable) mais reste l'exception. Le calcul ici est une estimation prudente.</p></details>
@@ -58,7 +69,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'étude de ta banque.</p><p><a href="privacy.html">Confidentialité</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'étude de ta banque.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
@@ -83,5 +94,6 @@ document.getElementById('calc').addEventListener('click', function(){
 });
 </script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

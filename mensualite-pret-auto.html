@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Prêt auto</div>
 <h1>Mensualité d'un prêt auto</h1>
@@ -31,10 +37,15 @@
 </div></div>
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>Comment ça marche ?</h2><p>On finance la différence entre le prix et l'apport, puis on applique la formule des mensualités constantes. Un apport plus élevé réduit les intérêts. Voir aussi notre <a href="simulateur-credit-immobilier.html">simulateur de crédit immobilier</a>.</p>
+<!-- data-tool-content -->
+<h2>Calculer une mensualité auto sans se tromper</h2>
+<p>Un prêt auto amortissable se calcule comme un prêt immobilier, avec des durées plus courtes (2 à 7 ans) et des taux souvent plus élevés. La mensualité dépend du capital, du taux et de la durée, mais aussi des frais de dossier et de l'assurance facultative.</p>
+<p>Exemple : 20 000 € sur 5 ans à 5,9 % donnent une mensualité d'environ 386 €, un total remboursé de 23 160 € et un coût du crédit de 3 160 €. Sur 3 ans au même taux, la mensualité monte à 607 € mais le coût tombe à 1 850 €.</p>
+<p>Attention aux offres « 0 % » : elles supposent souvent un apport important ou un prix d'achat non négocié. Regarde le TAEG, pas le taux affiché, et vérifie le coût de l'assurance facultative, parfois égale à un point de taux.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>Faut-il un apport ?</summary><p>Ce n'est pas obligatoire mais cela réduit le coût du crédit.</p></details><details><summary>Le taux dépend de quoi ?</summary><p>De la durée, de ton profil et du véhicule (neuf ou occasion).</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};
 document.getElementById('calc').addEventListener('click',function(){
   var prix=+document.getElementById('prix').value||0, app=+document.getElementById('apport').value||0;
@@ -48,4 +59,5 @@ document.getElementById('calc').addEventListener('click',function(){
   document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>

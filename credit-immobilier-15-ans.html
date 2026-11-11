@@ -11,7 +11,13 @@
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
-<nav class="top"><a href="index.html">Accueil</a><a href="simulateur-credit-immobilier.html">Crédit</a><a href="impot-revenu.html">Impôts</a><a href="salaire-brut-net.html">Salaire</a></nav></div></header>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Crédit 15 ans</div>
 <h1>Crédit immobilier sur 15 ans</h1>
@@ -36,10 +42,28 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 <h2>15 ans : bon compromis ?</h2>
 <p>Allonger la durée réduit la mensualité mais augmente les intérêts totaux. Sur 15 ans, tu rembourses moins d'intérêts mais des mensualités plus élevées. Compare plusieurs durées dans notre <a href="simulateur-credit-immobilier.html">simulateur de crédit immobilier</a>.</p>
+<!-- data-enrich -->
+<h2>15 ans : ce que ça change concrètement</h2>
+<p>15 ans est le compromis le plus souvent choisi par les primo-accédants : la mensualité reste soutenable et le coût total baisse de plus de 20 000 € par rapport à 20 ans. Sur 200 000 € à 3,5 %, le coût du crédit est d'environ 57 400 €.</p>
+<p>C'est aussi la durée qui correspond à la durée de vie moyenne d'un bien avant revente : on rembourse l'essentiel du capital pendant la période où l'on occupe le logement, ce qui limite le risque de « prêt relais » négatif en cas de déménagement.</p>
+<p>À l'inverse, une mensualité plus élevée réduit la capacité d'épargne : si le reste à vivre devient serré, mieux vaut allonger de deux ou trois ans plutôt que de puiser dans l'épargne de précaution.</p>
+<h2>Mensualité selon le montant emprunté (taux 3,5 %)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Capital emprunté</th><th>Mensualité sur 15 ans</th><th>Coût total du crédit</th></tr></thead>
+<tbody>
+<tr><td>100 000 €</td><td>715 €</td><td>28 700 €</td></tr>
+<tr><td>150 000 €</td><td>1 073 €</td><td>43 050 €</td></tr>
+<tr><td>200 000 €</td><td>1 430 €</td><td>57 400 €</td></tr>
+<tr><td>250 000 €</td><td>1 788 €</td><td>71 750 €</td></tr>
+<tr><td>300 000 €</td><td>2 145 €</td><td>86 100 €</td></tr>
+</tbody></table></div>
+<div class="callout green"><div class="t">Pour qui ?</div><p>Primo-accédants, revenus stables, apport 10 à 20 %. — mais la vraie question reste le reste à vivre : une mensualité qui dépasse 35 % du revenu net est refusée par la plupart des banques, quelle que soit la durée.</p></div>
+<h2>Comparer avec les autres durées</h2>
+<p>Le même capital emprunté sur 10, 15, 20 et 25 ans ne coûte pas la même chose. Sur 200 000 € à 3,5 % : environ 1 978 €/mois sur 10 ans, 1 430 € sur 15 ans, 1 160 € sur 20 ans et 1 001 € sur 25 ans. Le <a href="simulateur-credit-immobilier.html">simulateur complet</a> permet de tester ton montant exact et de voir le tableau d'amortissement.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>L'assurance est-elle incluse ?</summary><p>Oui, elle s'ajoute à la mensualité principale.</p></details><details><summary>Pourquoi choisir 15 ans ?</summary><p>C'est un équilibre entre mensualité et coût total, à comparer avec d'autres durées.</p></details><details><summary>Le TAEG est-il calculé ?</summary><p>Non, il inclut des frais (dossier, garantie) que ta banque indique dans son offre.</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};
 document.getElementById('calc').addEventListener('click',function(){
   var C=+document.getElementById('capital').value||0;
@@ -59,4 +83,5 @@ document.getElementById('calc').addEventListener('click',function(){
   document.getElementById('res').classList.add('show');
 });</script>
 <script src="counter.js" defer></script>
+<script src="app.js" defer></script>
 </body></html>
