@@ -36,7 +36,7 @@ ${faq ? '<h2>Questions fréquentes</h2><div class="faq">' + faq + '</div>' : ''}
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
 <script>${eurFn}${eur2Fn}${o.script || ''}</script>
 <script src="counter.js" defer></script></body></html>`;
 }
@@ -1031,7 +1031,7 @@ const outilsHtml = `<!DOCTYPE html>
 <h2>Autres ressources</h2>
 <p><a href="lettres-types.html">Lettres types (démission, résiliation…)</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p></div></footer>
 <script>
 var TOOLS=${JSON.stringify(TOOLS.map(o=>({slug:o.slug,title:o.title,desc:o.desc,icon:(o.badge||'').match(/^[^\s]+/)?.[0]||'🔧',cat:o._cat})))};
 var active='Tous';
