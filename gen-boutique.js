@@ -38,7 +38,7 @@ ${faq ? '<h2>Questions fréquentes</h2><div class="faq">' + faq + '</div>' : ''}
 </div></main>
 <footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
 <script>${eurFn}${eur2Fn}${o.script || ''}</script>
-</body></html>`;
+<script src="counter.js" defer></script></body></html>`;
 }
 
 function w(file, html, title){ fs.writeFileSync(path.join(dir, file), html, 'utf8'); console.log('écrit', file); return { file, title }; }
@@ -981,7 +981,7 @@ document.getElementById('l-copy').addEventListener('click',function(){ ta.select
 });
 document.getElementById('l-print').addEventListener('click',function(){var w=window.open('','_blank');w.document.write('<pre style="font-family:ui-monospace,Menlo,monospace;font-size:13px;white-space:pre-wrap;padding:28px">'+ta.value.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</pre>');w.document.close();w.print();});
 </script><div class="toast" id="toast" style="position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#0b1220;color:#fff;padding:11px 18px;border-radius:12px;font-size:.9rem;opacity:0;pointer-events:none;transition:.25s;z-index:80"></div>
-</body></html>`;
+<script src="counter.js" defer></script></body></html>`;
 fs.writeFileSync(path.join(dir, 'lettres-types.html'), lettersHtml, 'utf8');
 console.log('écrit lettres-types.html');
 
@@ -1053,7 +1053,7 @@ function renderGrid(){
 document.getElementById('q').addEventListener('input',renderGrid);
 renderChips(); renderGrid();
 </script>
-</body></html>`;
+<script src="counter.js" defer></script></body></html>`;
 fs.writeFileSync(path.join(dir, 'outils.html'), outilsHtml, 'utf8');
 console.log('écrit outils.html');
 

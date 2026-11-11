@@ -31,7 +31,7 @@ ${o.body || ''}
 </div></main>
 <footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p><a href="privacy.html">Confidentialité</a> · <a href="index.html">Accueil</a></p></div></footer>
 <script>${o.script}</script>
-</body></html>`;
+<script src="counter.js" defer></script></body></html>`;
 }
 
 const registry = [];

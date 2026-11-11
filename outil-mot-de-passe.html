@@ -52,4 +52,5 @@ return out;
 document.getElementById('calc').addEventListener('click',run);
 document.getElementById('copy').addEventListener('click',function(){var t=document.getElementById('out').textContent;if(!t||t==='—')return; var d=function(){alert('Copié');}; if(navigator.clipboard) navigator.clipboard.writeText(t).then(d,function(){document.execCommand('copy');d();}); else {document.execCommand('copy');d();}});
 run();</script>
+<script src="counter.js" defer></script>
 </body></html>
