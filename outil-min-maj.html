@@ -10,6 +10,21 @@
 <meta name="keywords" content="convertir majuscules, minuscules, title case, invert">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Convertir texte : majuscules, minuscules, titre, inverse">
+<meta property="og:description" content="Convertis un texte en MAJUSCULES, minuscules, Title Case ou texte inversé.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-min-maj.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convertir texte : majuscules, minuscules, titre, inverse">
+<meta name="twitter:description" content="Convertis un texte en MAJUSCULES, minuscules, Title Case ou texte inversé.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -36,10 +51,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Majuscules, minuscules et accents : les règles du français</h2>
+<h2>Ce que fait la conversion</h2>
+<p>Un convertisseur de casse transforme un texte en majuscules, en minuscules, en « Casse De Titre » ou en casse alternée. C'est utile pour normaliser une liste, corriger un tableur saisi en capitales, ou préparer des données avant un import.</p>
+<p>Attention : la conversion en majuscules supprime les accents dans certaines implémentations (É devient E). En français, les majuscules accentuées sont correctes et recommandées : « ÉCOLE » est préférable à « ECOLE ».</p>
+<h2>Les règles typographiques françaises</h2>
+<p>On met une majuscule au premier mot d'une phrase, aux noms propres, aux titres d'œuvres (seulement au premier mot et aux noms propres dans la typographie française), et aux jours et mois uniquement quand ils désignent une date historique. Les noms de nationalité sont des minuscules : un Français (habitant) mais un roman français.</p>
+<p>Pour un titre, la règle française diffère de l'anglaise : « Le Petit Prince » et non « Le petit prince », mais « L'Étranger » avec majuscule au nom.</p>
+<h2>La casse dans les données</h2>
+<p>Pour comparer des adresses e-mail ou des identifiants, convertis toujours en minuscules : la partie locale d'une adresse est théoriquement sensible à la casse, mais aucun grand fournisseur ne la distingue. Pour un mot de passe, ne touche à rien : la casse fait partie du secret.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Faut-il accentuer les majuscules en français ?</summary><p>Oui. L'Académie française recommande les majuscules accentuées : É, À, Ç. Les claviers anciens ne les proposaient pas, d'où l'habitude inverse, mais les logiciels modernes les gèrent.</p></details>
+<details><summary>Comment mettre un titre en Casse De Titre ?</summary><p>Utilise l'option dédiée du convertisseur. Elle met une majuscule à chaque mot, ce qui convient à l'anglais mais pas aux titres français : vérifie ensuite à la main.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var t=document.getElementById('a').value, mode=document.getElementById('b').value, out;
 if(mode==='u') out=t.toUpperCase();

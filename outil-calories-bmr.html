@@ -10,6 +10,21 @@
 <meta name="keywords" content="calories, métabolisme de base, BMR, TDEE, poids, santé">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calories : besoins journaliers (BMR &amp; TDEE)">
+<meta property="og:description" content="Estime ton métabolisme de base et tes besoins caloriques quotidiens selon ton âge, sexe, poids, taille et activité.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-calories-bmr.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calories : besoins journaliers (BMR &amp; TDEE)">
+<meta name="twitter:description" content="Estime ton métabolisme de base et tes besoins caloriques quotidiens selon ton âge, sexe, poids, taille et activité.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -43,10 +58,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Métabolisme de base et calories : ce que le chiffre signifie</h2>
+<h2>Le métabolisme de base</h2>
+<p>Le métabolisme de base (BMR) est l'énergie que le corps consomme au repos complet pour maintenir ses fonctions vitales : respiration, circulation, température, activité cérébrale. Il représente 60 à 70 % de la dépense énergétique totale chez une personne sédentaire.</p>
+<p>La formule de Harris-Benedict et celle de Mifflin-St Jeor donnent des estimations. Mifflin est généralement plus juste aujourd'hui. Ces formules restent des moyennes : la composition corporelle (masse musculaire, masse grasse) explique une grande part des écarts individuels.</p>
+<h2>Du BMR aux calories de la journée</h2>
+<p>On multiplie le BMR par un coefficient d'activité : 1,2 pour une personne sédentaire, 1,375 pour une activité légère, 1,55 pour modérée, 1,725 pour intense. Ce résultat est la dépense énergétique totale (TDEE), c'est-à-dire ce que tu consommes réellement dans une journée.</p>
+<p>Un déficit de 300 à 500 kcal par jour entraîne une perte de 0,3 à 0,5 kg par semaine. Un déficit plus agressif fait perdre du muscle et se rattrape par une reprise de poids.</p>
+<h2>Les limites</h2>
+<p>Une montre connectée surestime souvent les calories brûlées à l'effort de 20 à 40 %. Manger plus quand on « a brûlé 500 kcal » selon la montre conduit souvent à une stagnation. Le chiffre à retenir est la tendance sur deux à trois semaines, pas la valeur d'une journée.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Faut-il manger autant que son BMR ?</summary><p>Non, le BMR n'est que le repos. Il faut manger selon ta dépense totale, sauf régime encadré médicalement.</p></details>
+<details><summary>Pourquoi les formules donnent-elles des résultats différents ?</summary><p>Parce qu'elles ont été établies sur des populations différentes et ne tiennent pas compte de la composition corporelle. Prends la moyenne des deux et ajuste selon tes résultats.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var s=document.getElementById('a').value, a=+document.getElementById('b').value||0, w=+document.getElementById('c').value||0, h=+document.getElementById('d').value||0, act=+document.getElementById('e').value||1.2;
 var bmr = (s==='h')?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;

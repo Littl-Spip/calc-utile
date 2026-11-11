@@ -10,6 +10,21 @@
 <meta name="keywords" content="base64, encode, decode, base 64">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Base64 : encoder ou décoder">
+<meta property="og:description" content="Encode ou décode du texte en Base64, directement dans ton navigateur, sans envoyer la donnée.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-codebase64.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Base64 : encoder ou décoder">
+<meta name="twitter:description" content="Encode ou décode du texte en Base64, directement dans ton navigateur, sans envoyer la donnée.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -36,10 +51,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Base64 : un encodage, pas un chiffrement</h2>
+<h2>Pourquoi Base64 existe</h2>
+<p>Base64 transforme des données binaires (image, fichier, clé) en texte composé de 64 caractères sûrs : A-Z, a-z, 0-9, + et /. C'est nécessaire quand un canal ne transporte que du texte : e-mail, JSON, URL, en-tête HTTP. Une image de 3 octets devient 4 caractères, soit environ 33 % plus volumineux.</p>
+<p>L'encodage sert à transmettre, pas à protéger. N'importe qui peut décoder du Base64 en une seconde : ce n'est pas du chiffrement, et ce n'est pas confidentiel.</p>
+<h2>Les variantes à connaître</h2>
+<p>Le Base64 standard utilise + et /, ce qui pose problème dans une URL : la variante base64url les remplace par - et _, et supprime le remplissage =. Le Base64 MIME ajoute des retours à la ligne tous les 76 caractères pour les e-mails. Un décodeur qui refuse une chaîne contient souvent simplement la mauvaise variante.</p>
+<h2>Erreurs fréquentes</h2>
+<p>Une chaîne Base64 a toujours une longueur multiple de 4 (avec un ou deux = de remplissage). Si ce n'est pas le cas, elle est tronquée. Autre piège : copier une chaîne avec des espaces ou des retours à la ligne ajoutés par un éditeur casse le décodage. Enfin, ne décode jamais du Base64 provenant d'une source inconnue dans un outil qui exécute le contenu : c'est un vecteur classique d'injection.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Base64 est-il sécurisé ?</summary><p>Non. C'est un encodage réversible sans clé. Pour protéger une donnée, il faut du chiffrement (AES, ChaCha20) ou du hachage si l'on veut seulement vérifier une intégrité.</p></details>
+<details><summary>Pourquoi une image en Base64 est-elle plus lourde ?</summary><p>Parce que 3 octets binaires deviennent 4 caractères. Le surcoût est d'environ 33 %, ce qui explique qu'on évite d'inliner de grosses images dans du CSS.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 try{
 var t=document.getElementById('a').value, act=document.getElementById('b').value, out;

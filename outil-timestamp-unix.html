@@ -10,6 +10,21 @@
 <meta name="keywords" content="unix timestamp, epoch, date, convertir">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Timestamp Unix ↔ date (convertir époque en date)">
+<meta property="og:description" content="Convertit un timestamp Unix en date lisible et une date en timestamp Unix. Instantané.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-timestamp-unix.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timestamp Unix ↔ date (convertir époque en date)">
+<meta name="twitter:description" content="Convertit un timestamp Unix en date lisible et une date en timestamp Unix. Instantané.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -37,10 +52,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Timestamp Unix : le temps compté en secondes</h2>
+<h2>Un standard né en 1970</h2>
+<p>Un timestamp Unix (ou epoch time) est le nombre de secondes écoulées depuis le 1er janvier 1970 à 00:00:00 UTC, sans compter les secondes intercalaires. C'est le format de date le plus utilisé en informatique parce qu'il tient dans un entier : facile à stocker, à comparer et à trier.</p>
+<p>Un timestamp de 1 800 000 000 correspond au 15 janvier 2027. Les dates antérieures à 1970 sont négatives, ce qui est parfaitement valide.</p>
+<h2>Secondes ou millisecondes</h2>
+<p>C'est la première source de bug : JavaScript et Java utilisent les millisecondes (13 chiffres), Unix et Python les secondes (10 chiffres). Un timestamp à 13 chiffres divisé par 1 000 donne le bon résultat. À l'inverse, un timestamp à 10 chiffres multiplié par 1 000 évite d'afficher une date en 1970.</p>
+<h2>Le problème de 2038</h2>
+<p>Sur les systèmes 32 bits, un timestamp signé dépasse sa capacité le 19 janvier 2038 à 03:14:07 UTC. Les systèmes 64 bits repoussent la limite à environ 292 milliards d'années. Le passage au 64 bits est donc la seule vraie parade, et il est déjà fait sur la quasi-totalité des serveurs.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Le timestamp dépend-il du fuseau horaire ?</summary><p>Non, il est toujours en UTC. C'est l'affichage qui change selon le fuseau : le même timestamp donne une heure différente à Paris et à Tokyo.</p></details>
+<details><summary>Comment obtenir le timestamp actuel ?</summary><p>En JavaScript : Math.floor(Date.now() / 1000). En Python : int(time.time()). En ligne de commande : date +%s.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var t=+document.getElementById('a').value; var d=new Date(t*1000);
 document.getElementById('out').innerHTML=d.toLocaleString('fr-FR');

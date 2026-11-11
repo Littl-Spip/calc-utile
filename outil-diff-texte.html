@@ -10,6 +10,21 @@
 <meta name="keywords" content="diff texte, comparer, changements, difference">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Comparateur de texte : différences entre deux versions">
+<meta property="og:description" content="Compare deux textes et affiche les lignes ajoutées, supprimées ou modifiées.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-diff-texte.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Comparateur de texte : différences entre deux versions">
+<meta name="twitter:description" content="Compare deux textes et affiche les lignes ajoutées, supprimées ou modifiées.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -36,10 +51,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Comparer deux textes : la méthode du diff</h2>
+<h2>Ce que fait un comparateur de textes</h2>
+<p>Un comparateur (ou « diff ») aligne deux versions d'un texte et signale les ajouts, les suppressions et les modifications. C'est l'outil de base du correcteur, du traducteur, du juriste qui compare deux versions d'un contrat, ou du développeur qui vérifie ce qui a changé entre deux fichiers.</p>
+<p>Le résultat se lit en trois symboles : les lignes en rouge ont disparu, les lignes en vert sont nouvelles, et les lignes sans marque sont identiques. Un bon outil aligne par mots plutôt que par caractères, sinon la moindre virgule déplace tout le reste.</p>
+<h2>Trois usages concrets</h2>
+<p>Relire une nouvelle version d'un document : tu colles l'ancienne et la nouvelle, tu vois immédiatement ce qui a bougé, sans relire 12 pages. Vérifier une traduction : tu compares la version source et la version traduite pour repérer les paragraphes oubliés. Contrôler un contrat : tu vérifies qu'aucune clause n'a été modifiée discrètement entre deux envois.</p>
+<h2>Conseils de lecture</h2>
+<p>Sur un texte long, commence par le nombre de différences : s'il y en a 300, tu n'as probablement pas collé les bonnes versions. Ensuite, lis les blocs de trois lignes ou plus en priorité : ce sont ceux où un paragraphe entier a été remplacé, donc là où le sens a le plus de chances d'avoir changé.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Le comparateur conserve-t-il mes textes ?</summary><p>Non. La comparaison se fait dans ton navigateur : les textes ne sont envoyés à aucun serveur.</p></details>
+<details><summary>Ça marche avec des fichiers Word ou PDF ?</summary><p>Pas directement : il faut copier le texte. Pour deux PDF, l'extraction peut décaler les lignes et produire de fausses différences ; vérifie toujours les passages signalés avant de conclure.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var A=document.getElementById('a').value.split('\n'), B=document.getElementById('b').value.split('\n');
 var set=new Set(B), out='';

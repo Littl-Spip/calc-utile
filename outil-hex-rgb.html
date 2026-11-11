@@ -10,6 +10,21 @@
 <meta name="keywords" content="hex to rgb, conversion couleur, HSL, complementaire">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Convertisseur de couleur Hex ↔ RGB / HSL">
+<meta property="og:description" content="Convertis une couleur hexadécimale (#rrggbb) en RGB et HSL, et visualise-la.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-hex-rgb.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convertisseur de couleur Hex ↔ RGB / HSL">
+<meta name="twitter:description" content="Convertis une couleur hexadécimale (#rrggbb) en RGB et HSL, et visualise-la.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -39,10 +54,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Couleurs hexadécimales et RGB : le même code, deux écritures</h2>
+<h2>Décoder un code couleur</h2>
+<p>Un code hexadécimal comme #2F5BEA se lit en trois paires : 2F pour le rouge, 5B pour le vert, EA pour le bleu. Chaque paire va de 00 à FF, soit 0 à 255 en décimal. #2F5BEA correspond donc à rgb(47, 91, 234). Les codes à trois chiffres (#FFF) sont un raccourci : chaque chiffre est doublé, donc #FFF = #FFFFFF.</p>
+<p>Le canal alpha (transparence) s'ajoute en quatrième paire, ou en quatrième valeur en rgba(). #2F5BEA80 est un bleu à 50 % d'opacité.</p>
+<h2>Choisir une couleur lisible</h2>
+<p>Le contraste entre le texte et le fond est la première cause d'illisibilité. Le standard WCAG demande un ratio d'au moins 4,5:1 pour du texte normal et 3:1 pour du grand texte. Un gris clair sur blanc (#999 sur #FFF) est à 2,8:1 : insuffisant pour du texte courant.</p>
+<p>Pour foncer une couleur sans la salir, réduis la luminosité en HSV plutôt qu'en ajoutant du noir : le résultat reste saturé et cohérent avec la teinte d'origine.</p>
+<h2>Les pièges de la conversion</h2>
+<p>Les couleurs affichées dépendent de l'écran : un même code peut paraître différent sur un écran calibré et sur un téléphone en plein soleil. Et depuis les écrans larges gamut (Display P3), un code sRGB n'est pas interprété de la même façon partout. Pour une charte graphique, fixe tes codes en sRGB et vérifie-les sur au moins deux écrans.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Combien de couleurs existe-t-il en hexadécimal ?</summary><p>16 777 216 (256 × 256 × 256) en RGB 8 bits, sans compter la transparence.</p></details>
+<details><summary>Comment convertir un code hexadécimal en RGB ?</summary><p>Sépare les paires, puis convertis chaque paire d'hexadécimal en décimal. FF = 255, 80 = 128, 00 = 0.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};function hex2rgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(x=>x+x).join('');var n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255];}
 function rgb2hsl(r,g,b){r/=255;g/=255;b/=255;var max=Math.max(r,g,b),min=Math.min(r,g,b),h=0,s=0,l=(max+min)/2;if(max!==min){var d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;}h*=60;}return [Math.round(h),Math.round(s*100),Math.round(l*100)];}
 document.getElementById('calc').addEventListener('click',function(){

@@ -10,6 +10,21 @@
 <meta name="keywords" content="mot de passe securisé, generer, password, securite, entropie">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Générateur de mot de passe sécurisé">
+<meta property="og:description" content="Génère un mot de passe robuste directement dans ton navigateur, sans jamais l'envoyer nulle part. Personnalisable.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-mot-de-passe.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Générateur de mot de passe sécurisé">
+<meta name="twitter:description" content="Génère un mot de passe robuste directement dans ton navigateur, sans jamais l'envoyer nulle part. Personnalisable.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -39,10 +54,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Générer un mot de passe vraiment solide</h2>
+<h2>Ce qui fait la solidité</h2>
+<p>La longueur compte plus que la complexité. Un mot de passe de 16 caractères tirés au hasard résiste à des siècles de force brute ; un mot de passe de 8 caractères avec majuscules et symboles tombe en quelques heures. Chaque caractère supplémentaire multiplie le nombre de combinaisons par la taille de l'alphabet.</p>
+<p>Un générateur doit utiliser une source aléatoire cryptographique (crypto.getRandomValues, secrets en Python), pas Math.random, qui est prévisible.</p>
+<h2>Les règles à oublier</h2>
+<p>Changer son mot de passe tous les 90 jours est aujourd'hui déconseillé : cela pousse à des variantes faibles (Motdepasse1, Motdepasse2). Le NIST recommande un mot de passe long et unique, conservé tant qu'il n'y a pas d'indice de compromission.</p>
+<p>Les substitutions évidentes (a → @, o → 0) n'apportent presque rien : les outils de cassage les testent en premier.</p>
+<h2>La vraie protection : l'unicité</h2>
+<p>Un mot de passe réutilisé est le vrai danger : une fuite sur un site compromet tous les autres. Utilise un gestionnaire de mots de passe et un mot de passe maître long (une phrase de passe de 5 à 6 mots fait très bien l'affaire). Pour les comptes importants, active la double authentification, idéalement avec une application plutôt que par SMS.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Un générateur en ligne est-il sûr ?</summary><p>Celui-ci génère le mot de passe dans ton navigateur : rien n'est transmis. Vérifie toujours ce point avant d'utiliser un générateur quelconque.</p></details>
+<details><summary>Combien de temps pour casser un mot de passe de 16 caractères ?</summary><p>Avec un alphabet de 70 caractères, environ 10^29 combinaisons : hors de portée des moyens actuels, même avec des GPU spécialisés.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var sets={1:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}',2:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',3:'abcdefghijklmnopqrstuvwxyz0123456789',4:'0123456789'};
 var buf=new Uint32Array(256);
 function run(){

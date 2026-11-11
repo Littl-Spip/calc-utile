@@ -8,6 +8,21 @@
 <meta name="description" content="Convertis un montant HT en TTC (ou l'inverse) à tous les taux de TVA : 20 %, 10 %, 5,5 % et 2,1 %. Gratuit et instantané.">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calcul de TVA — convertisseur HT / TTC gratuit">
+<meta property="og:description" content="Convertis un montant HT en TTC (ou l'inverse) à tous les taux de TVA : 20 %, 10 %, 5,5 % et 2,1 %. Gratuit et instantané.">
+<meta property="og:url" content="https://littl-spip.github.io/tva.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calcul de TVA — convertisseur HT / TTC gratuit">
+<meta name="twitter:description" content="Convertis un montant HT en TTC (ou l'inverse) à tous les taux de TVA : 20 %, 10 %, 5,5 % et 2,1 %. Gratuit et instantané.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site">
@@ -66,6 +81,21 @@
 <p>En France, quatre taux coexistent : 20 % (taux normal), 10 % (travaux, restauration, transport), 5,5 % (alimentation, livres, énergie) et 2,1 % (médicaments remboursables, presse). Le calcul HT → TTC se fait en multipliant par (1 + taux).</p>
 <p>Exemple : 1 250 € HT à 20 % donnent 1 500 € TTC. Dans l'autre sens, 1 800 € TTC à 20 % donnent 1 500 € HT, car on divise par 1,20 et non on retire 20 % — l'erreur classique qui fausse les devis de 4 %. À 5,5 %, le diviseur est 1,055.</p>
 <p>Pour un professionnel, la TVA collectée n'est pas un revenu : elle est reversée. Un auto-entrepreneur en franchise de TVA ne la facture pas et ne la déduit pas non plus — le simulateur sert alors surtout à vérifier un prix TTC affiché.</p>
+<!-- data-cms2 -->
+<h2>TVA : les cas où le taux n'est pas celui qu'on croit</h2>
+<h2>Les taux réduits et leurs conditions</h2>
+<p>Le taux de 10 % s'applique aux travaux d'amélioration d'un logement de plus de deux ans, à la restauration à emporter, aux transports de voyageurs et à certains hébergements. Le 5,5 % concerne l'alimentation, les livres, l'énergie et les équipements pour personnes handicapées. Le 2,1 % couvre les médicaments remboursables et la presse.</p>
+<p>Le taux dépend non du produit mais de l'opération : une rénovation énergétique dans un logement ancien relève du 5,5 %, la même rénovation dans un logement neuf du 10 %, et la construction neuve du 20 %.</p>
+<h2>Le piège du calcul inverse</h2>
+<p>Pour passer du TTC au HT, on divise par (1 + taux), on ne retire pas le taux. Retirer 20 % d'un prix TTC de 120 € donne 96 €, alors que le HT correct est 100 €. L'erreur fausse le calcul de marge de 4 %. À 5,5 %, l'écart est plus faible mais réel.</p>
+<p>Pour vérifier rapidement : HT = TTC / 1,2 à 20 %, TTC / 1,1 à 10 %, TTC / 1,055 à 5,5 %.</p>
+<h2>TVA et auto-entrepreneur</h2>
+<p>Un micro-entrepreneur en franchise de TVA ne facture pas de TVA et ne la déduit pas : ses achats sont donc plus chers pour lui. Sous le seuil, la franchise est automatique mais peut être optionnelle ; au-delà, la TVA devient obligatoire dès le premier jour du mois de dépassement.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Comment calculer la TVA sur un prix HT ?</summary><p>TVA = HT × taux. TTC = HT × (1 + taux). À 20 %, multiplie le HT par 1,2.</p></details>
+<details><summary>Pourquoi mon devis de travaux affiche-t-il 10 % et non 20 % ?</summary><p>Parce que les travaux d'amélioration dans un logement achevé depuis plus de deux ans relèvent du taux réduit, sous conditions de facturation.</p></details>
+</div>
 <h2>Questions fréquentes</h2>
     <div class="faq">
       <details><summary>Formule HT → TTC</summary><p>TTC = HT × (1 + taux). Exemple : 100 € HT à 20 % = 120 € TTC.</p></details>
@@ -74,7 +104,7 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — outil de calcul gratuit.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — outil de calcul gratuit.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };

@@ -10,6 +10,21 @@
 <meta name="keywords" content="compteur mots, caracteres, phrases, paragraphes, lecture">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Compteur de mots et caractères (avec espaces)">
+<meta property="og:description" content="Compte les mots, caractères (avec et sans espaces), phrases et paragraphes d'un texte.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-compteur-mots.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compteur de mots et caractères (avec espaces)">
+<meta name="twitter:description" content="Compte les mots, caractères (avec et sans espaces), phrases et paragraphes d'un texte.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -38,10 +53,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Compter les mots : pourquoi le chiffre varie selon l'outil</h2>
+<h2>Ce qui compte comme un mot</h2>
+<p>Un compteur de mots découpe le texte selon des règles : espaces, tirets, apostrophes. « Aujourd'hui » compte pour un mot dans Word, mais pour trois dans un outil qui traite l'apostrophe comme un séparateur. « Porte-monnaie » peut compter pour un ou deux. C'est pourquoi deux compteurs donnent rarement exactement le même résultat.</p>
+<p>Les chiffres, les symboles et les URL sont généralement exclus ou comptés à part. Les outils professionnels (traduction, rédaction) précisent toujours leur méthode, car la facturation en dépend.</p>
+<h2>Combien de mots pour quel usage</h2>
+<p>Un tweet ou un post court : 280 caractères, soit environ 45 mots. Une description meta : 150 à 160 caractères, environ 25 mots. Un article de blog utile : 800 à 1 500 mots. Un guide de fond : 2 000 mots et plus. Une page de vente : 500 à 1 000 mots, mais la structure compte plus que le volume.</p>
+<h2>Densité et lisibilité</h2>
+<p>Le nombre de mots ne dit rien de la qualité. Une page de 2 000 mots mal structurée est moins lue qu'une page de 700 mots bien découpée en sous-titres, listes et exemples. Vérifie surtout la longueur moyenne des phrases (15 à 20 mots) et des paragraphes (3 à 5 lignes).</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Pourquoi le nombre de caractères diffère-t-il du nombre d'octets ?</summary><p>Un caractère accenté occupe deux octets en UTF-8. Un texte de 1 000 caractères accentués peut dépasser 1 100 octets.</p></details>
+<details><summary>Comment compter les mots d'un PDF ?</summary><p>Copie le texte dans le compteur. L'extraction peut perdre les retours à la ligne et fusionner des mots autour des césures.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};function go(){
 var t=document.getElementById('a').value;
 var words=t.trim()?(t.trim().split(/s+/).length):0;

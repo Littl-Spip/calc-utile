@@ -10,6 +10,21 @@
 <meta name="keywords" content="fréquence cardiaque, FC max, zones entraînement, sport">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Fréquence cardiaque max et zones d'entraînement">
+<meta property="og:description" content="Estime ta fréquence cardiaque maximale et tes zones d'entraînement (fat burn, cardio, anaérobie).">
+<meta property="og:url" content="https://littl-spip.github.io/outil-frequencemax.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fréquence cardiaque max et zones d'entraînement">
+<meta name="twitter:description" content="Estime ta fréquence cardiaque maximale et tes zones d'entraînement (fat burn, cardio, anaérobie).">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -39,10 +54,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Fréquence cardiaque maximale : les formules et leurs limites</h2>
+<h2>La formule historique et sa marge d'erreur</h2>
+<p>La formule 220 − âge est la plus connue, et la moins précise : son écart-type est d'environ 10 à 12 battements par minute, ce qui signifie que pour un même âge, la fréquence maximale réelle varie de 20 à 25 battements entre deux personnes. Elle reste utile comme point de départ, pas comme vérité individuelle.</p>
+<p>Des formules plus récentes (Tanaka : 208 − 0,7 × âge ; Gellish) réduisent l'erreur mais ne la suppriment pas. La seule mesure fiable est un test de terrain ou une épreuve d'effort.</p>
+<h2>Les zones d'entraînement</h2>
+<p>Les zones sont définies en pourcentage de la fréquence maximale : 50-60 % pour l'endurance fondamentale, 60-70 % pour le travail aérobie, 70-80 % pour le seuil, 80-90 % pour la VO2max, au-delà pour le sprint. Ces pourcentages sont des repères collectifs : deux coureurs au même âge peuvent avoir des zones décalées de 15 battements.</p>
+<p>Pour un travail précis, utilise la réserve cardiaque (Karvonen) : (FC max − FC repos) × intensité + FC repos. Elle tient compte de ta fréquence de repos, donc de ta forme du moment.</p>
+<h2>Prudence</h2>
+<p>Un calcul de fréquence maximale ne remplace pas un avis médical, surtout après 45 ans, en cas d'antécédent cardiaque ou de reprise après une longue interruption. Les montres connectées surestiment souvent la FC max lors d'efforts courts et la sous-estiment en trail.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Quelle est la meilleure formule ?</summary><p>Aucune n'est exacte pour un individu. Tanaka (208 − 0,7 × âge) est plus juste en moyenne que 220 − âge, mais la mesure réelle reste la référence.</p></details>
+<details><summary>Peut-on dépasser sa fréquence maximale théorique ?</summary><p>Oui, c'est fréquent : la formule est une moyenne. Une valeur mesurée 10 battements au-dessus n'est pas anormale.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var a=+document.getElementById('a').value||30, max=220-a;
 var rng=function(x,y){return Math.round(max*x)+'–'+Math.round(max*y)+' bpm';};

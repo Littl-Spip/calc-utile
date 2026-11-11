@@ -10,6 +10,21 @@
 <meta name="keywords" content="QR code, generer qr, scan, qr code gratuit">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Générateur de QR code (texte, URL, contact)">
+<meta property="og:description" content="Génère un QR code pour un texte ou une URL, téléchargeable en PNG. Gratuit et sans inscription.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-qrcode.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Générateur de QR code (texte, URL, contact)">
+<meta name="twitter:description" content="Génère un QR code pour un texte ou une URL, téléchargeable en PNG. Gratuit et sans inscription.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -35,10 +50,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>QR code : ce qu'il faut savoir avant d'en imprimer un</h2>
+<h2>Comment ça fonctionne</h2>
+<p>Un QR code stocke des données dans une matrice de carrés noirs et blancs. Il contient une redondance (correction d'erreur) qui permet de le lire même partiellement abîmé : de 7 à 30 % selon le niveau choisi. Plus le niveau de correction est élevé, plus le code est dense.</p>
+<p>Un QR code statique contient directement l'URL : il ne peut pas être modifié après impression. Un QR code dynamique passe par un service intermédiaire, ce qui permet de changer la destination, mais dépend d'un tiers qui peut disparaître ou faire payer.</p>
+<h2>Réussir l'impression</h2>
+<p>Prévois une marge blanche (zone de silence) d'au moins quatre modules autour du code : sans elle, beaucoup de lecteurs échouent. Taille minimale : 2 cm pour un scan à 30 cm. Contraste maximal : noir sur blanc, jamais l'inverse, et évite les fonds colorés ou les logos au centre sans test.</p>
+<p>Teste toujours le code imprimé avec deux téléphones différents avant un tirage.</p>
+<h2>Usages et limites</h2>
+<p>Un QR code pour un menu, une carte de visite, un wifi ou un paiement fonctionne bien. Un QR code collé sur un panneau publicitaire avec un lien long devient trop dense et illisible à distance. Et un QR code inconnu collé dans la rue est un vecteur d'arnaque : ne le scanne pas sans savoir où il mène.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Combien de données peut contenir un QR code ?</summary><p>Jusqu'à environ 3 000 caractères en version 40, mais un code aussi dense devient difficile à scanner. Reste sous 300 caractères pour un usage imprimé.</p></details>
+<details><summary>Le QR code expire-t-il ?</summary><p>Un QR statique n'expire jamais. Un QR dynamique dépend du service : si l'abonnement s'arrête, le code cesse de fonctionner.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var txt=encodeURIComponent(document.getElementById('a').value), sz=+document.getElementById('b').value||256;
 var url='https://api.qrserver.com/v1/create-qr-code/?size='+sz+'x'+sz+'&data='+txt;

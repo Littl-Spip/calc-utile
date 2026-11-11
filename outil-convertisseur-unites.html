@@ -10,6 +10,21 @@
 <meta name="keywords" content="convertisseur unités, mètres, pieds, kg, livre, °C, °F">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Convertisseur d'unités (longueur, poids, température, volume)">
+<meta property="og:description" content="Convertis entre toutes les unités courantes : mètres, pieds, kg, lb, °C, °F, litres, gallons, etc.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-convertisseur-unites.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convertisseur d'unités (longueur, poids, température, volume)">
+<meta name="twitter:description" content="Convertis entre toutes les unités courantes : mètres, pieds, kg, lb, °C, °F, litres, gallons, etc.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -36,10 +51,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Convertir des unités sans se tromper</h2>
+<h2>Les trois familles d'unités</h2>
+<p>Les unités de longueur (mm, cm, m, km), de masse (g, kg, tonne) et de volume (ml, cl, l, m³) suivent le système décimal : chaque préfixe vaut un facteur 10, 100 ou 1 000. Les conversions y sont exactes et sans ambiguïté.</p>
+<p>Les unités anglo-saxonnes, elles, ne suivent pas de logique décimale : 1 pouce = 2,54 cm, 1 pied = 12 pouces, 1 mile = 1 609,344 m, 1 livre = 453,592 g, 1 gallon US = 3,785 l (mais 4,546 l pour le gallon impérial). C'est là que se produisent les erreurs.</p>
+<h2>Les pièges concrets</h2>
+<p>Le gallon : un réservoir américain et un réservoir britannique n'ont pas la même contenance. L'once : l'once liquide et l'once de masse sont deux unités différentes. Le « tonne » : la tonne métrique (1 000 kg) et la tonne courte américaine (907 kg) diffèrent de près de 10 %.</p>
+<p>Pour la cuisine, les conversions en volumes sont approximatives : une tasse de farine ne pèse pas la même chose qu'une tasse de sucre. Pèse plutôt qu'utiliser un convertisseur de volume.</p>
+<h2>Les unités scientifiques</h2>
+<p>Les unités composées (m/s, km/h, kWh, N·m) demandent de convertir chaque dimension. 1 m/s = 3,6 km/h. 1 kWh = 3,6 MJ. Un couple en N·m se convertit en kgf·m en divisant par 9,81.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Pourquoi 1 kg ne fait pas exactement 2,2 livres ?</summary><p>1 kg = 2,20462 livres exactement. Arrondir à 2,2 introduit une erreur de 0,2 %, négligeable en cuisine, pas en aéronautique.</p></details>
+<details><summary>Comment convertir des °C en °F ?</summary><p>Multiplie par 9/5 puis ajoute 32. Inversement, soustrais 32 puis multiplie par 5/9.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};var FN={m_km:v=>v/1000,km_m:v=>v*1000,ft_m:v=>v*0.3048,m_ft:v=>v/0.3048,kg_lb:v=>v*2.20462,lb_kg:v=>v/2.20462,l_gal:v=>v/3.78541,gal_l:v=>v*3.78541,c_f:v=>v*9/5+32,f_c:v=>(v-32)*5/9,m2_cm2:v=>v*10000,cm2_m2:v=>v/10000};
 document.getElementById('calc').addEventListener('click',function(){
 var v=+document.getElementById('a').value||0, k=document.getElementById('b').value;

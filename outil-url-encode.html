@@ -10,6 +10,21 @@
 <meta name="keywords" content="url encode, url decode, encodeURIComponent, url escaping">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="URL encode / decode (encodeURIComponent)">
+<meta property="og:description" content="Encode ou décode une URL (espaces, accents, caractères spéciaux) avec encodeURIComponent.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-url-encode.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="URL encode / decode (encodeURIComponent)">
+<meta name="twitter:description" content="Encode ou décode une URL (espaces, accents, caractères spéciaux) avec encodeURIComponent.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -36,10 +51,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Encodage d'URL : pourquoi les accents deviennent %C3%A9</h2>
+<h2>Les caractères interdits dans une URL</h2>
+<p>Une URL ne peut contenir qu'un jeu limité de caractères ASCII : lettres, chiffres et quelques symboles. Tout le reste — espaces, accents, esperluettes, points d'interrogation — doit être encodé en pourcentage : chaque octet est écrit en hexadécimal précédé de %. Le « é » (UTF-8 : C3 A9) devient donc %C3%A9, et l'espace devient %20 ou +.</p>
+<p>Cet encodage s'appelle percent-encoding, ou URL encoding. Il sert autant à construire un lien qu'à lire ce qu'un serveur a réellement reçu.</p>
+<h2>Encoder ou décoder : deux opérations distinctes</h2>
+<p>Encoder sert à construire une URL à partir d'un texte lisible (un terme de recherche, un nom de fichier). Décoder sert à rendre lisible une URL reçue, souvent pour comprendre pourquoi un lien ne fonctionne pas : un espace encodé en + dans un paramètre de requête peut être interprété différemment selon le contexte.</p>
+<p>Attention au double encodage : encoder deux fois %C3%A9 donne %25C3%25A9, et le serveur affichera littéralement « %C3%A9 » au lieu de « é ». C'est l'erreur la plus fréquente quand un lien semble correct mais affiche des caractères bizarres.</p>
+<h2>Quand ne pas encoder</h2>
+<p>N'encode jamais le domaine ni les séparateurs structurels (/ ? & =) : ils doivent rester tels quels. Seules les valeurs des paramètres et les segments de chemin contenant des caractères spéciaux doivent être encodés.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Quelle différence entre %20 et + ?</summary><p>%20 est l'encodage standard de l'espace dans une URL. Le + est une convention du formulaire HTML (application/x-www-form-urlencoded). Les deux fonctionnent dans les paramètres, mais %20 est plus sûr dans le chemin.</p></details>
+<details><summary>Pourquoi mon lien avec un accent ne marche pas ?</summary><p>Parce que le navigateur l'encode automatiquement dans la barre d'adresse, mais pas forcément quand tu le copies depuis un document. Réencode la valeur du paramètre pour obtenir un lien stable.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 try{
 var t=document.getElementById('a').value, a=document.getElementById('b').value, out;

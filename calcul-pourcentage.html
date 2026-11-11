@@ -8,6 +8,21 @@
 <meta name="description" content="Calcule un pourcentage d'un nombre, une augmentation ou une diminution, et la variation entre deux valeurs. Gratuit et instantané.">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calcul de pourcentage — outil gratuit">
+<meta property="og:description" content="Calcule un pourcentage d'un nombre, une augmentation ou une diminution, et la variation entre deux valeurs. Gratuit et instantané.">
+<meta property="og:url" content="https://littl-spip.github.io/calcul-pourcentage.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calcul de pourcentage — outil gratuit">
+<meta name="twitter:description" content="Calcule un pourcentage d'un nombre, une augmentation ou une diminution, et la variation entre deux valeurs. Gratuit et instantané.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -47,10 +62,25 @@
 <p>Trois opérations couvrent presque tous les besoins : calculer un pourcentage d'un nombre (x % de y), retrouver le pourcentage qu'un nombre représente par rapport à un autre, et appliquer une variation (hausse ou baisse en pourcentage).</p>
 <p>Exemple : 18 % de 250 € font 45 €. Et passer de 80 € à 92 € représente une hausse de 15 % — car on divise l'écart (12) par la valeur de départ (80), et non par la valeur d'arrivée.</p>
 <p>Le piège classique des soldes : une baisse de 20 % suivie d'une hausse de 20 % ne ramène pas au prix initial, mais à 96 % de celui-ci. De même, une hausse de 100 % ne peut pas être compensée par une baisse de 100 %.</p>
+<!-- data-cms2 -->
+<h2>Les cas particuliers qui piègent les calculs de pourcentage</h2>
+<h2>Pourcentage de pourcentage</h2>
+<p>Deux réductions successives ne s'additionnent pas. Une baisse de 20 % puis une baisse de 10 % donnent une baisse totale de 28 %, pas de 30 % : on multiplie 0,80 par 0,90 = 0,72. C'est la règle de base des soldes, des remises cumulées et des taux d'intérêt composés.</p>
+<p>L'inverse est vrai pour les hausses : +10 % puis +10 % font +21 %, car 1,10 × 1,10 = 1,21.</p>
+<h2>Points de pourcentage et pourcentage</h2>
+<p>Passer de 10 % à 12 % représente une hausse de 2 points de pourcentage, mais une hausse de 20 % en valeur relative. Les deux formulations sont correctes, mais elles ne racontent pas la même chose. Les journalistes et les politiques confondent souvent les deux, volontairement ou non.</p>
+<p>Un taux d'intérêt qui passe de 2 % à 3 % a augmenté d'un point, mais de 50 % en relatif : c'est cette deuxième lecture qui compte pour un emprunteur.</p>
+<h2>Le retour à la valeur initiale</h2>
+<p>Après une baisse de X %, il faut une hausse de X/(1−X) pour revenir au départ. Après −20 %, il faut +25 %. Après −50 %, il faut +100 %. C'est pourquoi les krachs boursiers sont si difficiles à rattraper, et pourquoi une perte de 90 % exige un gain de 900 %.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Comment calculer une augmentation en pourcentage ?</summary><p>(valeur finale − valeur initiale) / valeur initiale × 100. La division se fait toujours par la valeur de départ.</p></details>
+<details><summary>Comment retrouver un prix avant remise ?</summary><p>Divise le prix remisé par (1 − remise/100). Un article à 80 € après −20 % valait 100 €.</p></details>
+</div>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>Comment calculer une remise ?</summary><p>Multiplie le prix par (1 − remise/100), ou utilise la diminution ci-dessus.</p></details><details><summary>Comment calculer une hausse ?</summary><p>Multiplie par (1 + hausse/100).</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>document.getElementById('calc').addEventListener('click',function(){
   var p=+document.getElementById('pct').value||0, v=+document.getElementById('val').value||0;
   document.getElementById('out').textContent=p+' % de '+v+' = '+(v*p/100);

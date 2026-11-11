@@ -8,6 +8,21 @@
 <meta name="description" content="Calcule ton âge exact en années, mois et jours à partir de ta date de naissance. Gratuit, instantané, sans inscription.">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calcul d'âge — à partir de la date de naissance (gratuit)">
+<meta property="og:description" content="Calcule ton âge exact en années, mois et jours à partir de ta date de naissance. Gratuit, instantané, sans inscription.">
+<meta property="og:url" content="https://littl-spip.github.io/calcul-age.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calcul d'âge — à partir de la date de naissance (gratuit)">
+<meta name="twitter:description" content="Calcule ton âge exact en années, mois et jours à partir de ta date de naissance. Gratuit, instantané, sans inscription.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -39,10 +54,24 @@
 <p>L'âge exact se compte en années, en mois et en jours révolus : on soustrait la date de naissance de la date du jour, puis on « emprunte » des jours et des mois quand la soustraction devient négative, comme en arithmétique classique.</p>
 <p>Exemple : une personne née le 12 mai 1990 a 36 ans et 6 mois au 11 novembre 2026. Le nombre de jours affiché dépend du mois en cours et des années bissextiles traversées.</p>
 <p>L'outil ne gère pas les fuseaux horaires : à cheval sur minuit, un jour d'écart peut apparaître. Pour une démarche administrative (retraite, majorité, permis), c'est la date officielle de naissance qui fait foi, pas un calcul approximatif.</p>
+<!-- data-cms2 -->
+<h2>Âge révolu, âge légal, âge biologique : trois notions différentes</h2>
+<h2>L'âge révolu</h2>
+<p>L'âge révolu est celui qui compte juridiquement : il augmente à chaque anniversaire, pas au 1er janvier. Une personne née le 31 décembre 1990 a 36 ans le 31 décembre 2026, mais 35 ans la veille. C'est cet âge qui détermine la majorité, le droit de vote, l'âge de la retraite et les seuils fiscaux.</p>
+<p>L'âge en mois et en jours n'a pas d'existence légale, mais il est utile en pédiatrie (développement de l'enfant) et pour les concours qui fixent une limite de date.</p>
+<h2>Les seuils qui comptent en France</h2>
+<p>18 ans : majorité, permis de conduire (avec conduite accompagnée dès 15 ans). 25 ans : fin de la plupart des aides aux jeunes et de la couverture santé des parents. 62 à 64 ans : âge légal de départ à la retraite selon la génération et la durée cotisée. 67 ans : âge d'annulation de la décote. Certains concours fixent une limite au 1er janvier de l'année, d'autres à la date de l'épreuve.</p>
+<h2>L'âge biologique</h2>
+<p>L'âge biologique, mesuré par des marqueurs (longueur des télomères, capacité cardio-respiratoire, force musculaire), peut différer de l'âge civil de plusieurs années. Il dépend fortement du mode de vie, et c'est la seule composante sur laquelle on peut agir.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Comment se calcule l'âge exact ?</summary><p>En années, mois et jours révolus : on soustrait la date de naissance de la date du jour, en empruntant des jours et des mois quand la soustraction est négative.</p></details>
+<details><summary>L'âge change-t-il au 1er janvier ?</summary><p>Non. C'est une confusion fréquente liée aux changements d'année scolaire et aux catégories statistiques, qui elles changent au 1er janvier.</p></details>
+</div>
 <h2>Questions fréquentes</h2>
 <div class="faq"><details><summary>Le calcul gère-t-il les mois de durées différentes ?</summary><p>Oui, il compte en jours réels puis convertit en années, mois et jours.</p></details><details><summary>Puis-je calculer à une date passée ?</summary><p>Oui, choisis n'importe quelle date de référence.</p></details></div>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs, ne constituent pas un conseil professionnel.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>document.getElementById('ref').value=new Date().toISOString().slice(0,10);
 document.getElementById('calc').addEventListener('click',function(){
   var n=new Date(document.getElementById('naissance').value);

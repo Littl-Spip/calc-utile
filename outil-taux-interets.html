@@ -10,6 +10,21 @@
 <meta name="keywords" content="crédit, mensualité, intérêts, durée, taux">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Taux d'intérêt : mensualité, intérêts et durée de crédit">
+<meta property="og:description" content="Deux calculs : à partir d'un capital, d'un taux et d'une durée, estime mensualité et coût total ; ou la durée nécessaire.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-taux-interets.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taux d'intérêt : mensualité, intérêts et durée de crédit">
+<meta name="twitter:description" content="Deux calculs : à partir d'un capital, d'un taux et d'une durée, estime mensualité et coût total ; ou la durée nécessaire.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -41,10 +56,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Taux nominal, taux effectif, TAEG : trois taux, trois usages</h2>
+<h2>Le taux nominal</h2>
+<p>Le taux nominal est celui affiché dans l'offre de prêt, avant frais. Il sert à calculer la mensualité. Un taux nominal de 3,5 % sur 20 ans ne signifie pas que tu paies 3,5 % du capital chaque année : comme le capital diminue, les intérêts totaux représentent environ 39 % du capital emprunté sur cette durée.</p>
+<p>Le taux périodique est le taux nominal divisé par le nombre de périodes : 3,5 % / 12 = 0,2917 % par mois. C'est ce taux qu'utilise la formule d'amortissement.</p>
+<h2>Le taux effectif et le TAEG</h2>
+<p>Le TAEG intègre les frais obligatoires : dossier, garantie, assurance si elle est imposée. C'est le seul taux comparable entre deux offres, car il représente le coût réel du crédit. Un prêt à 3,4 % avec 1 500 € de frais peut coûter plus cher qu'un prêt à 3,6 % sans frais.</p>
+<p>Pour un placement, le taux nominal ne dit rien non plus : un livret à 2 % brut rapporte moins si les intérêts sont fiscalisés, et un fonds à 5 % affiché peut avoir des frais de 1,5 %.</p>
+<h2>Taux fixe, variable, révisable</h2>
+<p>Un taux fixe ne bouge jamais. Un taux variable suit un index (Euribor, taux moyen des prêts) et peut monter ou descendre. Un taux révisable est fixe pendant une période puis variable. Depuis 2023, les offres à taux variable sont rares en France, mais elles existent pour les prêts longs.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Quelle différence entre taux d'intérêt et TAEG ?</summary><p>Le taux d'intérêt ne couvre que le coût du capital. Le TAEG ajoute les frais obligatoires et l'assurance imposée : c'est le coût réel annuel du crédit.</p></details>
+<details><summary>Un taux de 3 % sur 20 ans, c'est combien d'intérêts ?</summary><p>Environ 33 % du capital emprunté. Sur 200 000 €, cela représente à peu près 66 000 € d'intérêts, hors assurance et frais.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var C=+document.getElementById('a').value||0, taux=+document.getElementById('b').value||0, n=+document.getElementById('c').value||0;
 if(C<=0||n<=0){alert('Vérifie le montant et la durée.');return;}

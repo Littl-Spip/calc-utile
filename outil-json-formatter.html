@@ -10,6 +10,21 @@
 <meta name="keywords" content="json formatter, pretty print, minify, valider json">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Formatteur JSON : pretty print, minify, validation">
+<meta property="og:description" content="Formate, minifie ou valide du JSON directement dans ton navigateur.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-json-formatter.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Formatteur JSON : pretty print, minify, validation">
+<meta name="twitter:description" content="Formate, minifie ou valide du JSON directement dans ton navigateur.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -36,10 +51,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Formater du JSON : indenter, valider, comprendre</h2>
+<h2>Pourquoi indenter</h2>
+<p>Le JSON est un format d'échange : il n'a pas besoin d'être lisible par un humain, seulement par une machine. Mais dès qu'on doit le corriger ou le lire, un fichier sur une seule ligne devient illisible. L'indentation ajoute des retours à la ligne et des espaces, sans changer la donnée.</p>
+<p>Formater ne modifie pas le contenu : les valeurs, l'ordre des clés et les types restent identiques. C'est une opération sûre, à condition de ne pas laisser un formateur réécrire les nombres (certains arrondissent les décimales).</p>
+<h2>Les erreurs de syntaxe les plus fréquentes</h2>
+<p>Une virgule en trop après le dernier élément, un guillemet simple au lieu de guillemets doubles, une clé non entourée de guillemets, un commentaire (interdit en JSON), une valeur NaN ou undefined (interdites aussi). Le message d'erreur indique souvent la ligne et la position : commence toujours par là.</p>
+<h2>JSON et ses cousins</h2>
+<p>JSON5 autorise les commentaires et les virgules finales, YAML est plus lisible mais plus ambigu, et JSONL stocke un objet par ligne pour les gros volumes. Pour des données tabulaires, le CSV reste plus compact.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Le formateur envoie-t-il mes données quelque part ?</summary><p>Non, le formatage se fait dans ton navigateur. C'est important si le JSON contient des données internes.</p></details>
+<details><summary>Comment minifier du JSON ?</summary><p>Supprime les espaces et retours à la ligne inutiles. La minification réduit la taille de 20 à 40 % sur un JSON indenté, ce qui compte pour une réponse d'API.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 try{
 var obj=JSON.parse(document.getElementById('a').value), act=document.getElementById('b').value, out;

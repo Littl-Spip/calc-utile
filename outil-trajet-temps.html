@@ -10,6 +10,21 @@
 <meta name="keywords" content="temps trajet, distance, vitesse moyenne, pause">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Temps de trajet : distance, vitesse et pause">
+<meta property="og:description" content="Estime la durée d'un trajet selon la distance, la vitesse moyenne et les pauses. Convertit en heures et minutes.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-trajet-temps.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Temps de trajet : distance, vitesse et pause">
+<meta name="twitter:description" content="Estime la durée d'un trajet selon la distance, la vitesse moyenne et les pauses. Convertit en heures et minutes.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -40,10 +55,24 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Calculer un temps de trajet : au-delà de la distance</h2>
+<h2>Distance et durée ne sont pas proportionnelles</h2>
+<p>Un trajet de 100 km peut prendre 1 h sur autoroute et 2 h 30 sur route de montagne. Le calcul fiable part de la vitesse moyenne réelle, pas de la vitesse maximale autorisée. En ville, la moyenne tourne autour de 20 à 25 km/h ; sur autoroute, 110 à 120 km/h en tenant compte des péages et ralentissements.</p>
+<p>Les temps de pause comptent : la réglementation recommande une pause de 15 à 20 minutes toutes les deux heures, ce qui allonge un trajet de 6 heures d'environ 45 minutes.</p>
+<h2>Ce que les calculateurs oublient</h2>
+<p>Le temps de stationnement et de marche jusqu'au lieu exact, les heures de pointe (une traversée de grande ville peut doubler), les travaux saisonniers, les ferry et les frontières. Pour un rendez-vous, prévois toujours une marge de 20 % et vérifie le trafic la veille.</p>
+<h2>Le coût caché du trajet</h2>
+<p>Un trajet quotidien de 45 minutes représente 7 h 30 par semaine, soit presque une journée de travail. Sur un an, c'est près de 350 heures. C'est souvent l'argument décisif dans le choix d'un logement, bien avant le prix au mètre carré.</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Quelle vitesse moyenne utiliser pour un calcul ?</summary><p>Environ 80 km/h sur un trajet mixte route et voie rapide, 110 km/h sur autoroute, 25 km/h en ville. Vérifie avec une application de trafic avant de partir.</p></details>
+<details><summary>Faut-il compter les pauses ?</summary><p>Pour un trajet de plus de deux heures, oui. Elles sont obligatoires pour les conducteurs professionnels et fortement recommandées pour tous.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var d=+document.getElementById('a').value||0,v=+document.getElementById('b').value||1,p=+document.getElementById('c').value||0;
 if(v<=0){alert('Vitesse > 0.');return;}

@@ -10,6 +10,21 @@
 <meta name="keywords" content="jours entre dates, ouvrables, délai, différence dates">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Nombre de jours entre deux dates (ouvrables inclus)">
+<meta property="og:description" content="Calcule le nombre de jours entre deux dates, en jours calendaires et en jours ouvrables. Gratuit et instantané.">
+<meta property="og:url" content="https://littl-spip.github.io/outil-jours-entre-dates.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nombre de jours entre deux dates (ouvrables inclus)">
+<meta name="twitter:description" content="Calcule le nombre de jours entre deux dates, en jours calendaires et en jours ouvrables. Gratuit et instantané.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -39,10 +54,25 @@
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
 
+<!-- data-cms -->
+<h2>Nombre de jours entre deux dates : la méthode exacte</h2>
+<h2>Compter en jours réels</h2>
+<p>Le nombre de jours entre deux dates se compte en jours calendaires réels, sans compter le jour de départ. Du 1er au 31 janvier, il y a 30 jours. Sur une année complète, 365 ou 366 selon la présence d'un 29 février.</p>
+<p>La méthode manuelle la plus sûre : convertir chaque date en numéro de jour depuis une référence (le timestamp, ou le jour julien), puis soustraire. C'est exactement ce que fait un calculateur.</p>
+<h2>Compter en jours ouvrables</h2>
+<p>Pour une durée de travail ou un délai légal, on compte souvent en jours ouvrables (lundi au samedi, hors jours fériés) ou ouvrés (lundi au vendredi). Un mois contient en moyenne 21,7 jours ouvrés, soit environ 217 jours travaillés par an après déduction des congés et fériés.</p>
+<p>Attention aux jours fériés mobiles (Pâques, Pentecôte) et aux particularités locales (Alsace-Moselle, outre-mer) : ils changent le décompte.</p>
+<h2>Les usages</h2>
+<p>Calculer un préavis, une durée de séjour, un âge en jours, un délai de rétractation, ou le nombre de nuits d'un hébergement (attention : une arrivée le 1er et un départ le 3 correspondent à deux nuits, pas trois).</p>
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Le jour de début est-il compté ?</summary><p>En général non : on compte les jours écoulés entre les deux dates. Pour un séjour hôtelier, on compte les nuits, soit la différence entre départ et arrivée.</p></details>
+<details><summary>Combien de jours ouvrés dans une année ?</summary><p>Environ 251 en 2026, hors jours fériés tombant en semaine et hors congés. Le chiffre varie de 249 à 253 selon le calendrier.</p></details>
+</div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('a').value=new Date().toISOString().slice(0,10);
 document.getElementById('calc').addEventListener('click',function(){
 var s=new Date(document.getElementById('a').value), e=new Date(document.getElementById('b').value);
