@@ -44,14 +44,21 @@
     <h1>Simulateur de frais de notaire</h1>
     <p class="lead">Estime les frais d'acquisition d'un logement ancien ou neuf.</p>
 
-    <div class="card">
+    <div class="card calculator-card">
       <div class="grid">
-        <div><label for="prix">Prix d'achat (€)</label><input id="prix" type="number" value="250000"></div>
+        <div><label for="prix">Prix d’achat du bien</label><input id="prix" type="number" inputmode="decimal" min="1" max="10000000" step="1000" value="250000" aria-describedby="prix-help"><span class="field-help" id="prix-help">Prix hors frais d’acquisition.</span></div>
         <div><label for="type">Type de bien</label>
           <select id="type"><option value="ancien">Ancien (7 à 8 %)</option><option value="neuf">Neuf / VEFA (2 à 3 %)</option></select>
         </div>
       </div>
-      <button id="calc">Estimer mes frais de notaire</button>
+      <div class="preset-row" aria-label="Exemples de prix d’achat">
+        <span class="preset-label">Exemples :</span>
+        <button class="preset-chip" type="button" data-preset='{"prix":"200000"}'>200 000 €</button>
+        <button class="preset-chip" type="button" data-preset='{"prix":"300000"}'>300 000 €</button>
+      </div>
+      <p class="small-disclaimer">Estimation indicative : les droits varient selon le département et la situation du bien. Le décompte du notaire fait foi.</p>
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <button class="primary-action" id="calc" type="button">Estimer le budget d’achat</button>
 
       <div class="result" id="res">
         <div class="big" id="tot">— <small>de frais estimés</small></div>
@@ -88,16 +95,18 @@
       <details><summary>Les frais de notaire sont-ils négociables ?</summary><p>Les émoluments sont encadrés par décret et non négociables, mais ils peuvent baisser pour les très gros montants. Les taxes, elles, sont fixes.</p></details>
     </div>
   </div>
-<section class="content-section related-tools" aria-labelledby="exemples-prix"><h2 id="exemples-prix">Exemples selon le prix du bien</h2><p>Le montant estim? d?pend du prix, du type de bien et du d?partement. Compare quelques montants avec les m?mes hypoth?ses, puis utilise le simulateur pour ton projet :</p><ul><li><a href="frais-de-notaire-150000.html">Frais de notaire pour 150 000 ?</a></li><li><a href="frais-de-notaire-200000.html">Frais de notaire pour 200 000 ?</a></li><li><a href="frais-de-notaire-250000.html">Frais de notaire pour 250 000 ?</a></li><li><a href="frais-de-notaire-300000.html">Frais de notaire pour 300 000 ?</a></li><li><a href="frais-de-notaire-400000.html">Frais de notaire pour 400 000 ?</a></li></ul></section>
+<section class="content-section related-tools" aria-labelledby="exemples-prix"><h2 id="exemples-prix">Exemples selon le prix du bien</h2><p>Le montant estimé dépend du prix, du type de bien et du département. Compare quelques montants avec les mêmes hypothèses, puis utilise le simulateur pour ton projet :</p><ul><li><a href="frais-de-notaire-150000.html">Frais de notaire pour 150 000 €</a></li><li><a href="frais-de-notaire-200000.html">Frais de notaire pour 200 000 €</a></li><li><a href="frais-de-notaire-250000.html">Frais de notaire pour 250 000 €</a></li><li><a href="frais-de-notaire-300000.html">Frais de notaire pour 300 000 €</a></li><li><a href="frais-de-notaire-400000.html">Frais de notaire pour 400 000 €</a></li></ul></section>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, le notaire fournira le décompte exact.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, le notaire fournira le décompte exact.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
 document.getElementById('calc').addEventListener('click', function(){
-  var prix=+document.getElementById('prix').value||0, t=document.getElementById('type').value;
-  if(prix<=0){ alert('Renseigne un prix d\'achat.'); return; }
+  var prix=Number(document.getElementById('prix').value), t=document.getElementById('type').value;
+  var error=document.getElementById('calc-error');
+  if(!Number.isFinite(prix)||prix<1||prix>10000000){error.textContent='Saisis un prix compris entre 1 € et 10 000 000 €.';error.hidden=false;return;}
+  error.hidden=true;
   var r;
   if(t==='neuf') r={mut:0.00715, emo:0.00814, csi:0.001, div:0.005};
   else          r={mut:0.058,   emo:0.00814, csi:0.001, div:0.010};
@@ -111,6 +120,7 @@ document.getElementById('calc').addEventListener('click', function(){
   document.getElementById('l5').textContent=eur(tot);
   document.getElementById('l6').textContent=eur(prix+tot);
   document.getElementById('res').classList.add('show');
+  document.getElementById('res').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 </script>
 <script src="counter.js" defer></script>

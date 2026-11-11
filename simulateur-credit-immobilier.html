@@ -44,14 +44,25 @@
     <h1>Simulateur de crédit immobilier</h1>
     <p class="lead">Estime ta mensualité, le coût total de ton crédit et le montant des intérêts.</p>
 
-    <div class="card">
+    <div class="card calculator-card">
       <div class="grid">
-        <div><label for="capital">Montant emprunté (€)</label><input id="capital" type="number" value="200000"></div>
-        <div><label for="taux">Taux annuel (%)</label><input id="taux" type="number" step="0.01" value="3.5"></div>
-        <div><label for="duree">Durée (années)</label><input id="duree" type="number" value="20"></div>
-        <div><label for="assurance">Assurance annuelle (% du capital)</label><input id="assurance" type="number" step="0.01" value="0.34"></div>
+        <div><label for="capital">Montant emprunté</label><input id="capital" type="number" inputmode="decimal" min="1" max="10000000" step="1000" value="200000" aria-describedby="capital-help"><span class="field-help" id="capital-help">Le montant du prêt, hors apport personnel.</span></div>
+        <div><label for="duree">Durée du prêt</label><input id="duree" type="number" inputmode="numeric" min="1" max="40" step="1" value="20" aria-describedby="duree-help"><span class="field-help" id="duree-help">En années, de 1 à 40 ans.</span></div>
+        <div><label for="taux">Taux annuel nominal</label><input id="taux" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.5" aria-describedby="taux-help"><span class="field-help" id="taux-help">Hors frais de dossier et de garantie ; ce n’est pas le TAEG.</span></div>
       </div>
-      <button id="calc">Calculer ma mensualité</button>
+      <div class="preset-row" aria-label="Exemples de prêt">
+        <span class="preset-label">Partir d’un exemple :</span>
+        <button class="preset-chip" type="button" data-preset='{"capital":"150000","taux":"3.5","duree":"20"}'>150 000 € · 20 ans</button>
+        <button class="preset-chip" type="button" data-preset='{"capital":"250000","taux":"3.5","duree":"25"}'>250 000 € · 25 ans</button>
+      </div>
+      <details class="advanced-options">
+        <summary>Ajouter une estimation d’assurance emprunteur</summary>
+        <label for="assurance">Taux annuel d’assurance (% du capital initial)</label>
+        <input id="assurance" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34" aria-describedby="assurance-help">
+        <span class="field-help" id="assurance-help">Par défaut : 0,34 % par an, calculé sur le capital initial. Modifie-le selon ton devis.</span>
+      </details>
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <button class="primary-action" id="calc" type="button">Voir ma mensualité estimée</button>
 
       <div class="result" id="res">
         <div class="big" id="mens">— <small>par mois</small></div>
@@ -64,8 +75,10 @@
           <div class="kv"><span>Coût total du crédit</span><b id="cout">—</b></div>
           <div class="kv"><span>Montant total remboursé</span><b id="total">—</b></div>
         </div>
-        <h3>Tableau d'amortissement (12 premiers mois)</h3>
-        <table><thead><tr><th>Mois</th><th>Intérêts</th><th>Capital</th><th>Restant dû</th></tr></thead><tbody id="tbody"></tbody></table>
+        <h3>Début du tableau d’amortissement</h3>
+        <p class="note">Les 12 premières échéances sont affichées ici. Le tableau complet est disponible plus bas.</p>
+        <table><thead><tr><th>Mois</th><th>Intérêts</th><th>Capital remboursé</th><th>Restant dû</th></tr></thead><tbody id="tbody"></tbody></table>
+        <details class="schedule-full"><summary id="schedule-label">Afficher le tableau complet</summary><table><thead><tr><th>Mois</th><th>Intérêts</th><th>Capital remboursé</th><th>Restant dû</th></tr></thead><tbody id="tbody-full"></tbody></table></details>
       </div>
     </div>
 
@@ -86,21 +99,26 @@
       <details><summary>Le TAEG est-il calculé ?</summary><p>Non, ce simulateur donne une estimation des mensualités et intérêts. Le TAEG inclut les frais de dossier et de garantie, que ta banque t'indiquera dans son offre.</p></details>
     </div>
   </div>
-<section class="content-section related-tools" aria-labelledby="durees-credit"><h2 id="durees-credit">Comparer le cr?dit selon la dur?e</h2><p>La dur?e change ? la fois la mensualit? et le co?t total des int?r?ts. Consulte les exemples d?taill?s puis ajuste les param?tres dans le simulateur :</p><ul><li><a href="credit-immobilier-10-ans.html">Cr?dit immobilier sur 10 ans</a></li><li><a href="credit-immobilier-15-ans.html">Cr?dit immobilier sur 15 ans</a></li><li><a href="credit-immobilier-20-ans.html">Cr?dit immobilier sur 20 ans</a></li><li><a href="credit-immobilier-25-ans.html">Cr?dit immobilier sur 25 ans</a></li></ul></section>
+<section class="content-section related-tools" aria-labelledby="durees-credit"><h2 id="durees-credit">Comparer le crédit selon la durée</h2><p>La durée change à la fois la mensualité et le coût total des intérêts. Consulte les exemples détaillés puis ajuste les paramètres dans le simulateur :</p><ul><li><a href="credit-immobilier-10-ans.html">Crédit immobilier sur 10 ans</a></li><li><a href="credit-immobilier-15-ans.html">Crédit immobilier sur 15 ans</a></li><li><a href="credit-immobilier-20-ans.html">Crédit immobilier sur 20 ans</a></li><li><a href="credit-immobilier-25-ans.html">Crédit immobilier sur 25 ans</a></li></ul></section>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'offre de ta banque.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'offre de ta banque.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
 var eur2 = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
 document.getElementById('calc').addEventListener('click', function(){
-  var C = +document.getElementById('capital').value || 0;
-  var tauxA = +document.getElementById('taux').value || 0;
-  var annees = +document.getElementById('duree').value || 0;
-  var assA = +document.getElementById('assurance').value || 0;
+  var C = Number(document.getElementById('capital').value);
+  var tauxA = Number(document.getElementById('taux').value);
+  var annees = Number(document.getElementById('duree').value);
+  var assA = Number(document.getElementById('assurance').value);
   var n = Math.round(annees*12);
-  if(C<=0 || n<=0){ alert('Renseigne un montant et une durée valides.'); return; }
+  var error = document.getElementById('calc-error');
+  if(!Number.isFinite(C) || C<1 || C>10000000 || !Number.isInteger(annees) || annees<1 || annees>40 || !Number.isFinite(tauxA) || tauxA<0 || tauxA>20 || !Number.isFinite(assA) || assA<0 || assA>5){
+    error.textContent='Vérifie les valeurs : montant de 1 à 10 000 000 €, durée entière de 1 à 40 ans, taux du prêt de 0 à 20 % et assurance de 0 à 5 %.';
+    error.hidden=false; return;
+  }
+  error.hidden=true;
   var i = tauxA/100/12;
   var m = i===0 ? C/n : C*i/(1-Math.pow(1+i,-n));
   var mensAss = C*(assA/100)/12;
@@ -114,15 +132,20 @@ document.getElementById('calc').addEventListener('click', function(){
   document.getElementById('assT').textContent = eur(assTotal);
   document.getElementById('cout').textContent = eur(interets+assTotal);
   document.getElementById('total').textContent = eur(C+interets+assTotal);
-  var solde = C, tb='';
-  for(var k=1;k<=Math.min(12,n);k++){
+  var solde = C, tb='', tbFull='';
+  for(var k=1;k<=n;k++){
     var intr = solde*i;
-    var cap = m - intr;
+    var cap = Math.min(solde, m - intr);
     solde -= cap;
-    tb += '<tr><td>'+k+'</td><td>'+eur2(intr)+'</td><td>'+eur2(cap)+'</td><td>'+eur(Math.max(solde,0))+'</td></tr>';
+    var row='<tr><td>'+k+'</td><td>'+eur2(intr)+'</td><td>'+eur2(cap)+'</td><td>'+eur2(Math.max(solde,0))+'</td></tr>';
+    tbFull += row;
+    if(k<=12) tb += row;
   }
   document.getElementById('tbody').innerHTML = tb;
+  document.getElementById('tbody-full').innerHTML = tbFull;
+  document.getElementById('schedule-label').textContent='Afficher le tableau complet ('+n+' mensualités)';
   document.getElementById('res').classList.add('show');
+  document.getElementById('res').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 </script>
 <script src="counter.js" defer></script>

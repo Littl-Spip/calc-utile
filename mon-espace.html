@@ -47,7 +47,7 @@
         <div class="avatar" id="sp-avatar">C</div>
         <div style="flex:1;min-width:220px">
           <h1 style="margin:0 0 4px;font-size:1.6rem">Bonjour <span id="sp-nom">Toi</span></h1>
-          <p class="lead" style="margin:0">Tes calculs et tes outils favoris, gardés sur cet appareil uniquement.</p>
+          <p class="lead" style="margin:0">Retrouve tes calculs et tes favoris sur cet appareil, sans formulaire ni mot de passe.</p>
         </div>
       </div>
       <div class="grid" style="margin-top:22px">
@@ -57,7 +57,7 @@
         </div>
         <div class="kpi" style="border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff">
           <b id="sp-serie" style="display:block;font-size:1.7rem;color:var(--brand-2)">0</b>
-          <span class="note" style="margin:0">jours d'affilée</span>
+          <span class="note" style="margin:0">jours avec CalcUtile</span>
         </div>
         <div class="kpi" style="border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff">
           <b id="sp-fav" style="display:block;font-size:1.7rem;color:var(--brand-2)">0</b>
@@ -67,15 +67,15 @@
     </section>
 
     <div class="callout green">
-      <div class="t">Un compte sans compte</div>
-      <p>Pas d'inscription, pas de mot de passe, pas de serveur : ton espace vit dans le stockage de ton navigateur. Personne d'autre n'y a accès, et rien n'est envoyé. Si tu vides les données de ton navigateur, l'espace se réinitialise — pense à exporter avant.</p>
+      <div class="t">Ton espace est local à cet appareil</div>
+      <p>Tu peux enregistrer un prénom, tes calculs et tes favoris. Ils restent dans ce navigateur et ne se synchronisent pas avec un autre appareil. Pour créer de vrais comptes synchronisés, il faudra ajouter un service de comptes sécurisé.</p>
     </div>
 
     <div class="card">
       <h2 style="margin-top:0">Ton prénom</h2>
       <label for="sp-prenom">Comment veux-tu être appelé ?</label>
       <input id="sp-prenom" type="text" placeholder="Ton prénom" maxlength="40">
-      <p class="note">Utilisé uniquement pour personnaliser cette page.</p>
+      <div class="profile-setup"><button type="button" id="sp-save-profile">Activer mon espace sur cet appareil</button><span class="note">Ton prénom reste ici.</span></div>
     </div>
 
     <div class="card">
@@ -101,7 +101,7 @@
     </div>
 
 <!-- data-cms -->
-<h2>Pourquoi un espace sans compte</h2>
+      <h2>Un espace personnel simple</h2>
 <h2>Le problème des comptes</h2>
 <p>Un compte classique implique un mot de passe à retenir, une adresse e-mail à confirmer, des données stockées quelque part et, tôt ou tard, une politique de confidentialité à relire. Pour un site de calculateurs, c'est beaucoup de friction pour peu de bénéfice.</p>
 <p>Mon espace prend le problème dans l'autre sens : tout est enregistré dans le stockage local de ton navigateur. Aucune inscription, aucun mot de passe, aucune donnée envoyée. Le confort d'un historique, sans le coût d'un compte.</p>

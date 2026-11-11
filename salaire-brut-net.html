@@ -44,9 +44,9 @@
     <h1>Simulateur : salaire brut en net</h1>
     <p class="lead">Estime ce qu'il te reste chaque mois après cotisations salariales.</p>
 
-    <div class="card">
+    <div class="card calculator-card">
       <div class="grid">
-        <div><label for="brut">Salaire brut mensuel (€)</label><input id="brut" type="number" value="3000"></div>
+        <div><label for="brut">Salaire brut mensuel</label><input id="brut" type="number" inputmode="decimal" min="1" max="100000" step="50" value="3000" aria-describedby="brut-help"><span class="field-help" id="brut-help">Avant cotisations et impôt sur le revenu.</span></div>
         <div><label for="statut">Statut</label>
           <select id="statut"><option value="22">Non-cadre (~22 %)</option><option value="25">Cadre (~25 %)</option><option value="custom">Personnalisé</option></select>
         </div>
@@ -55,7 +55,14 @@
           <select id="temps"><option value="1">Temps plein (100 %)</option><option value="0.8">80 %</option><option value="0.5">50 %</option></select>
         </div>
       </div>
-      <button id="calc">Calculer mon salaire net</button>
+      <div class="preset-row" aria-label="Exemples de salaires">
+        <span class="preset-label">Exemples :</span>
+        <button class="preset-chip" type="button" data-preset='{"brut":"2000"}'>2 000 € brut</button>
+        <button class="preset-chip" type="button" data-preset='{"brut":"3000"}'>3 000 € brut</button>
+      </div>
+      <p class="small-disclaimer">Le statut et le temps de travail sont déjà réglés sur « non-cadre » et « temps plein » ; ouvre les menus pour les modifier.</p>
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <button class="primary-action" id="calc" type="button">Voir mon net estimé</button>
 
       <div class="result" id="res">
         <div class="big" id="net">— <small>net mensuel estimé</small></div>
@@ -85,10 +92,10 @@
       <details><summary>Le net affiché inclut-il l'impôt ?</summary><p>Non. C'est le net avant prélèvement à la source.</p></details>
     </div>
   </div>
-<section class="content-section related-tools" aria-labelledby="exemples-salaires"><h2 id="exemples-salaires">Exemples de salaire brut en net</h2><p>Le r?sultat varie selon le statut et les cotisations. Ces exemples donnent un ordre de grandeur pour diff?rents salaires mensuels ; utilise ensuite le convertisseur avec tes propres param?tres :</p><ul><li><a href="salaire-brut-net-1500.html">1 500 ? brut par mois</a></li><li><a href="salaire-brut-net-2000.html">2 000 ? brut par mois</a></li><li><a href="salaire-brut-net-2500.html">2 500 ? brut par mois</a></li><li><a href="salaire-brut-net-3000.html">3 000 ? brut par mois</a></li><li><a href="salaire-brut-net-3500.html">3 500 ? brut par mois</a></li><li><a href="salaire-brut-net-4000.html">4 000 ? brut par mois</a></li><li><a href="salaire-brut-net-4500.html">4 500 ? brut par mois</a></li></ul></section>
+<section class="content-section related-tools" aria-labelledby="exemples-salaires"><h2 id="exemples-salaires">Exemples de salaire brut en net</h2><p>Le résultat varie selon le statut et les cotisations. Ces exemples donnent un ordre de grandeur pour différents salaires mensuels ; utilise ensuite le convertisseur avec tes propres paramètres :</p><ul><li><a href="salaire-brut-net-1500.html">1 500 € brut par mois</a></li><li><a href="salaire-brut-net-2000.html">2 000 € brut par mois</a></li><li><a href="salaire-brut-net-2500.html">2 500 € brut par mois</a></li><li><a href="salaire-brut-net-3000.html">3 000 € brut par mois</a></li><li><a href="salaire-brut-net-3500.html">3 500 € brut par mois</a></li><li><a href="salaire-brut-net-4000.html">4 000 € brut par mois</a></li><li><a href="salaire-brut-net-4500.html">4 500 € brut par mois</a></li></ul></section>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimatif. Ton bulletin de paie fait foi.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimatif. Ton bulletin de paie fait foi.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
@@ -96,12 +103,14 @@ document.getElementById('statut').addEventListener('change', function(){
   document.getElementById('wraprate').style.display = this.value==='custom' ? '' : 'none';
 });
 document.getElementById('calc').addEventListener('click', function(){
-  var brut=+document.getElementById('brut').value||0;
+  var brut=Number(document.getElementById('brut').value);
   var st=document.getElementById('statut').value;
-  var rate = st==='custom' ? (+document.getElementById('rate').value||0) : +st;
+  var rate = st==='custom' ? Number(document.getElementById('rate').value) : Number(st);
   var temps=+document.getElementById('temps').value;
+  var error=document.getElementById('calc-error');
+  if(!Number.isFinite(brut)||brut<=0||brut>100000||!Number.isFinite(rate)||rate<0||rate>100){error.textContent='Vérifie le salaire (entre 1 et 100 000 €) et le taux de cotisations (entre 0 et 100 %).';error.hidden=false;return;}
+  error.hidden=true;
   brut = brut*temps;
-  if(brut<=0){ alert('Renseigne un salaire brut.'); return; }
   var cot=brut*rate/100;
   var net=brut-cot;
   document.getElementById('net').innerHTML=eur(net)+' <small>net mensuel estimé</small>';
@@ -110,6 +119,7 @@ document.getElementById('calc').addEventListener('click', function(){
   document.getElementById('nm').textContent=eur(net);
   document.getElementById('na').textContent=eur(net*12);
   document.getElementById('res').classList.add('show');
+  document.getElementById('res').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 </script>
 <script src="counter.js" defer></script>

@@ -130,12 +130,31 @@
   }
 
   function start() {
+    bindPresets();
     if (location.pathname.indexOf('mon-espace') !== -1) return; // la page espace gère elle-même
     var o = read();
     markDay(o);
     write(o);
     scan();
     setInterval(scan, 1200);
+  }
+
+  function bindPresets() {
+    document.querySelectorAll('[data-preset]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var values;
+        try { values = JSON.parse(button.getAttribute('data-preset') || '{}'); } catch (e) { return; }
+        Object.keys(values).forEach(function (id) {
+          var field = document.getElementById(id);
+          if (!field) return;
+          field.value = values[id];
+          field.dispatchEvent(new Event('input', { bubbles: true }));
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        var calc = document.getElementById('calc');
+        if (calc) calc.focus();
+      });
+    });
   }
 
   // ---- page Mon espace ----
@@ -202,6 +221,13 @@
         document.getElementById('sp-avatar').textContent = (o.prenom || 'C').charAt(0).toUpperCase();
       });
     }
+    var saveProfile = document.getElementById('sp-save-profile');
+    if (saveProfile) saveProfile.addEventListener('click', function () {
+      var o = read();
+      o.prenom = inp ? inp.value.trim().slice(0, 40) : o.prenom;
+      write(o); renderSpace();
+      toast(o.prenom ? 'Ton espace est enregistré sur cet appareil' : 'Tu peux ajouter ton prénom plus tard');
+    });
     var favBtn = document.getElementById('sp-addfav');
     if (favBtn) {
       favBtn.addEventListener('click', function () {

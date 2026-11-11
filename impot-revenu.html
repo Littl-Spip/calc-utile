@@ -44,17 +44,21 @@
     <h1>Simulateur d'impôt sur le revenu 2026</h1>
     <p class="lead">Barème officiel 2026 (applicable aux revenus de 2025), quotient familial inclus.</p>
 
-    <div class="card">
+    <div class="card calculator-card">
       <div class="grid">
-        <div><label for="revenu">Revenu net imposable du foyer (€/an)</label><input id="revenu" type="number" value="35000"></div>
+        <div><label for="revenu">Revenu net imposable du foyer (par an)</label><input id="revenu" type="number" inputmode="decimal" min="0" max="10000000" step="100" value="35000" aria-describedby="revenu-help"><span class="field-help" id="revenu-help">Montant annuel après déduction des frais professionnels.</span></div>
         <div><label for="situation">Situation</label>
           <select id="situation"><option value="1">Célibataire / divorcé / veuf</option><option value="2">Marié / pacsé</option></select>
         </div>
-        <div><label for="enfants">Enfants à charge</label>
-          <select id="enfants"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select>
-        </div>
+        <div><label for="enfants">Enfants à charge</label><input id="enfants" type="number" inputmode="numeric" min="0" max="20" step="1" value="0" aria-describedby="enfants-help"><span class="field-help" id="enfants-help">De 0 à 20, hors résidence alternée et situations particulières.</span></div>
       </div>
-      <button id="calc">Calculer mon impôt</button>
+      <div class="preset-row" aria-label="Exemples de revenus imposables">
+        <span class="preset-label">Exemples :</span>
+        <button class="preset-chip" type="button" data-preset='{"revenu":"30000","enfants":"0"}'>30 000 € · 1 part</button>
+        <button class="preset-chip" type="button" data-preset='{"revenu":"40000","enfants":"1"}'>40 000 € · 1 enfant</button>
+      </div>
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <button class="primary-action" id="calc" type="button">Estimer mon impôt annuel</button>
 
       <div class="result" id="res">
         <div class="big" id="imp">— <small>d'impôt estimé / an</small></div>
@@ -66,6 +70,7 @@
           <div class="kv"><span>Impôt mensuel estimé</span><b id="mois">—</b></div>
         </div>
         <p class="note">Simulation simplifiée : ni décote, ni plafonnement du quotient familial, ni crédits/réductions d'impôt. Ton avis d'imposition fait foi.</p>
+        <p class="note"><a href="https://simulateur-ir-ifi.impots.gouv.fr/calcul_impot/2026/complet/" target="_blank" rel="noopener">Vérifier avec le simulateur officiel des impôts ↗</a></p>
       </div>
     </div>
 
@@ -90,7 +95,7 @@
     <!-- data-tool-content -->
 <h2>Le barème progressif, expliqué simplement</h2>
 <p>L'impôt sur le revenu se calcule par tranches : chaque fraction du revenu imposable est taxée au taux de sa tranche, jamais au taux global. Le quotient familial divise ensuite le revenu par le nombre de parts du foyer, ce qui adoucit la progressivité.</p>
-<p>Exemple pour une personne seule avec 32 000 € de revenu net imposable : la première tranche (jusqu'à 11 497 €) est à 0 %, la suivante à 11 %, ce qui donne environ 2 255 € d'impôt avant réductions. Avec deux parts (couple avec un enfant), le même revenu supporterait un impôt nettement plus faible.</p>
+<p>Exemple pour une personne seule avec 32 000 € de revenu net imposable : avec le barème 2026 sur les revenus de 2025, l'impôt brut selon le barème progressif est d'environ 2 704 €, avant les effets de la décote, du plafonnement du quotient familial, des crédits et des réductions. Avec deux parts, le résultat diffère ; le simulateur officiel prend en compte davantage de situations.</p>
 <p>Le simulateur ne prend pas en compte les crédits d'impôt, les réductions (dons, emploi à domicile, garde d'enfants), les revenus exceptionnels ni la décote. Il donne l'impôt « brut » avant ces ajustements, à comparer avec ton avis d'imposition.</p>
 <h2>Questions fréquentes</h2>
     <div class="faq">
@@ -100,16 +105,19 @@
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — simulation indicative. Seul l'avis des impôts fait foi.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — simulation indicative. Seul l'avis des impôts fait foi.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
 var EUR2 = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
 var tranches = [[11600,0],[29579,0.11],[84577,0.30],[181917,0.41],[Infinity,0.45]];
 document.getElementById('calc').addEventListener('click', function(){
-  var rev=+document.getElementById('revenu').value||0;
+  var rev=Number(document.getElementById('revenu').value);
   var parts=+document.getElementById('situation').value;
-  var enf=+document.getElementById('enfants').value;
+  var enf=Number(document.getElementById('enfants').value);
+  var error=document.getElementById('calc-error');
+  if(!Number.isFinite(rev)||rev<0||rev>10000000||!Number.isInteger(enf)||enf<0||enf>20){error.textContent='Vérifie le revenu (0 à 10 000 000 €) et le nombre d’enfants (0 à 20).';error.hidden=false;return;}
+  error.hidden=true;
   parts += enf<=2 ? enf*0.5 : 1 + (enf-2)*1;
   var qf = rev/parts;
   var imp=0, tmi=0;
@@ -127,6 +135,7 @@ document.getElementById('calc').addEventListener('click', function(){
   document.getElementById('moy').textContent = moy.toFixed(2)+' %';
   document.getElementById('mois').textContent = EUR2(imp/12);
   document.getElementById('res').classList.add('show');
+  document.getElementById('res').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 </script>
 <script src="counter.js" defer></script>

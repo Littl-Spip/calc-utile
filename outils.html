@@ -49,10 +49,12 @@
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › Boîte à outils</div>
 <span class="badge">📦 50 calculateurs · 100 % gratuit · sans inscription</span>
-<h1>Boîte à outils gratuits</h1>
+<h1>La boîte à outils</h1>
 <p class="lead">Finance, immobilier, santé, dates, conversions, développeurs : tous les calculateurs instantanés, sans inscription, dans ton navigateur.</p>
-<input id="q" class="hub-search" type="search" placeholder="Rechercher un outil… (ex. crédit, IMC, Base64, QR)">
+<label class="sr-only" for="q">Rechercher parmi les calculateurs</label>
+<input id="q" class="hub-search" type="search" aria-label="Rechercher parmi les calculateurs" placeholder="Que veux-tu calculer ? (ex. crédit, IMC, Base64)">
 <div class="chips" id="chips"></div>
+<p id="result-count" class="note" aria-live="polite"></p>
 <div class="toolgrid" id="grid">
 <a class="tcard" href="indemnite-licenciement.html" data-cat="Argent &amp; Immobilier" data-q="indemnite licenciement rupture conventionnelle salaire anciennete calcul indemnisation travail argent immobilier"><div class="ic">&#128188;</div><h3>Indemnit&eacute; de licenciement</h3><p>Estime le minimum l&eacute;gal selon le salaire de r&eacute;f&eacute;rence et l&rsquo;anciennet&eacute;. Les r&egrave;gles conventionnelles peuvent pr&eacute;voir davantage.</p></a>
 <a class="tcard" href="outil-rendement-locatif.html" data-cat="Argent &amp; Immobilier" data-q="rendement locatif brut et net calcule le rendement locatif brut et net d'un bien selon le loyer, les charges et le prix d'achat. gratuit et instantané. argent &amp; immobilier"><div class="ic">🏠</div><h3>Rendement locatif brut et net</h3><p>Calcule le rendement locatif brut et net d'un bien selon le loyer, les charges et le prix d'achat. Gratuit et instantané.</p></a>
@@ -125,20 +127,23 @@ var TOOLS=[{"slug":"rendement-locatif","title":"Rendement locatif brut et net","
 var active='Tous';
 var chips=document.getElementById('chips');
 function renderChips(){ var cats=['Tous',...new Set(TOOLS.map(t=>t.cat))];
- chips.innerHTML=cats.map(function(c){return '<button class="chip'+(c===active?' active':'')+'" data-c="'+c+'">'+c+' ('+(c==='Tous'?TOOLS.length:TOOLS.filter(t=>t.cat===c).length)+')'+'</button>';}).join('');
+ chips.innerHTML=cats.map(function(c){return '<button type="button" class="chip'+(c===active?' active':'')+'" aria-pressed="'+(c===active)+'" data-c="'+c+'">'+c+' ('+(c==='Tous'?TOOLS.length:TOOLS.filter(t=>t.cat===c).length)+')'+'</button>';}).join('');
  document.querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){active=b.dataset.c;renderChips();renderGrid();});});
 }
+function normalizeText(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();}
 function renderGrid(){
- var q=document.getElementById('q').value.toLowerCase().trim();
+ var q=normalizeText(document.getElementById('q').value);
  var n=0;
  document.querySelectorAll('#grid .tcard').forEach(function(el){
    var okCat=active==='Tous'||el.dataset.cat===active;
-   var okQ=!q||el.dataset.q.indexOf(q)>-1;
+   var searchable=normalizeText((el.dataset.q||'')+' '+el.innerText);
+   var okQ=!q||searchable.indexOf(q)>-1;
    var show=okCat&&okQ;
    el.style.display=show?'':'none';
    if(show)n++;
  });
  document.getElementById('empty').style.display=n?'none':'block';
+ document.getElementById('result-count').textContent=n+' outil'+(n>1?'s':'')+' affiché'+(n>1?'s':'');
 }
 document.getElementById('q').addEventListener('input',renderGrid);
 renderChips(); renderGrid();
