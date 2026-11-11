@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/indemnite-licenciement.html">
+<title>Indemnité de licenciement : calcul 2026 (formule légale, rupture conventionnelle)</title>
+<meta name="description" content="Calcule ton indemnité légale de licenciement ou de rupture conventionnelle : 1/4 de mois par année jusqu'à 10 ans, 1/3 au-delà. Gratuit, instantané, sans inscription.">
+<meta name="keywords" content="indemnité licenciement, calcul indemnité, rupture conventionnelle, solde de tout compte, ancienneté">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Calculateur d'indemnité de licenciement","applicationCategory":"BusinessApplication","operatingSystem":"Toutes","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"fr"}
+</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+</head>
+<body>
+<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav></div></header>
+
+<main><div class="wrap">
+<div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Indemnité de licenciement</div>
+<span class="badge">💼 Travail & salaire</span>
+<h1>Indemnité de licenciement : le calcul exact</h1>
+<p class="lead">L'indemnité légale suit une formule simple mais souvent mal appliquée : un quart de mois par année jusqu'à dix ans, un tiers au-delà. Renseigne ton salaire de référence et ton ancienneté.</p>
+
+<div class="card">
+<div class="grid">
+<div><label for="sal">Salaire brut mensuel de référence (€)</label><input id="sal" type="number" value="2500" min="0" step="50"></div>
+<div><label for="ans">Ancienneté : années</label><input id="ans" type="number" value="7" min="0" max="50"></div>
+<div><label for="mois">Ancienneté : mois en plus</label><input id="mois" type="number" value="6" min="0" max="11"></div>
+<div><label for="type">Motif de rupture</label>
+<select id="type">
+<option value="lic">Licenciement (hors faute grave)</option>
+<option value="rc">Rupture conventionnelle</option>
+<option value="inapt">Inaptitude d'origine non professionnelle</option>
+</select></div>
+</div>
+<button id="calc">Calculer mon indemnité</button>
+<div class="result" id="res">
+<div class="big" id="out">—</div>
+<div class="kv"><span>Ancienneté retenue</span><b id="k1">—</b></div>
+<div class="kv"><span>Part jusqu'à 10 ans (1/4 de mois)</span><b id="k2">—</b></div>
+<div class="kv"><span>Part au-delà de 10 ans (1/3 de mois)</span><b id="k3">—</b></div>
+<div class="kv"><span>Équivalent en mois de salaire</span><b id="k4">—</b></div>
+<div><span id="msg"></span></div>
+</div>
+</div>
+
+<div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+
+<h2>La formule légale, en clair</h2>
+<p>L'indemnité légale de licenciement se calcule sur le <strong>salaire de référence</strong> et l'<strong>ancienneté</strong> :</p>
+<ul>
+<li><strong>1/4 de mois de salaire</strong> par année d'ancienneté pour les années jusqu'à 10 ans ;</li>
+<li><strong>1/3 de mois de salaire</strong> par année au-delà de 10 ans ;</li>
+<li>les mois incomplets comptent <strong>au prorata</strong> (un mois = 1/12 d'année).</li>
+</ul>
+<p>Exemple : 2 500 € de salaire de référence et 7 ans et 6 mois d'ancienneté donnent 2 500 × 1/4 × 7,5 = <strong>4 687,50 €</strong>. À 12 ans d'ancienneté, le calcul devient 2 500 × 1/4 × 10 + 2 500 × 1/3 × 2 = 6 250 + 1 666,67 = <strong>7 916,67 €</strong>.</p>
+
+<h2>Quel salaire de référence retenir ?</h2>
+<p>Le salaire de référence est le <strong>plus favorable</strong> des deux montants suivants :</p>
+<ol>
+<li>la moyenne des <strong>douze derniers mois</strong> de salaire brut (primes incluses, y compris les primes annuelles) ;</li>
+<li>le <strong>tiers des trois derniers mois</strong> de salaire brut — cette méthode est avantageuse quand une prime importante a été versée récemment.</li>
+</ol>
+<p>Les heures supplémentaires, les primes de rendement et les avantages en nature y entrent. Les frais professionnels remboursés au réel et les sommes versées au titre de l'intéressement ou de la participation n'y entrent pas de la même manière : en cas de doute, fais vérifier le calcul par un représentant du personnel ou un conseiller.</p>
+<p class="note">Sources officielles : <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035644692/2026-05-17" rel="noopener noreferrer">article R. 1234-2 du Code du travail</a> et <a href="https://www.service-public.fr/particuliers/vosdroits/F987" rel="noopener noreferrer">fiche Service-Public sur l'indemnité de licenciement</a>. Le calcul ci-dessus estime le minimum légal, sans convention collective ni situation particulière.</p>
+
+<div class="callout">
+  <div class="t">La condition d'ancienneté</div>
+  <p>L'indemnité légale n'est due qu'à partir de <strong>8 mois d'ancienneté</strong> dans l'entreprise (pour un CDI). En dessous, aucune indemnité légale n'est exigible — sauf disposition conventionnelle plus favorable.</p>
+</div>
+
+<h2>Ce que l'indemnité légale ne couvre pas</h2>
+<p>L'indemnité de licenciement est distincte des autres sommes du solde de tout compte. Il faut y ajouter :</p>
+<ul>
+<li><strong>l'indemnité compensatrice de préavis</strong> si le préavis n'est pas effectué ;</li>
+<li><strong>l'indemnité compensatrice de congés payés</strong> pour les jours acquis non pris ;</li>
+<li>les <strong>primes et variables</strong> dues au prorata ;</li>
+<li>éventuellement une <strong>indemnité conventionnelle</strong> ou transactionnelle, souvent supérieure au minimum légal.</li>
+</ul>
+
+<h2>Licenciement, rupture conventionnelle, inaptitude</h2>
+<p>La <strong>rupture conventionnelle</strong> ouvre droit à la même indemnité légale minimale, mais elle est négociable : rien n'interdit de fixer un montant plus élevé dans la convention. L'<strong>inaptitude d'origine non professionnelle</strong> suit également le régime de l'indemnité légale, avec des règles spécifiques sur le reclassement.</p>
+<p>En revanche, un licenciement pour <strong>faute grave ou lourde</strong> prive du droit à l'indemnité légale. C'est la qualification de la faute, et non la décision de l'employeur, qui détermine ce droit : en cas de contestation, ce sont les prud'hommes qui tranchent.</p>
+
+<h2>Fiscalité et cotisations</h2>
+<p>L'indemnité de licenciement est en principe <strong>exonérée d'impôt sur le revenu</strong> dans la limite du montant prévu par la loi ou la convention collective, et de plusieurs plafonds (notamment 2 PASS pour la part exonérée de cotisations, avec des règles spécifiques pour la CSG/CRDS). Au-delà, la fraction excédentaire est imposable. Le montant exact dépend de ton profil : utilise le simulateur officiel de l'administration pour la partie fiscale.</p>
+
+<h2>Questions fréquentes</h2>
+<div class="faq">
+<details><summary>Les années incomplètes sont-elles comptées ?</summary><p>Oui. L'ancienneté se calcule en années et en mois, et les mois incomplets sont convertis en fraction d'année. Un salarié avec 9 ans et 4 mois compte 9,33 années.</p></details>
+<details><summary>L'indemnité est-elle due en cas de démission ?</summary><p>Non, sauf dispositions conventionnelles particulières (par exemple départ à la retraite dans certains cas). La démission n'ouvre pas droit à l'indemnité légale de licenciement.</p></details>
+<details><summary>Peut-on obtenir plus que le minimum légal ?</summary><p>Oui. Une convention collective, un accord d'entreprise ou une négociation transactionnelle peut prévoir un montant supérieur. Le calcul présenté ici donne le plancher légal.</p></details>
+<details><summary>Le temps partiel est-il pris en compte ?</summary><p>Oui, avec le salaire à temps partiel réellement perçu. L'ancienneté est identique à celle d'un temps plein, mais l'indemnité est proportionnelle au salaire.</p></details>
+<details><summary>Faut-il un avocat pour vérifier le calcul ?</summary><p>Pas nécessairement. Compare le montant annoncé par l'employeur avec ce calculateur, et demande le détail du calcul par écrit. En cas d'écart important, un conseiller du salarié ou un avocat en droit du travail peut intervenir, souvent lors d'un rendez-vous gratuit.</p></details>
+</div>
+
+<h2>Autres outils utiles</h2>
+<p><a href="salaire-brut-net.html">Salaire brut en net</a> · <a href="guide-salaire-brut-net.html">Guide : où part chaque euro</a> · <a href="outil-salaire-horaire.html">Salaire horaire</a> · <a href="outils.html">Tous les calculateurs →</a></p>
+</div></main>
+
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Rien n'est envoyé ni stocké.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<script>
+var eur = function (n) { return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 }).format(n); };
+function calc() {
+  var sal = +document.getElementById('sal').value || 0;
+  var ans = +document.getElementById('ans').value || 0;
+  var mois = +document.getElementById('mois').value || 0;
+  var type = document.getElementById('type').value;
+  var out = document.getElementById('out');
+  var msg = document.getElementById('msg');
+  if (sal <= 0) { out.textContent = '—'; msg.textContent = 'Renseigne un salaire de référence.'; return; }
+  var n = ans + mois / 12;
+  document.getElementById('k1').textContent = ans + ' an' + (ans > 1 ? 's' : '') + (mois ? ' et ' + mois + ' mois' : '') + ' (' + n.toFixed(2).replace('.', ',') + ' ans)';
+  if (type !== 'rc' && n < 8 / 12) {
+    out.textContent = '0 €';
+    document.getElementById('k2').textContent = '—';
+    document.getElementById('k3').textContent = '—';
+    document.getElementById('k4').textContent = '—';
+    msg.textContent = "Ancienneté inférieure à 8 mois : pas d'indemnité légale, sauf accord conventionnel plus favorable.";
+    return;
+  }
+  var a1 = Math.min(n, 10), a2 = Math.max(0, n - 10);
+  var p1 = sal / 4 * a1, p2 = sal / 3 * a2, tot = p1 + p2;
+  out.textContent = eur(tot);
+  document.getElementById('k2').textContent = eur(p1);
+  document.getElementById('k3').textContent = a2 > 0 ? eur(p2) : '—';
+  document.getElementById('k4').textContent = (tot / sal).toFixed(2).replace('.', ',') + ' mois';
+  msg.textContent = type === 'rc'
+    ? 'Montant légal minimum : la rupture conventionnelle peut prévoir davantage, c\'est un point de négociation.'
+    : "Minimum légal hors faute grave ou lourde. Vérifie ta convention collective : elle peut prévoir plus.";
+}
+document.getElementById('calc').addEventListener('click', calc);
+['sal', 'ans', 'mois', 'type'].forEach(function (id) { document.getElementById(id).addEventListener('change', calc); });
+calc();
+</script>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -91,11 +91,13 @@
 
     <div class="card">
       <h2 style="margin-top:0">Sauvegarde</h2>
-      <p class="note" style="margin-bottom:6px">Exporte tes données pour les conserver ou les transférer sur un autre appareil.</p>
+      <p class="note" style="margin-bottom:6px">Exporte tes donn&#233;es pour les conserver ou les transf&#233;rer sur un autre appareil. L&#39;import remplace les donn&#233;es actuellement enregistr&#233;es sur cet appareil.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button type="button" id="sp-export" style="width:auto;flex:1;min-width:180px">Exporter mes données</button>
+        <button type="button" id="sp-import" style="width:auto;flex:1;min-width:180px;background:#fff;color:var(--brand-2);border:1px solid var(--line);box-shadow:none">Importer une sauvegarde</button>
         <button type="button" id="sp-clear" style="width:auto;flex:1;min-width:180px;background:#fff;color:#b42318;border:1px solid #f3c9c4;box-shadow:none">Effacer l'historique</button>
       </div>
+      <input id="sp-import-file" type="file" accept="application/json,.json" hidden>
     </div>
 
 <!-- data-cms -->
@@ -106,11 +108,11 @@
 <h2>Ce que tu peux y faire</h2>
 <p>Enregistrer un résultat depuis n'importe quel calculateur, retrouver l'historique de tes calculs avec leur date, mettre des outils en favori, suivre une série de jours d'utilisation, exporter tes données en JSON et les effacer d'un clic. Le prénom saisi sert uniquement à personnaliser l'affichage.</p>
 <h2>Les limites, dites franchement</h2>
-<p>Les données restent sur un seul appareil et un seul navigateur : elles ne se synchronisent pas entre ton téléphone et ton ordinateur. Vider les données de navigation efface l'espace. Et si tu utilises plusieurs navigateurs, chacun a son propre historique. L'export JSON permet de sauvegarder ou de transférer, mais il n'existe aucune récupération automatique.</p>
+<p>Les donn&#233;es restent sur un seul appareil et un seul navigateur : elles ne se synchronisent pas entre ton t&#233;l&#233;phone et ton ordinateur. Vider les donn&#233;es de navigation efface l&#39;espace. Tu peux exporter un fichier JSON puis le r&#233;importer sur un autre appareil ; l&#39;import remplace l&#39;espace de cet appareil.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq">
-<details><summary>Où sont stockées mes données ?</summary><p>Dans le localStorage de ton navigateur, sur ton appareil. Elles ne sont transmises à aucun serveur ni à aucun tiers.</p></details>
-<details><summary>Que se passe-t-il si je change d'appareil ?</summary><p>L'espace est vide sur le nouvel appareil. Exporte tes données avant, puis réimporte-les si tu souhaites les retrouver.</p></details>
+<details><summary>Où sont stockées mes données ?</summary><p>Dans le localStorage de ton navigateur, sur ton appareil. Les donn&#233;es de Mon espace ne sont pas envoy&#233;es &#224; un serveur.</p></details>
+<details><summary>Que se passe-t-il si je change d'appareil ?</summary><p>Exporte tes donn&#233;es en JSON, ouvre CalcUtile sur l&#39;autre appareil et importe le fichier. L&#39;import remplace les donn&#233;es qui s&#39;y trouvent d&#233;j&#224;.</p></details>
 </div>
     <div class="cta-box">
       <div><strong>Reprendre un calcul</strong><p>Plus de 50 outils gratuits, classés par thème.</p></div>
@@ -122,7 +124,7 @@
 <footer class="site">
   <div class="wrap">
     <p>CalcUtile — outils de calcul gratuits. Résultats indicatifs, ne constituent pas un conseil financier.</p>
-    <p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p>
+    <p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p>
   </div>
 </footer>
 <script src="counter.js" defer></script>

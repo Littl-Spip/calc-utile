@@ -25,7 +25,11 @@
     try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
   }
 
-  function today() { return new Date().toISOString().slice(0, 10); }
+  function dateKey(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  function today() { return dateKey(new Date()); }
 
   function markDay(o) {
     var d = today();
@@ -38,7 +42,7 @@
     for (i = 0; i < o.jours.length; i++) set[o.jours[i]] = 1;
     var n = 0, d = new Date();
     for (i = 0; i < 400; i++) {
-      var k = d.toISOString().slice(0, 10);
+      var k = dateKey(d);
       if (!set[k]) {
         if (n === 0) { d.setDate(d.getDate() - 1); continue; } // aujourd'hui pas encore compté
         break;
@@ -127,7 +131,9 @@
 
   function start() {
     if (location.pathname.indexOf('mon-espace') !== -1) return; // la page espace gère elle-même
-    markDay(read());
+    var o = read();
+    markDay(o);
+    write(o);
     scan();
     setInterval(scan, 1200);
   }
@@ -217,6 +223,36 @@
       a.href = URL.createObjectURL(blob);
       a.download = 'calc-utile-espace.json';
       a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+    var importBtn = document.getElementById('sp-import');
+    var importFile = document.getElementById('sp-import-file');
+    if (importBtn && importFile) importBtn.addEventListener('click', function () { importFile.click(); });
+    if (importFile) importFile.addEventListener('change', function () {
+      var file = importFile.files && importFile.files[0];
+      importFile.value = '';
+      if (!file) return;
+      if (file.size > 1024 * 1024) { toast('Fichier trop volumineux (maximum 1 Mo)'); return; }
+      var reader = new FileReader();
+      reader.onload = function () {
+        try {
+          var data = JSON.parse(String(reader.result || ''));
+          if (!data || typeof data !== 'object' || Array.isArray(data) || !Array.isArray(data.histo) || !Array.isArray(data.fav) || !Array.isArray(data.jours)) throw new Error('format');
+          var safe = {
+            prenom: typeof data.prenom === 'string' ? data.prenom.slice(0, 40) : '',
+            histo: data.histo.filter(function (h) { return h && typeof h === 'object' && typeof h.texte === 'string' && typeof h.page === 'string' && typeof h.url === 'string' && /^[a-z0-9-]+\.html$/i.test(h.url) && Number.isFinite(Number(h.quand)); }).slice(0, MAX).map(function (h) { return { page: h.page.slice(0, 120), url: h.url, texte: h.texte.slice(0, 400), quand: Number(h.quand) }; }),
+            fav: data.fav.filter(function (f) { return f && typeof f.titre === 'string' && typeof f.url === 'string' && /^[a-z0-9-]+\.html$/i.test(f.url); }).slice(0, 100).map(function (f) { return { titre: f.titre.slice(0, 120), url: f.url }; }),
+            jours: data.jours.filter(function (d) { return typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d); }).slice(-400),
+            cree: Number.isFinite(Number(data.cree)) ? Number(data.cree) : Date.now()
+          };
+          if (!confirm('Remplacer les données de Mon espace par celles du fichier ?')) return;
+          write(safe); renderSpace();
+          if (inp) inp.value = safe.prenom;
+          toast('Données importées sur cet appareil');
+        } catch (e) { toast('Fichier invalide : choisis un export CalcUtile'); }
+      };
+      reader.onerror = function () { toast('Impossible de lire ce fichier'); };
+      reader.readAsText(file);
     });
     var clr = document.getElementById('sp-clear');
     if (clr) clr.addEventListener('click', function () {
