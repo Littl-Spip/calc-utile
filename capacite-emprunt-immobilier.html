@@ -44,69 +44,90 @@
     <h1>Capacité d'emprunt immobilier</h1>
     <p class="lead">Découvre combien tu peux emprunter selon tes revenus et ton taux d'endettement.</p>
 
-    <div class="card">
+    <div class="card calculator-card">
       <div class="grid">
-        <div><label for="revenus">Revenus nets mensuels du foyer (€)</label><input id="revenus" type="number" value="3500"></div>
-        <div><label for="charges">Charges de crédit mensuelles (€)</label><input id="charges" type="number" value="0"></div>
-        <div><label for="endettement">Taux d'endettement max (%)</label><input id="endettement" type="number" step="0.5" value="35"></div>
-        <div><label for="taux">Taux annuel du crédit (%)</label><input id="taux" type="number" step="0.01" value="3.5"></div>
-        <div><label for="duree">Durée (années)</label><input id="duree" type="number" value="20"></div>
-        <div><label for="apport">Apport personnel (€)</label><input id="apport" type="number" value="30000"></div>
+        <div><label for="revenus">Revenus mensuels nets avant impôt (€)</label><input id="revenus" type="number" inputmode="decimal" min="1" max="1000000" step="100" value="3500" aria-describedby="revenus-help"><span class="field-help" id="revenus-help">Pour l'ensemble du foyer emprunteur.</span></div>
+        <div><label for="charges">Crédits déjà en cours (€ / mois)</label><input id="charges" type="number" inputmode="decimal" min="0" max="1000000" step="50" value="0" aria-describedby="charges-help"><span class="field-help" id="charges-help">Mensualités existantes, assurance comprise.</span></div>
+        <div><label for="taux">Taux annuel du prêt (%)</label><input id="taux" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.5" aria-describedby="taux-help"><span class="field-help" id="taux-help">Taux nominal estimé, hors frais.</span></div>
+        <div><label for="duree">Durée du prêt (années)</label><input id="duree" type="number" inputmode="numeric" min="1" max="35" step="1" value="20"></div>
       </div>
-      <button id="calc">Calculer ma capacité d'emprunt</button>
-
-      <div class="result" id="res">
-        <div class="big" id="cap">— <small>de financement possible</small></div>
-        <div style="margin-top:12px">
-          <div class="kv"><span>Mensualité maximale</span><b id="mens">—</b></div>
-          <div class="kv"><span>Capital empruntable</span><b id="capK">—</b></div>
-          <div class="kv"><span>Apport</span><b id="app">—</b></div>
-          <div class="kv"><span>Budget total du projet</span><b id="budget">—</b></div>
+      <div class="preset-row" aria-label="Exemples de foyer">
+        <span class="preset-label">Essayer un exemple :</span>
+        <button class="preset-chip" type="button" data-income="2500" data-debts="0">2 500 € / mois</button>
+        <button class="preset-chip" type="button" data-income="4200" data-debts="300">4 200 € + 300 € de crédit</button>
+      </div>
+      <details class="advanced-options">
+        <summary>Ajouter l'apport et ajuster les hypothèses</summary>
+        <div class="grid">
+          <div><label for="endettement">Taux d'effort utilisé (%)</label><input id="endettement" type="number" inputmode="decimal" min="1" max="100" step="0.5" value="35" aria-describedby="endettement-help"><span class="field-help" id="endettement-help">35 % est le plafond de référence, assurance comprise.</span></div>
+          <div><label for="assurance">Assurance estimée (% / an)</label><input id="assurance" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34" aria-describedby="assurance-help"><span class="field-help" id="assurance-help">Hypothèse modifiable, calculée sur le capital initial.</span></div>
+          <div><label for="apport">Apport mobilisable (€)</label><input id="apport" type="number" inputmode="decimal" min="0" max="10000000" step="1000" value="30000"></div>
         </div>
+      </details>
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <button class="primary-action" id="calc" type="button">Voir mon estimation</button>
+
+      <div class="result" id="res" aria-live="polite">
+        <div class="big" id="cap">— <small>de capital estimé</small></div>
+        <div style="margin-top:12px">
+          <div class="kv"><span>Mensualité disponible, assurance comprise</span><b id="mens">—</b></div>
+          <div class="kv"><span>Prêt estimé, hors assurance</span><b id="loan-pay">—</b></div>
+          <div class="kv"><span>Assurance estimée</span><b id="insurance-pay">—</b></div>
+          <div class="kv"><span>Apport indiqué</span><b id="app">—</b></div>
+          <div class="kv"><span>Budget avant frais d'achat</span><b id="budget">—</b></div>
+        </div>
+        <p class="note">Le budget n'inclut pas les frais de notaire, de garantie ni de dossier.</p>
       </div>
     </div>
 
     <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
 
-    <h2>Comment fonctionne la capacité d'emprunt ?</h2>
-    <p>Les banques appliquent en général un taux d'endettement maximum de 35 % des revenus nets, assurance comprise. On part donc de la mensualité maximale admissible, puis on la convertit en capital grâce à la formule inverse du crédit : <em>C = M × (1 − (1 + i)<sup>−n</sup>) / i</em>. L'apport s'ajoute pour obtenir le budget total du projet.</p>
-
-    <!-- data-tool-content -->
-<h2>Comment se calcule la capacité d'emprunt</h2>
-<p>La règle appliquée par les banques françaises plafonne le taux d'endettement à 35 % des revenus nets, assurance comprise. On part donc du revenu net mensuel du foyer, on retire les crédits en cours (auto, conso, revolving), puis on applique les 35 % au reste.</p>
-<p>Exemple : un foyer à 4 200 € net avec un crédit auto de 300 €/mois dispose de 1 170 € de mensualité maximale (4 200 × 35 % − 300). Sur 20 ans à 3,5 %, cela représente environ 202 000 € de capital emprunté — hors frais de notaire, qui doivent être couverts par l'apport.</p>
-<p>La banque regarde aussi le reste à vivre, l'ancienneté du contrat de travail, l'épargne résiduelle et la stabilité des revenus. Un dossier à 35 % avec un reste à vivre confortable passe mieux qu'un dossier à 30 % avec trois enfants à charge.</p>
-<h2>Questions fréquentes</h2>
+    <section class="content-section">
+      <h2>Ce que l'estimation prend en compte</h2>
+      <p>Le calcul réserve d'abord une part des revenus aux mensualités de crédit existantes, puis estime le nouveau prêt. L'assurance du nouveau prêt est incluse dans la mensualité disponible : elle réduit donc le capital estimé au lieu d'être oubliée.</p>
+      <p>Exemple : avec 4 200 € de revenus, 300 € de crédits en cours et un taux d'effort de 35 %, il reste 1 170 € par mois pour le nouveau prêt et son assurance. Avec les hypothèses affichées (3,5 % sur 20 ans, assurance à 0,34 %), le capital estimé est d'environ 192 342 €.</p>
+      <p>Le taux d'effort de référence est de 35 % assurance comprise. Cela ne garantit pas l'accord d'une banque : elle examine aussi le reste à vivre, la stabilité des revenus, l'épargne restante et le dossier complet. <a href="https://www.economie.gouv.fr/particuliers/gerer-mon-argent/emprunter-et-sassurer/credit-immobilier-comment-ca-marche" target="_blank" rel="noopener">Voir les explications du ministère de l'Économie</a>.</p>
+      <p>Le résultat est un budget avant frais d'achat. Estime séparément les <a href="frais-de-notaire.html">frais de notaire</a>, puis compare les mensualités avec le <a href="simulateur-credit-immobilier.html">simulateur de crédit immobilier</a>. Pour comprendre l'assurance, consulte le <a href="guide-assurance-emprunteur.html">guide de l'assurance emprunteur</a>.</p>
+    </section>
+    <h2>Questions fréquentes</h2>
     <div class="faq">
-      <details><summary>Mon apport est-il suffisant ?</summary><p>En pratique, il faut souvent financer les frais de notaire (7 à 8 % dans l'ancien). Calcule-les avec notre <a href="frais-de-notaire.html">simulateur de frais de notaire</a>.</p></details>
-      <details><summary>Puis-je dépasser 35 % d'endettement ?</summary><p>C'est possible dans certains cas (haut revenus, reste à vivre confortable) mais reste l'exception. Le calcul ici est une estimation prudente.</p></details>
+      <details><summary>L'assurance est-elle incluse ?</summary><p>Oui, le taux d'assurance saisi est ajouté à la mensualité disponible et réduit le capital estimé. Le tarif réel dépend du contrat et de ta situation.</p></details>
+      <details><summary>Le résultat garantit-il un accord bancaire ?</summary><p>Non. C'est une simulation simplifiée ; la banque évalue aussi le reste à vivre et l'ensemble du dossier.</p></details>
+      <details><summary>Les frais de notaire sont-ils inclus dans le budget ?</summary><p>Non. Le montant affiché est le capital estimé additionné à l'apport indiqué, avant frais de notaire, de garantie et de dossier.</p></details>
     </div>
   </div>
 </main>
 
-<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'étude de ta banque.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — estimation indicative, ne remplace pas l'étude de ta banque.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 
 <script>
 var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
-document.getElementById('calc').addEventListener('click', function(){
-  var revenus=+document.getElementById('revenus').value||0;
-  var charges=+document.getElementById('charges').value||0;
-  var end=+document.getElementById('endettement').value||0;
-  var tauxA=+document.getElementById('taux').value||0;
-  var annees=+document.getElementById('duree').value||0;
-  var apport=+document.getElementById('apport').value||0;
-  var n=Math.round(annees*12);
-  var mensMax = revenus*end/100 - charges;
-  if(mensMax<=0 || n<=0){ alert('Avec ces valeurs, la mensualité maximale est nulle. Réduis tes charges ou augmente tes revenus.'); return; }
-  var i=tauxA/100/12;
-  var capital = i===0 ? mensMax*n : mensMax*(1-Math.pow(1+i,-n))/i;
-  document.getElementById('cap').innerHTML = eur(capital) + ' <small>de financement possible</small>';
-  document.getElementById('mens').textContent = eur(mensMax);
-  document.getElementById('capK').textContent = eur(capital);
-  document.getElementById('app').textContent = eur(apport);
-  document.getElementById('budget').textContent = eur(capital+apport);
-  document.getElementById('res').classList.add('show');
-});
+var eur2 = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
+function calculerCapacite(){
+  var v = {
+    revenus:Number(document.getElementById('revenus').value), charges:Number(document.getElementById('charges').value),
+    end:Number(document.getElementById('endettement').value), taux:Number(document.getElementById('taux').value),
+    annees:Number(document.getElementById('duree').value), apport:Number(document.getElementById('apport').value),
+    assurance:Number(document.getElementById('assurance').value)
+  };
+  var error=document.getElementById('calc-error'), result=document.getElementById('res');
+  var valid=Number.isFinite(v.revenus)&&v.revenus>0&&v.revenus<=1000000&&Number.isFinite(v.charges)&&v.charges>=0&&v.charges<=1000000&&Number.isFinite(v.end)&&v.end>0&&v.end<=100&&Number.isFinite(v.taux)&&v.taux>=0&&v.taux<=20&&Number.isInteger(v.annees)&&v.annees>=1&&v.annees<=35&&Number.isFinite(v.apport)&&v.apport>=0&&v.apport<=10000000&&Number.isFinite(v.assurance)&&v.assurance>=0&&v.assurance<=5;
+  if(!valid){error.textContent='Vérifie les valeurs : revenus supérieurs à 0 €, charges et apport positifs, taux d’effort jusqu’à 100 %, taux de prêt jusqu’à 20 %, durée de 1 à 35 ans et assurance jusqu’à 5 %.';error.hidden=false;result.classList.remove('show');return;}
+  var mensualiteMax=v.revenus*v.end/100-v.charges;
+  if(mensualiteMax<=0){error.textContent='Les crédits en cours absorbent la mensualité disponible. Vérifie les revenus et les charges saisis.';error.hidden=false;result.classList.remove('show');return;}
+  var n=v.annees*12, i=v.taux/100/12, facteur=i===0?1/n:i/(1-Math.pow(1+i,-n)), assuranceMensuelle=v.assurance/100/12;
+  var capital=mensualiteMax/(facteur+assuranceMensuelle), mensualitePret=capital*facteur, mensualiteAssurance=capital*assuranceMensuelle;
+  document.getElementById('cap').innerHTML=eur(capital)+' <small>de capital estimé</small>';
+  document.getElementById('mens').textContent=eur2(mensualiteMax);
+  document.getElementById('loan-pay').textContent=eur2(mensualitePret);
+  document.getElementById('insurance-pay').textContent=eur2(mensualiteAssurance);
+  document.getElementById('app').textContent=eur(v.apport);
+  document.getElementById('budget').textContent=eur(capital+v.apport);
+  error.hidden=true;result.classList.add('show');
+}
+document.getElementById('calc').addEventListener('click',calculerCapacite);
+document.querySelectorAll('.preset-chip[data-income]').forEach(function(button){button.addEventListener('click',function(){document.getElementById('revenus').value=button.dataset.income;document.getElementById('charges').value=button.dataset.debts;calculerCapacite();});});
+calculerCapacite();
 </script>
 <script src="counter.js" defer></script>
 <script src="app.js" defer></script>

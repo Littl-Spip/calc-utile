@@ -9,6 +9,26 @@
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
 <style>
+
+.hub-search{min-height:48px;margin:0 0 9px;border-color:#e1e7f0;font-size:1rem}
+.chips{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding:2px 0 7px;scrollbar-width:thin}
+.chip{flex:0 0 auto;white-space:nowrap;background:#fff;border-color:#e4e9f1;color:#526078}
+.chip.active{background:#3658c9;border-color:#3658c9}
+.toolgrid{gap:13px}
+.tcard{min-height:152px;padding:17px;border-radius:16px;display:flex;flex-direction:column;align-items:flex-start}
+.tcard h3{margin:10px 0 0;font-size:.96rem;line-height:1.35}
+.tcard p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-top:auto;padding-top:7px;line-height:1.4}
+.tcard:focus-visible{outline:3px solid rgba(54,88,201,.35);outline-offset:2px}
+.hub-notes{margin-top:20px;border-top:1px solid #e6ebf3;padding-top:14px}
+.hub-notes>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;color:#3658c9;font-size:.92rem;font-weight:700;padding:9px 0}
+.hub-notes>summary::-webkit-details-marker{display:none}
+.hub-notes>summary:after{content:"+";font-size:1.25rem;color:#71809a}
+.hub-notes[open]>summary:after{content:"−"}
+.hub-notes[open]{padding-bottom:14px}
+.hub-notes h2{font-size:1.12rem;margin-top:22px}
+@media(max-width:700px){.hub-toolbar{position:static;margin-left:-8px;margin-right:-8px;padding-left:8px;padding-right:8px}.toolgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tcard{min-height:145px;padding:13px}.tcard .ic{width:34px;height:34px;font-size:1.15rem}.tcard h3{font-size:.9rem}.tcard p{font-size:.78rem}}
+@media(max-width:390px){.toolgrid{grid-template-columns:1fr}.tcard{min-height:0}.tcard p{margin-top:6px}}
+
 .hub-search{width:100%;padding:14px 16px;border:1px solid #e6ebf3;border-radius:12px;font-size:1.05rem;margin:8px 0 18px;background:#fff}
 .hub-search:focus{outline:none;border-color:#2f5bea;box-shadow:0 0 0 4px rgba(47,91,234,.18)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 22px}
@@ -21,6 +41,8 @@
 .tcard h3{margin:10px 0 4px;color:#0b1220;font-size:.98rem}
 .tcard p{color:#5b6b84;font-size:.84rem;margin:0}
 .empty{padding:30px;text-align:center;color:#5b6b84}
+/* Boite a outils : trouver vite, garder la lecture legere. */
+.hub-toolbar{position:sticky;top:68px;z-index:12;margin:8px -14px 18px;padding:11px 14px 8px;background:rgba(248,250,252,.96);border-bottom:1px solid rgba(226,232,240,.85);backdrop-filter:blur(12px)}
 </style>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#2f5bea">
@@ -50,11 +72,11 @@
 <div class="crumb"><a href="index.html">Accueil</a> › Boîte à outils</div>
 <span class="badge">📦 50 calculateurs · 100 % gratuit · sans inscription</span>
 <h1>La boîte à outils</h1>
-<p class="lead">Finance, immobilier, santé, dates, conversions, développeurs : tous les calculateurs instantanés, sans inscription, dans ton navigateur.</p>
-<label class="sr-only" for="q">Rechercher parmi les calculateurs</label>
-<input id="q" class="hub-search" type="search" aria-label="Rechercher parmi les calculateurs" placeholder="Que veux-tu calculer ? (ex. crédit, IMC, Base64)">
+<p class="lead">Trouve l’outil qu’il te faut : recherche par nom ou choisis une catégorie.</p>
+<div class="hub-toolbar"><label class="sr-only" for="q">Rechercher parmi les calculateurs</label>
+<input id="q" class="hub-search" type="search" aria-label="Rechercher parmi les calculateurs" placeholder="Ex. salaire net, crédit, IMC, impôt">
 <div class="chips" id="chips"></div>
-<p id="result-count" class="note" aria-live="polite"></p>
+<p id="result-count" class="note" aria-live="polite"></p></div>
 <div class="toolgrid" id="grid">
 <a class="tcard" href="indemnite-licenciement.html" data-cat="Argent &amp; Immobilier" data-q="indemnite licenciement rupture conventionnelle salaire anciennete calcul indemnisation travail argent immobilier"><div class="ic">&#128188;</div><h3>Indemnit&eacute; de licenciement</h3><p>Estime le minimum l&eacute;gal selon le salaire de r&eacute;f&eacute;rence et l&rsquo;anciennet&eacute;. Les r&egrave;gles conventionnelles peuvent pr&eacute;voir davantage.</p></a>
 <a class="tcard" href="outil-rendement-locatif.html" data-cat="Argent &amp; Immobilier" data-q="rendement locatif brut et net calcule le rendement locatif brut et net d'un bien selon le loyer, les charges et le prix d'achat. gratuit et instantané. argent &amp; immobilier"><div class="ic">🏠</div><h3>Rendement locatif brut et net</h3><p>Calcule le rendement locatif brut et net d'un bien selon le loyer, les charges et le prix d'achat. Gratuit et instantané.</p></a>
@@ -98,6 +120,7 @@
 </div>
 <div class="empty" id="empty" style="display:none">Aucun outil ne correspond à ta recherche.</div>
 <div class="ad"><!-- Emplacement publicité (AdSense) --></div>
+<details class="hub-notes"><summary>Conseils, ressources et réponses fréquentes</summary>
 <h2>Autres ressources</h2>
 <p><a href="lettres-types.html">Lettres types (démission, résiliation…)</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 <!-- data-cms -->
@@ -115,6 +138,7 @@
 <details><summary>Faut-il créer un compte pour utiliser les outils ?</summary><p>Non, jamais. Les calculs se font directement dans le navigateur, sans inscription.</p></details>
 <details><summary>Les résultats sont-ils enregistrés ?</summary><p>Uniquement si tu cliques sur « Enregistrer ce résultat ». Ils restent alors sur ton appareil, dans Mon espace.</p></details>
 </div>
+</details>
 </div></main>
 <footer class="site">
   <div class="wrap">
