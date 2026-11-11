@@ -21,7 +21,7 @@
 
   function run() {
     ping(SITE + path);
-    ping(SITE);
+    ping(SITE + '/_total');
   }
 
   if (document.readyState === 'loading') {
