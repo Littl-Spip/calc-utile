@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://littl-spip.github.io/renegocier-credit-immobilier.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renégocier son crédit immobilier : est-ce rentable ? — CalcUtile</title>
+<meta name="description" content="Calcule l'économie réelle d'une renégociation ou d'un rachat de crédit : mensualité, coût total, frais, indemnités et nombre de mois pour rentrer dans ses frais.">
+<meta property="og:title" content="Renégocier son crédit : le calcul qui dit si c'est rentable — CalcUtile">
+<meta property="og:description" content="Frais, indemnités, nouvelle mensualité : vois en combien de mois tu récupères les frais et combien tu économises vraiment.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"À partir de quel écart de taux une renégociation vaut-elle la peine ?","acceptedAnswer":{"@type":"Answer","text":"Il n'y a pas de seuil universel : tout dépend des frais et de la durée restante. En dessous de 0,5 point d'écart, les frais sont rarement amortis avant un remboursement anticipé."}},{"@type":"Question","name":"Puis-je renégocier si mon prêt est récent ?","acceptedAnswer":{"@type":"Answer","text":"Oui, mais l'indemnité de remboursement anticipé et les frais de garantie rendent l'opération souvent peu rentable la première année."}},{"@type":"Question","name":"L'assurance emprunteur peut-elle être changée en même temps ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La délégation d'assurance est possible et peut représenter une économie importante, à comparer avec le contrat groupe de la banque."}}]}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span aria-hidden="true">▦</span> Calc<span>Utile</span></a>
+    <nav class="top" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Accueil</a> › Renégociation de crédit</div>
+    <h1>Renégocier son crédit : est-ce vraiment rentable ?</h1>
+    <p class="lead">Une baisse de taux ne suffit pas. Entre les frais de dossier, la garantie et l'indemnité de remboursement anticipé, il faut parfois plusieurs années avant de rentrer dans ses frais. Ce calcul te donne le seuil exact.</p>
+
+    <div class="card calculator-card">
+      <div class="grid grid-2">
+        <div><label for="crd">Capital restant dû</label><input id="crd" type="number" inputmode="decimal" min="1000" max="2000000" step="1000" value="180000"><span class="field-help">Le montant qu'il te reste à rembourser aujourd'hui, hors assurance.</span></div>
+        <div><label for="taux_actuel">Taux actuel</label><input id="taux_actuel" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.80"><span class="field-help">Le taux annuel nominal de ton prêt en cours.</span></div>
+        <div><label for="mois_restants">Mensualités restantes</label><input id="mois_restants" type="number" inputmode="numeric" min="1" max="480" step="1" value="180"><span class="field-help">Nombre de mois qu'il reste à payer.</span></div>
+        <div><label for="ass_actuelle">Assurance actuelle (% / an)</label><input id="ass_actuelle" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34"><span class="field-help">Sur le capital initial. Mets 0 si tu n'en as pas.</span></div>
+      </div>
+
+      <h2 class="form-section-title">La nouvelle offre</h2>
+      <div class="grid grid-2">
+        <div><label for="nouveau_taux">Nouveau taux</label><input id="nouveau_taux" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.00"><span class="field-help">Le taux proposé par la banque ou le courtier.</span></div>
+        <div><label for="nouveaux_mois">Nouvelle durée (mois)</label><input id="nouveaux_mois" type="number" inputmode="numeric" min="1" max="480" step="1" value="180"><span class="field-help">Peut être plus courte, égale ou plus longue.</span></div>
+        <div><label for="ass_nouvelle">Nouvelle assurance (% / an)</label><input id="ass_nouvelle" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34"><span class="field-help">Souvent identique, parfois renégociée séparément.</span></div>
+        <div><label for="ira">Indemnité de remboursement anticipé</label><input id="ira" type="number" inputmode="decimal" min="0" max="100000" step="10" value="3420"><span class="field-help">Plafonnée par la loi : le plus faible entre 3 % du capital restant dû et 6 mois d'intérêts.</span></div>
+      </div>
+      <div class="grid">
+        <div><label for="frais">Frais de dossier + garantie</label><input id="frais" type="number" inputmode="decimal" min="0" max="100000" step="10" value="1500"><span class="field-help">Frais réels de la nouvelle opération, payés une fois.</span></div>
+      </div>
+
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <p class="live-hint">Le calcul se met à jour tout seul dès que tu modifies une valeur.</p>
+
+      <div class="result" id="res">
+        <div class="big"><span id="mens_apres">-</span><small>par mois après renégociation</small></div>
+        <div class="kv"><span>Mensualité actuelle</span><b id="mens_avant">-</b></div>
+        <div class="kv"><span>Écart de mensualité</span><b id="ecart_mens">-</b></div>
+        <div class="kv"><span>Frais de l'opération</span><b id="frais_total">-</b></div>
+        <div class="kv"><span>Mois pour rentrer dans ses frais</span><b id="breakeven">-</b></div>
+        <div class="kv"><span>Coût total restant, situation actuelle</span><b id="cout_avant">-</b></div>
+        <div class="kv"><span>Coût total, après renégociation</span><b id="cout_apres">-</b></div>
+
+        <div class="verdict" id="verdict">-</div>
+        <p class="verdict-sub" id="verdict-sub"></p>
+
+        <div class="compare-grid">
+          <div class="compare-col" id="col-avant">
+            <h3>Aujourd'hui</h3>
+            <div class="kv"><span>Mensualité totale</span><b id="a_mens">-</b></div>
+            <div class="kv"><span>Intérêts restants</span><b id="a_int">-</b></div>
+            <div class="kv"><span>Assurance restante</span><b id="a_ass">-</b></div>
+            <div class="kv"><span>Total restant</span><b id="a_total">-</b></div>
+          </div>
+          <div class="compare-col" id="col-apres">
+            <h3>Après renégociation</h3>
+            <div class="kv"><span>Mensualité totale</span><b id="b_mens">-</b></div>
+            <div class="kv"><span>Intérêts + frais</span><b id="b_int">-</b></div>
+            <div class="kv"><span>Assurance</span><b id="b_ass">-</b></div>
+            <div class="kv"><span>Total à payer</span><b id="b_total">-</b></div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="ghost-action" id="copy-res" type="button">Copier le résultat</button>
+          <button class="ghost-action" id="print-res" type="button">Créer mon récapitulatif (PDF)</button>
+        </div>
+      </div>
+    </div>
+
+    <a class="next-step" href="comparateur-offres-pret.html">
+      <span class="next-step-badge">À comparer</span>
+      <span class="next-step-text"><b>Deux offres concurrentes en main ?</b><small>Mets-les côte à côte, frais compris, avant de signer.</small></span>
+      <span class="next-step-link">Comparer mes offres <span aria-hidden="true">→</span></span>
+    </a>
+
+    <div class="ad"><!-- Emplacement publicitaire (AdSense) --></div>
+
+    <h2>Comment lire le résultat</h2>
+    <p>Le chiffre clé n'est pas la baisse de taux, mais le <strong>nombre de mois nécessaires pour récupérer les frais</strong>. Si l'opération coûte 6 900 € et fait gagner 120 € par mois, il faut 58 mois — presque cinq ans — avant d'être réellement gagnant. Si tu revends ou rembourses avant, tu perds de l'argent.</p>
+    <p>Le <strong>coût total</strong> compare deux sommes réellement versées : ce qu'il te reste à payer si tu ne fais rien, et ce que tu paieras après l'opération, frais et indemnité compris. C'est plus fiable qu'une simple comparaison de mensualités, surtout si la nouvelle durée est plus longue.</p>
+    <p>Attention : allonger la durée fait baisser la mensualité mais peut augmenter le coût total. Une renégociation n'est pas une bouffée d'air gratuite ; c'est un arbitrage entre confort mensuel et coût final.</p>
+
+    <h2>Les frais à mettre dans le calcul</h2>
+    <ul>
+      <li><strong>Indemnité de remboursement anticipé (IRA)</strong> : plafonnée au plus faible entre 3 % du capital restant dû et 6 mois d'intérêts. Elle peut être exonérée dans certains cas : mobilité professionnelle, perte d'emploi, décès ou invalidité.</li>
+      <li><strong>Frais de dossier</strong> de la nouvelle banque : souvent 500 à 1 500 €, parfois négociables.</li>
+      <li><strong>Frais de garantie</strong> : caution ou hypothèque, souvent 1 à 2 % du montant emprunté.</li>
+      <li><strong>Frais de mainlevée</strong> en cas d'hypothèque : à demander explicitement.</li>
+      <li><strong>Frais de courtier</strong> éventuels, qui entrent dans le TAEG de la nouvelle offre.</li>
+    </ul>
+
+    <h2>Renégocier dans sa banque ou passer par un rachat ?</h2>
+    <p>La <strong>renégociation</strong> se fait avec sa banque actuelle : elle modifie le contrat existant, souvent sans nouvelle garantie ni IRA si elle accepte d'absorber les frais. Le <strong>rachat de crédit</strong> passe par une autre banque : il rembourse l'ancien prêt, donc l'IRA s'applique, et une nouvelle garantie est généralement exigée. Le rachat est souvent plus utile quand la banque actuelle refuse de bouger, ou quand plusieurs crédits sont regroupés.</p>
+    <p>Dans les deux cas, demande par écrit : le nouveau taux, le TAEG, la durée exacte, le montant des frais et le détail de l'indemnité. Un taux plus bas de 0,8 point peut être annulé par 3 000 € de frais si tu revends dans les trois ans.</p>
+
+    <h2>Questions fréquentes</h2>
+    <details>
+      <summary>À partir de quel écart de taux cela vaut-il la peine ?</summary>
+      <p>Il n'y a pas de seuil universel : tout dépend des frais et de la durée restante. En pratique, en dessous de 0,5 point d'écart, les frais sont rarement amortis avant un remboursement anticipé. Le calcul ci-dessus tranche avec tes vrais chiffres.</p>
+    </details>
+    <details>
+      <summary>Puis-je renégocier si mon prêt est récent ?</summary>
+      <p>Oui, rien ne l'interdit, mais l'IRA et les frais de garantie rendent l'opération souvent peu rentable la première année. Vérifie aussi les conditions de ton contrat : certaines offres prévoient une période minimale.</p>
+    </details>
+    <details>
+      <summary>L'assurance emprunteur peut-elle être changée en même temps ?</summary>
+      <p>Oui, et c'est souvent là que se trouve la plus grosse économie. La délégation d'assurance est possible, et la résiliation infra-annuelle est ouverte depuis 2022. Compare le coût du contrat groupe avec un contrat individuel avant de signer.</p>
+    </details>
+
+    <h2>Sources et méthode</h2>
+    <ul>
+      <li>Mensualité calculée avec la formule des annuités constantes, intérêts sur le capital restant dû.</li>
+      <li>Plafond de l'indemnité de remboursement anticipé : code de la consommation, article L313-34, et <a href="https://www.service-public.fr/particuliers/vosdroits/F34285" rel="nofollow noopener" target="_blank">service-public.fr</a>.</li>
+      <li>Taux d'endettement de 35 % des revenus nets : recommandation du Haut Conseil de stabilité financière.</li>
+    </ul>
+
+    <section class="content-section related-tools">
+      <h2>Aller plus loin</h2>
+      <ul>
+        <li><a href="simulateur-credit-immobilier.html">Simuler une mensualité et le tableau d'amortissement</a></li>
+        <li><a href="comparateur-offres-pret.html">Comparer deux offres de prêt</a></li>
+        <li><a href="capacite-emprunt-immobilier.html">Calculer sa capacité d'emprunt</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<div id="print-doc" class="print-doc" aria-hidden="true"></div>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — des simulateurs gratuits, sans inscription. Les calculs restent dans ton navigateur.</p>
+  </div>
+</footer>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+<script>
+var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
+var eur2 = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
+var $ = function(i){ return document.getElementById(i); };
+
+function mensualite(C, tauxA, n){
+  var i = tauxA/100/12;
+  return i === 0 ? C/n : C*i/(1-Math.pow(1+i,-n));
+}
+
+var etat = { ok:false, data:null };
+
+function calc(){
+  var crd = Number($('crd').value);
+  var t1 = Number($('taux_actuel').value);
+  var n1 = Math.round(Number($('mois_restants').value));
+  var a1 = Number($('ass_actuelle').value);
+  var t2 = Number($('nouveau_taux').value);
+  var n2 = Math.round(Number($('nouveaux_mois').value));
+  var a2 = Number($('ass_nouvelle').value);
+  var ira = Number($('ira').value);
+  var frais = Number($('frais').value);
+  var err = $('calc-error');
+
+  var ok = Number.isFinite(crd) && crd >= 1000 && crd <= 2000000
+    && Number.isFinite(t1) && t1 >= 0 && t1 <= 20
+    && Number.isInteger(n1) && n1 >= 1 && n1 <= 480
+    && Number.isFinite(t2) && t2 >= 0 && t2 <= 20
+    && Number.isInteger(n2) && n2 >= 1 && n2 <= 480
+    && [a1,a2].every(function(x){ return Number.isFinite(x) && x >= 0 && x <= 5; })
+    && [ira,frais].every(function(x){ return Number.isFinite(x) && x >= 0 && x <= 100000; });
+
+  if(!ok){
+    err.textContent = "Vérifie les valeurs : capital entre 1 000 € et 2 000 000 €, taux de 0 à 20 %, durées entières de 1 à 480 mois, assurance de 0 à 5 %, frais et indemnité positifs.";
+    err.hidden = false;
+    $('res').classList.remove('show');
+    etat.ok = false;
+    return;
+  }
+  err.hidden = true;
+
+  var m1 = mensualite(crd, t1, n1);
+  var ass1 = crd*(a1/100)/12;
+  var mens1 = m1 + ass1;
+  var cout1 = m1*n1 + ass1*n1;
+  var interets1 = m1*n1 - crd;
+
+  var m2 = mensualite(crd, t2, n2);
+  var ass2 = crd*(a2/100)/12;
+  var mens2 = m2 + ass2;
+  var cout2 = m2*n2 + ass2*n2 + ira + frais;
+  var interets2 = m2*n2 - crd;
+
+  var ecart = mens1 - mens2;
+  var economie = cout1 - cout2;
+  var seuil = ira + frais;
+
+  $('mens_apres').textContent = eur2(mens2);
+  $('mens_avant').textContent = eur2(mens1);
+  $('ecart_mens').textContent = (ecart >= 0 ? '-' : '+') + eur2(Math.abs(ecart));
+  $('frais_total').textContent = eur(seuil);
+  $('cout_avant').textContent = eur(cout1);
+  $('cout_apres').textContent = eur(cout2);
+
+  $('a_mens').textContent = eur2(mens1);
+  $('a_int').textContent = eur(interets1);
+  $('a_ass').textContent = eur(ass1*n1);
+  $('a_total').textContent = eur(cout1);
+  $('b_mens').textContent = eur2(mens2);
+  $('b_int').textContent = eur(interets2 + ira + frais);
+  $('b_ass').textContent = eur(ass2*n2);
+  $('b_total').textContent = eur(cout2);
+
+  var v = $('verdict'), vs = $('verdict-sub'), be = $('breakeven');
+  var payoff = null;
+  if(ecart > 0){ payoff = Math.ceil(seuil / ecart); }
+
+  if(economie <= 0){
+    v.textContent = 'Cette renégociation te coûte plus cher';
+    v.className = 'verdict is-neutral';
+    vs.textContent = 'Sur la durée restante, tu paierais ' + eur(Math.abs(economie)) + ' de plus qu\'en ne faisant rien. Baisse la durée, négocie les frais ou attends un meilleur taux.';
+  } else if(payoff === null){
+    v.textContent = 'Rentable seulement si tu gardes le prêt longtemps';
+    v.className = 'verdict is-neutral';
+    vs.textContent = 'La mensualité ne baisse pas, mais le coût total diminue de ' + eur(economie) + '. Vérifie que tu peux assumer l\'effort mensuel jusqu\'au bout.';
+  } else {
+    v.textContent = 'Rentable après ' + payoff + ' mois';
+    v.className = 'verdict';
+    vs.textContent = 'Tu récupères ' + eur(seuil) + ' de frais en ' + payoff + ' mois, puis tu économises ' + eur2(ecart) + ' par mois. Économie totale sur la durée : ' + eur(economie) + '.';
+  }
+
+  if(payoff !== null && payoff > n1){
+    vs.textContent += ' Attention : le seuil dépasse la durée restante, tu ne rentres pas dans tes frais avant la fin du prêt.';
+    v.className = 'verdict is-neutral';
+    v.textContent = 'Pas rentable avant la fin du prêt';
+  }
+
+  be.textContent = payoff === null ? 'non applicable' : payoff + ' mois';
+  $('col-avant').classList.toggle('is-best', economie <= 0);
+  $('col-apres').classList.toggle('is-best', economie > 0 && payoff !== null && payoff <= n1);
+
+  etat.ok = true;
+  etat.data = { crd:crd, t1:t1, n1:n1, a1:a1, t2:t2, n2:n2, a2:a2, ira:ira, frais:frais,
+                m1:m1, mens1:mens1, cout1:cout1, interets1:interets1, ass1:ass1,
+                m2:m2, mens2:mens2, cout2:cout2, interets2:interets2, ass2:ass2,
+                ecart:ecart, economie:economie, seuil:seuil, payoff:payoff };
+  $('res').classList.add('show');
+  buildPrint();
+}
+
+function buildPrint(){
+  if(!etat.ok) return;
+  var d = etat.data, doc = $('print-doc');
+  if(!doc) return;
+  var date = new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
+  var verdict = $('verdict').textContent, sub = $('verdict-sub').textContent;
+  doc.innerHTML =
+    '<div class="print-head"><strong>CalcUtile</strong><span>Renégociation de crédit — ' + date + '</span></div>' +
+    '<h1>Mon projet de renégociation</h1>' +
+    '<p class="print-intro">Prêt en cours : <strong>' + eur(d.crd) + '</strong> restant sur <strong>' + d.n1 + ' mois</strong> à <strong>' + d.t1.toFixed(2) + ' %</strong>.</p>' +
+    '<table class="print-table"><tbody>' +
+    '<tr><th>Situation actuelle</th><td>' + eur2(d.mens1) + ' / mois, total restant ' + eur(d.cout1) + '</td></tr>' +
+    '<tr><th>Nouvelle offre</th><td>' + eur2(d.mens2) + ' / mois sur ' + d.n2 + ' mois à ' + d.t2.toFixed(2) + ' %</td></tr>' +
+    '<tr><th>Indemnité de remboursement anticipé</th><td>' + eur(d.ira) + '</td></tr>' +
+    '<tr><th>Frais de dossier + garantie</th><td>' + eur(d.frais) + '</td></tr>' +
+    '<tr><th>Frais totaux de l\'opération</th><td><strong>' + eur(d.seuil) + '</strong></td></tr>' +
+    '<tr><th>Écart de mensualité</th><td>' + eur2(d.ecart) + ' / mois</td></tr>' +
+    '<tr><th>Mois pour rentrer dans ses frais</th><td><strong>' + (d.payoff === null ? 'non applicable' : d.payoff + ' mois') + '</strong></td></tr>' +
+    '<tr><th>Économie totale sur la durée</th><td><strong>' + eur(d.economie) + '</strong></td></tr>' +
+    '</tbody></table>' +
+    '<p class="print-verdict"><strong>' + verdict + '</strong> — ' + sub + '</p>' +
+    '<h2>À demander par écrit avant de signer</h2>' +
+    '<ul class="print-list">' +
+    '<li>Le <strong>TAEG</strong> de la nouvelle offre, seul chiffre comparable entre deux banques.</li>' +
+    '<li>Le <strong>montant exact de l\'indemnité de remboursement anticipé</strong> et son mode de calcul.</li>' +
+    '<li>Les <strong>frais de dossier, de garantie et de mainlevée</strong>, séparément.</li>' +
+    '<li>La <strong>durée</strong> et le <strong>tableau d\'amortissement</strong> complets.</li>' +
+    '<li>Les <strong>conditions de remboursement anticipé</strong> du nouveau prêt.</li>' +
+    '<li>La <strong>possibilité de déléguer l\'assurance emprunteur</strong>.</li>' +
+    '</ul>' +
+    '<p class="print-foot">Estimation indicative fondée sur la formule des annuités constantes, assurance calculée sur le capital restant dû au taux indiqué. Elle ne remplace pas les offres de prêt. Calcul réalisé sur littl-spip.github.io.</p>';
+}
+
+['crd','taux_actuel','mois_restants','ass_actuelle','nouveau_taux','nouveaux_mois','ass_nouvelle','ira','frais'].forEach(function(id){
+  var el = $(id);
+  if(el){ el.addEventListener('input', function(){ clearTimeout(window.__t); window.__t = setTimeout(calc, 240); }); }
+});
+
+$('copy-res').addEventListener('click', function(){
+  if(!etat.ok) return;
+  var d = etat.data, btn = this;
+  var txt = 'Renégociation de crédit — ' + eur(d.crd) + ' restant sur ' + d.n1 + ' mois\n'
+    + 'Aujourd\'hui : ' + eur2(d.mens1) + '/mois, total restant ' + eur(d.cout1) + '\n'
+    + 'Après : ' + eur2(d.mens2) + '/mois sur ' + d.n2 + ' mois, frais ' + eur(d.seuil) + '\n'
+    + 'Économie totale : ' + eur(d.economie) + ' — ' + $('verdict').textContent + '\n'
+    + 'Estimation CalcUtile — littl-spip.github.io';
+  var ok = function(){ btn.textContent = 'Résultat copié ✓'; setTimeout(function(){ btn.textContent = 'Copier le résultat'; }, 2200); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(ok, function(){}); }
+});
+
+$('print-res').addEventListener('click', function(){ if(etat.ok){ buildPrint(); window.print(); } });
+
+calc();
+if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', calc); }
+</script>
+</body>
+</html>

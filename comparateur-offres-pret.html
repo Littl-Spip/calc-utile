@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://littl-spip.github.io/comparateur-offres-pret.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparateur de deux offres de prêt immobilier — CalcUtile</title>
+<meta name="description" content="Compare deux offres de prêt immobilier : mensualité, coût total, TAEG estimé et économie réelle. Un verdict chiffré, sans inscription.">
+<meta property="og:title" content="Comparateur de deux offres de prêt — CalcUtile">
+<meta property="og:description" content="Deux offres de prêt, un verdict chiffré : coût total, TAEG estimé et économie réelle.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le TAEG de la banque sera-t-il identique à cette estimation ?","acceptedAnswer":{"@type":"Answer","text":"Non, il sera généralement un peu plus élevé : l'estimation ne compte que les frais de dossier. Les frais de garantie et de courtage s'y ajoutent souvent."}},{"@type":"Question","name":"Puis-je changer d'assurance après la signature ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La délégation d'assurance est possible et la résiliation est ouverte, avec des conditions de garantie équivalentes à vérifier."}},{"@type":"Question","name":"Pourquoi comparer à mensualité égale plutôt qu'à taux égal ?","acceptedAnswer":{"@type":"Answer","text":"Parce que le taux seul ne dit rien du coût réel : assurance et frais de dossier peuvent créer plusieurs milliers d'euros d'écart."}}]}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span aria-hidden="true">▦</span> Calc<span>Utile</span></a>
+    <nav class="top" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a href="mon-espace.html">Mon espace</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Accueil</a> › Comparateur d'offres de prêt</div>
+    <h1>Comparer deux offres de prêt, sans se tromper</h1>
+    <p class="lead">Deux banques, deux propositions, des frais cachés à droite et à gauche : mets les vrais chiffres côte à côte et vois laquelle est réellement la moins chère.</p>
+
+    <div class="card calculator-card">
+      <div class="compare-offers">
+        <section class="offer" aria-labelledby="offre-a">
+          <h2 id="offre-a">Offre A</h2>
+          <label for="a_taux">Taux annuel nominal</label>
+          <input id="a_taux" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.45">
+          <label for="a_ass">Assurance (% du capital / an)</label>
+          <input id="a_ass" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34">
+          <label for="a_frais">Frais de dossier</label>
+          <input id="a_frais" type="number" inputmode="decimal" min="0" max="100000" step="10" value="900">
+        </section>
+        <section class="offer" aria-labelledby="offre-b">
+          <h2 id="offre-b">Offre B</h2>
+          <label for="b_taux">Taux annuel nominal</label>
+          <input id="b_taux" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.20">
+          <label for="b_ass">Assurance (% du capital / an)</label>
+          <input id="b_ass" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.42">
+          <label for="b_frais">Frais de dossier</label>
+          <input id="b_frais" type="number" inputmode="decimal" min="0" max="100000" step="10" value="1200">
+        </section>
+      </div>
+
+      <div class="grid" style="margin-top:18px">
+        <div><label for="capital">Montant emprunté</label><input id="capital" type="number" inputmode="decimal" min="1" max="10000000" step="1000" value="200000"><span class="field-help">Le même montant pour les deux offres.</span></div>
+        <div><label for="duree">Durée (années)</label><input id="duree" type="number" inputmode="numeric" min="1" max="40" step="1" value="20"><span class="field-help">La même durée pour les deux offres.</span></div>
+      </div>
+
+      <p id="calc-error" class="form-error" role="alert" hidden></p>
+      <p class="live-hint">Le verdict se met à jour tout seul dès que tu modifies une valeur.</p>
+
+      <div class="result" id="res">
+        <div class="verdict" id="verdict">-</div>
+        <p class="verdict-sub" id="verdict-sub"></p>
+        <div class="compare-grid">
+          <div class="compare-col" id="col-a">
+            <h3>Offre A</h3>
+            <div class="kv"><span>Mensualité totale</span><b id="a_mens">-</b></div>
+            <div class="kv"><span>Coût total du crédit</span><b id="a_cout">-</b></div>
+            <div class="kv"><span>Total remboursé</span><b id="a_total">-</b></div>
+            <div class="kv"><span>TAEG estimé</span><b id="a_taeg">-</b></div>
+          </div>
+          <div class="compare-col" id="col-b">
+            <h3>Offre B</h3>
+            <div class="kv"><span>Mensualité totale</span><b id="b_mens">-</b></div>
+            <div class="kv"><span>Coût total du crédit</span><b id="b_cout">-</b></div>
+            <div class="kv"><span>Total remboursé</span><b id="b_total">-</b></div>
+            <div class="kv"><span>TAEG estimé</span><b id="b_taeg">-</b></div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button class="ghost-action" id="copy-res" type="button">Copier le comparatif</button>
+          <button class="ghost-action" id="print-res" type="button">Imprimer le comparatif</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad"><!-- Emplacement publicitaire (AdSense) --></div>
+
+    <h2>Comment lire ce comparatif</h2>
+    <p>Le <strong>coût total du crédit</strong> additionne les intérêts, l'assurance et les frais de dossier. C'est le seul chiffre qui permet de dire quelle offre coûte le moins cher au final : un taux plus bas peut être annulé par une assurance plus chère ou des frais de dossier plus élevés.</p>
+    <p>Le <strong>TAEG estimé</strong> est calculé en résolvant le taux mensuel qui égalise la somme actualisée des mensualités (assurance comprise) au capital diminué des frais de dossier. C'est une estimation : le TAEG officiel de la banque intègre aussi les frais de garantie, les frais d'expertise et, parfois, des frais de courtage.</p>
+    <p><strong>Une mensualité plus basse ne veut pas dire une offre moins chère.</strong> Sur 25 ans, 20 € de mensualité en moins représentent 6 000 € sur la durée du prêt. Le tableau ci-dessus montre les deux côtés à la fois : ce que tu paies chaque mois et ce que tu paies au total.</p>
+
+    <h2>Les frais à ne pas oublier dans la comparaison</h2>
+    <ul>
+      <li><strong>Frais de dossier</strong> : souvent 500 à 1 500 €, parfois négociables.</li>
+      <li><strong>Frais de garantie</strong> : caution ou hypothèque, souvent 1 à 2 % du montant emprunté.</li>
+      <li><strong>Assurance emprunteur</strong> : de 0,10 % à 0,60 % par an selon l'âge et l'état de santé ; elle peut être déléguée à un autre assureur.</li>
+      <li><strong>Frais de courtage</strong> : s'il y a un courtier, ils entrent dans le TAEG.</li>
+      <li><strong>Indemnités de remboursement anticipé</strong> : elles dépendent du contrat, pas du taux.</li>
+    </ul>
+
+    <h2>Questions fréquentes</h2>
+    <details>
+      <summary>Le TAEG de la banque sera-t-il identique à cette estimation ?</summary>
+      <p>Non, il sera généralement un peu plus élevé : l'estimation ici ne compte que les frais de dossier. Ajoute les frais de garantie et de courtage pour t'approcher du TAEG officiel, qui reste le seul chiffre contractuel.</p>
+    </details>
+    <details>
+      <summary>Puis-je changer d'assurance après la signature ?</summary>
+      <p>Oui. La loi permet de résilier l'assurance emprunteur à tout moment depuis 2022, et la délégation est possible dès la signature si la banque accepte une garantie équivalente. Compare toujours le coût de l'assurance groupe avec un contrat individuel.</p>
+    </details>
+    <details>
+      <summary>Pourquoi comparer à mensualité égale plutôt qu'à taux égal ?</summary>
+      <p>Parce que le taux seul ne dit rien du coût réel. Deux offres au même taux peuvent différer de plusieurs milliers d'euros à cause de l'assurance, des frais de dossier et de la garantie.</p>
+    </details>
+
+    <h2>Sources et méthode</h2>
+    <ul>
+      <li>Formule des annuités constantes, utilisée par les banques pour un prêt à échéances constantes.</li>
+      <li>Plafond d'endettement de 35 % des revenus nets, recommandation du Haut Conseil de stabilité financière.</li>
+      <li>Délégation et résiliation de l'assurance emprunteur : <a href="https://www.service-public.fr/particuliers/vosdroits/F34285" rel="nofollow noopener" target="_blank">service-public.fr</a>.</li>
+    </ul>
+
+    <section class="content-section related-tools">
+      <h2>Aller plus loin</h2>
+      <ul>
+        <li><a href="simulateur-credit-immobilier.html">Simuler la mensualité et le tableau d'amortissement</a></li>
+        <li><a href="capacite-emprunt-immobilier.html">Calculer sa capacité d'emprunt</a></li>
+        <li><a href="frais-de-notaire.html">Estimer les frais d'achat</a></li>
+        <li><a href="renegocier-credit-immobilier.html">Calculer la rentabilité d'une renégociation</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<div id="print-doc" class="print-doc" aria-hidden="true"></div>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — des simulateurs gratuits, sans inscription. Les calculs restent dans ton navigateur.</p>
+  </div>
+</footer>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+<script>
+var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); };
+var eur2 = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); };
+var $ = function(i){ return document.getElementById(i); };
+
+function mensualite(C, tauxA, n){
+  var i = tauxA/100/12;
+  return i === 0 ? C/n : C*i/(1-Math.pow(1+i,-n));
+}
+
+/* TAEG estimé : taux mensuel r tel que la valeur actuelle des mensualités (assurance incluse)
+   égale le capital net des frais de dossier. Résolution par dichotomie. */
+function taeg(C, tauxA, n, assA, frais){
+  var net = C - frais;
+  var m = mensualite(C, tauxA, n) + C*(assA/100)/12;
+  var lo = 0, hi = 0.05;
+  for (var k = 0; k < 80; k++){
+    var mid = (lo + hi) / 2;
+    var va = mid === 0 ? m*n : m*(1-Math.pow(1+mid,-n))/mid;
+    if (va > net) lo = mid; else hi = mid;
+  }
+  var r = (lo + hi) / 2;
+  return (Math.pow(1+r,12)-1)*100;
+}
+
+var etat = { ok:false };
+
+function calc(){
+  var C = Number($('capital').value);
+  var annees = Number($('duree').value);
+  var A = { taux:Number($('a_taux').value), ass:Number($('a_ass').value), frais:Number($('a_frais').value) };
+  var B = { taux:Number($('b_taux').value), ass:Number($('b_ass').value), frais:Number($('b_frais').value) };
+  var err = $('calc-error');
+  var valide = Number.isFinite(C) && C >= 1000 && C <= 10000000
+    && Number.isInteger(annees) && annees >= 1 && annees <= 40
+    && [A.taux,B.taux].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 20; })
+    && [A.ass,B.ass].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 5; })
+    && [A.frais,B.frais].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 100000 && t < C; });
+  if(!valide){
+    err.textContent = 'Vérifie les valeurs : montant à partir de 1 000 €, durée entière de 1 à 40 ans, taux de 0 à 20 %, assurance de 0 à 5 % et frais de dossier positifs.';
+    err.hidden = false;
+    return;
+  }
+  err.hidden = true;
+
+  var n = annees*12;
+  function bilan(o){
+    var m = mensualite(C, o.taux, n);
+    var assM = C*(o.ass/100)/12;
+    var totalMens = m + assM;
+    var interets = m*n - C;
+    var assTotal = assM*n;
+    var cout = interets + assTotal + o.frais;
+    return { m:m, assM:assM, totalMens:totalMens, interets:interets, assTotal:assTotal,
+             cout:cout, total:C + cout, taeg:taeg(C, o.taux, n, o.ass, o.frais) };
+  }
+  var ra = bilan(A), rb = bilan(B);
+  $('a_mens').textContent = eur2(ra.totalMens);
+  $('a_cout').textContent = eur(ra.cout);
+  $('a_total').textContent = eur(ra.total);
+  $('a_taeg').textContent = ra.taeg.toFixed(2) + ' %';
+  $('b_mens').textContent = eur2(rb.totalMens);
+  $('b_cout').textContent = eur(rb.cout);
+  $('b_total').textContent = eur(rb.total);
+  $('b_taeg').textContent = rb.taeg.toFixed(2) + ' %';
+
+  var diff = ra.cout - rb.cout;
+  var gagnante = diff > 0 ? 'B' : 'A';
+  var perdante = gagnante === 'B' ? 'A' : 'B';
+  var ecart = Math.abs(diff);
+  var ecartMois = Math.abs(ra.totalMens - rb.totalMens);
+  var v = $('verdict'), vs = $('verdict-sub');
+  if(ecart < 50){
+    v.textContent = 'Les deux offres se valent';
+    v.className = 'verdict is-neutral';
+    vs.textContent = 'Moins de 50 € d\'écart sur toute la durée : choisis selon les services et les conditions de remboursement anticipé.';
+  } else {
+    v.textContent = 'L\'offre ' + gagnante + ' coûte ' + eur(ecart) + ' de moins';
+    v.className = 'verdict';
+    vs.textContent = 'Sur ' + annees + ' ans, l\'offre ' + perdante + ' te coûte ' + eur(ecart) + ' de plus, soit ' + eur(ecart/n) + ' par mois en moyenne. Écart de mensualité : ' + eur2(ecartMois) + '.';
+  }
+  $('col-a').classList.toggle('is-best', gagnante === 'A' && ecart >= 50);
+  $('col-b').classList.toggle('is-best', gagnante === 'B' && ecart >= 50);
+
+  etat.ok = true;
+  etat.data = { C:C, annees:annees, n:n, A:A, B:B, ra:ra, rb:rb, diff:diff, ecart:ecart, gagnante:gagnante, perdante:perdante };
+  $('res').classList.add('show');
+  buildPrint();
+}
+
+function buildPrint(){
+  if(!etat.ok) return;
+  var d = etat.data, doc = $('print-doc');
+  if(!doc) return;
+  var date = new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
+  function ligne(label, a, b){
+    return '<tr><th>' + label + '</th><td>' + a + '</td><td>' + b + '</td></tr>';
+  }
+  doc.innerHTML =
+    '<div class="print-head"><strong>CalcUtile</strong><span>Comparatif de deux offres de prêt — ' + date + '</span></div>' +
+    '<h1>Comparatif de deux offres</h1>' +
+    '<p class="print-intro">Montant emprunté : <strong>' + eur(d.C) + '</strong> sur <strong>' + d.annees + ' ans</strong> (' + d.n + ' mensualités).</p>' +
+    '<table class="print-table print-table-3"><thead><tr><th></th><th>Offre A</th><th>Offre B</th></tr></thead><tbody>' +
+    ligne('Taux annuel nominal', d.A.taux.toFixed(2) + ' %', d.B.taux.toFixed(2) + ' %') +
+    ligne('Assurance', d.A.ass.toFixed(2) + ' % / an', d.B.ass.toFixed(2) + ' % / an') +
+    ligne('Frais de dossier', eur(d.A.frais), eur(d.B.frais)) +
+    ligne('Mensualité totale', eur2(d.ra.totalMens), eur2(d.rb.totalMens)) +
+    ligne('Coût total du crédit', '<strong>' + eur(d.ra.cout) + '</strong>', '<strong>' + eur(d.rb.cout) + '</strong>') +
+    ligne('Total remboursé', eur(d.ra.total), eur(d.rb.total)) +
+    ligne('TAEG estimé', d.ra.taeg.toFixed(2) + ' %', d.rb.taeg.toFixed(2) + ' %') +
+    '</tbody></table>' +
+    '<p class="print-verdict"><strong>' + $('verdict').textContent + '</strong> — ' + $('verdict-sub').textContent + '</p>' +
+    '<h2>À vérifier avant de choisir</h2>' +
+    '<ul class="print-list">' +
+    '<li>Le <strong>TAEG officiel</strong> de chaque offre : c\'est le seul chiffre contractuel.</li>' +
+    '<li>Les <strong>frais de garantie</strong> et de courtage, absents de cette estimation.</li>' +
+    '<li>Les <strong>conditions de remboursement anticipé</strong> et de renégociation.</li>' +
+    '<li>La <strong>possibilité de déléguer l\'assurance</strong> à un contrat individuel.</li>' +
+    '<li>Le <strong>différé</strong> éventuel et son coût réel.</li>' +
+    '</ul>' +
+    '<p class="print-foot">Estimation indicative : formule des annuités constantes, assurance calculée sur le capital initial, TAEG approché sans frais de garantie ni de courtage. Elle ne remplace pas les offres de prêt. Calcul réalisé sur littl-spip.github.io.</p>';
+}
+
+['capital','duree','a_taux','a_ass','a_frais','b_taux','b_ass','b_frais'].forEach(function(id){
+  var el = $(id);
+  if(el){ el.addEventListener('input', function(){ clearTimeout(window.__t); window.__t = setTimeout(calc, 220); }); }
+});
+
+$('copy-res').addEventListener('click', function(){
+  if(!etat.ok) return;
+  var d = etat.data;
+  var txt = 'Comparatif de prêt — ' + eur(d.C) + ' sur ' + d.annees + ' ans\n'
+    + 'Offre A : ' + eur2(d.ra.totalMens) + '/mois, coût total ' + eur(d.ra.cout) + ', TAEG estimé ' + d.ra.taeg.toFixed(2) + ' %\n'
+    + 'Offre B : ' + eur2(d.rb.totalMens) + '/mois, coût total ' + eur(d.rb.cout) + ', TAEG estimé ' + d.rb.taeg.toFixed(2) + ' %\n'
+    + $('verdict').textContent + '\nEstimation CalcUtile — littl-spip.github.io';
+  var btn = this;
+  var ok = function(){ btn.textContent = 'Comparatif copié ✓'; setTimeout(function(){ btn.textContent = 'Copier le comparatif'; }, 2200); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(ok, function(){}); }
+});
+
+$('print-res').addEventListener('click', function(){ if(etat.ok){ buildPrint(); window.print(); } });
+
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://littl-spip.github.io/mon-projet-immobilier.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon projet immobilier : plan de financement clair — CalcUtile</title>
+<meta name="description" content="Revenus, apport, frais de notaire, taux, durée : visualise ton projet immobilier en jauges claires. Mensualité, endettement, reste à vivre et capacité d'achat, sans inscription.">
+<meta property="og:title" content="Mon projet immobilier, chiffré et visualisé — CalcUtile">
+<meta property="og:description" content="Trois jauges, un verdict, un plan d'action : vois tout de suite si ton projet tient debout.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span aria-hidden="true">▦</span> Calc<span>Utile</span></a>
+    <nav class="top" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Accueil</a> › Mon projet immobilier</div>
+
+    <section class="project-hero">
+      <div class="project-hero-copy">
+        <span class="project-kicker"><span class="project-dot"></span> Plan de financement</span>
+        <h1>Ton projet immobilier,<br><span>chiffré et visualisé.</span></h1>
+        <p>Renseigne tes revenus, ton apport et ton prêt : tout se met à jour en direct. Trois jauges suffisent pour voir si le projet tient debout — et ce qu'il faut ajuster.</p>
+        <div class="project-hero-meta"><span>Calcul immédiat</span><i></i><span>Sans inscription</span><i></i><span>Hypothèses affichées</span></div>
+      </div>
+      <div class="project-hero-visual" aria-hidden="true">
+        <div class="hero-gauge">
+          <span class="hero-gauge-label">Endettement</span>
+          <span class="hero-gauge-value" id="hero-endettement">—</span>
+          <div class="hero-gauge-track"><span id="hero-bar"></span><i class="hero-gauge-mark"></i></div>
+        </div>
+        <div class="hero-mini">
+          <span>Mensualité estimée</span>
+          <b id="hero-mens">—</b>
+        </div>
+        <div class="hero-mini hero-mini-alt">
+          <span>Reste à vivre</span>
+          <b id="hero-reste">—</b>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-layout">
+      <form class="project-form" id="project-form" novalidate>
+        <div class="example-start" aria-label="Exemples pour découvrir le calcul">
+          <div><b>Tu veux voir comment ça marche ?</b><small>Choisis un exemple fictif, puis remplace les chiffres par les tiens.</small></div>
+          <div class="example-buttons">
+            <button type="button" class="example-choice" data-example="solo">Premier achat seul</button>
+            <button type="button" class="example-choice" data-example="couple">À deux, avec un crédit auto</button>
+          </div>
+          <span class="example-status" id="example-status" role="status" aria-live="polite"></span>
+        </div>
+        <section class="card project-card">
+          <div class="project-card-head">
+            <span class="project-step">1</span>
+            <div><h2>Tes revenus</h2><p>Ce que la banque regarde en premier.</p></div>
+          </div>
+          <div class="grid">
+            <div><label for="revenus">Revenus nets mensuels du foyer</label><input id="revenus" type="number" inputmode="decimal" min="0" max="50000" step="50" value="3200"><span class="field-help">Somme des salaires nets, hors primes exceptionnelles.</span></div>
+            <div><label for="credits">Mensualités de crédits en cours</label><input id="credits" type="number" inputmode="decimal" min="0" max="20000" step="10" value="0"><span class="field-help">Auto, conso, prêt étudiant… La banque les additionne.</span></div>
+            <div><label for="charges">Dépenses qui continueront après l'achat</label><input id="charges" type="number" inputmode="decimal" min="0" max="20000" step="50" value="900"><span class="field-help">Énergie, assurances, garde… Ne compte pas ton loyer actuel s'il s'arrête.</span></div>
+          </div>
+        </section>
+
+        <section class="card project-card">
+          <div class="project-card-head">
+            <span class="project-step">2</span>
+            <div><h2>Ton projet</h2><p>Le bien, les frais et ce que tu apportes.</p></div>
+          </div>
+          <div class="grid">
+            <div><label for="prix">Prix du bien</label><input id="prix" type="number" inputmode="decimal" min="0" max="5000000" step="1000" value="190000"><span class="field-help">Prix affiché, hors frais d'achat.</span></div>
+            <div><label for="type">Type de bien</label>
+              <select id="type">
+                <option value="ancien" selected>Ancien (frais ≈ 7,5 %)</option>
+                <option value="neuf">Neuf (frais ≈ 2,5 %)</option>
+              </select>
+              <span class="field-help">Estimation des frais de notaire, ajustable plus bas.</span>
+            </div>
+            <div><label for="travaux">Travaux prévus</label><input id="travaux" type="number" inputmode="decimal" min="0" max="1000000" step="500" value="0"><span class="field-help">Montant financé avec le prêt ou payé à part.</span></div>
+            <div><label for="apport">Apport personnel</label><input id="apport" type="number" inputmode="decimal" min="0" max="5000000" step="1000" value="35000"><span class="field-help">Épargne disponible, hors réserve de précaution.</span></div>
+          </div>
+          <div class="project-line">
+            <span>Frais de notaire estimés</span>
+            <b id="frais-notaire">—</b>
+          </div>
+        </section>
+
+        <section class="card project-card">
+          <div class="project-card-head">
+            <span class="project-step">3</span>
+            <div><h2>Ton prêt</h2><p>Le taux et la durée changent tout.</p></div>
+          </div>
+          <div class="grid">
+            <div><label for="taux">Taux annuel nominal</label><input id="taux" type="number" inputmode="decimal" min="0" max="20" step="0.01" value="3.5"><span class="field-help">Hors frais de dossier et de garantie.</span></div>
+            <div><label for="assurance">Assurance emprunteur (% / an)</label><input id="assurance" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34"><span class="field-help">Calculée sur le capital initial, comme souvent.</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-head"><label for="duree">Durée du prêt</label><output id="duree-out">20 ans</output></div>
+            <input id="duree" class="range" type="range" min="5" max="25" step="1" value="20">
+            <div class="slider-scale"><span>5 ans</span><span>20 ans</span><span>25 ans</span></div>
+          </div>
+
+          <div class="grid grid-2">
+            <div><label for="garantie">Frais de garantie (% du prêt)</label><input id="garantie" type="number" inputmode="decimal" min="0" max="5" step="0.1" value="1.2"><span class="field-help">Caution ou hypothèque, souvent 1 à 2 %.</span></div>
+          </div>
+          <div class="project-line"><span>Montant à emprunter</span><b id="emprunt">—</b></div>
+        </section>
+
+        <p id="calc-error" class="form-error" role="alert" hidden></p>
+        <p class="live-hint">Tout se recalcule tout seul. Aucun bouton à chercher.</p>
+      </form>
+
+      <aside class="project-summary" aria-label="Résultat du projet">
+        <div class="summary-card">
+          <p class="summary-caveat">Repères indicatifs pour t'aider à comprendre le projet ; seule une banque peut décider d'accorder un prêt.</p>
+          <div class="summary-top">
+            <span class="summary-label">Mensualité totale estimée</span>
+            <div class="summary-mens" id="summary-mens">—</div>
+            <p class="summary-sub" id="summary-sub">assurance comprise</p>
+          </div>
+
+          <div class="summary-status" id="summary-status"><span class="status-dot"></span><b>—</b></div>
+
+          <div class="gauge">
+            <div class="gauge-head"><span>Taux d'endettement</span><b id="g-endettement">—</b></div>
+            <div class="gauge-track"><div class="gauge-fill" id="bar-endettement"></div><i class="gauge-mark" style="left:70%"></i></div>
+            <p class="gauge-note" id="n-endettement">Repère bancaire : 35 % maximum.</p>
+          </div>
+
+          <div class="gauge">
+            <div class="gauge-head"><span>Apport face aux frais</span><b id="g-apport">—</b></div>
+            <div class="gauge-track"><div class="gauge-fill gauge-fill-alt" id="bar-apport"></div></div>
+            <p class="gauge-note" id="n-apport">Couvre les frais de notaire, travaux et garantie.</p>
+          </div>
+
+          <div class="gauge">
+            <div class="gauge-head"><span>Reste à vivre</span><b id="g-reste">—</b></div>
+            <div class="gauge-track"><div class="gauge-fill gauge-fill-soft" id="bar-reste"></div><i class="gauge-mark" style="left:40%"></i></div>
+            <p class="gauge-note" id="n-reste">Après mensualité, crédits et charges.</p>
+          </div>
+
+          <div class="stack-block">
+            <div class="stack-head"><span>Décomposition du projet</span><b id="stack-total">—</b></div>
+            <div class="stack-bar" id="stack-bar">
+              <span class="seg seg-1" id="seg-prix"></span>
+              <span class="seg seg-2" id="seg-notaire"></span>
+              <span class="seg seg-3" id="seg-travaux"></span>
+              <span class="seg seg-4" id="seg-garantie"></span>
+            </div>
+            <div class="stack-legend">
+              <span><i class="dot dot-1"></i>Prix</span>
+              <span><i class="dot dot-2"></i>Notaire</span>
+              <span><i class="dot dot-3"></i>Travaux</span>
+              <span><i class="dot dot-4"></i>Garantie</span>
+            </div>
+          </div>
+
+          <div class="capacity">
+            <span>Capacité d'achat à 35 %</span>
+            <b id="capacity">—</b>
+            <small id="capacity-note">à taux et durée actuels</small>
+          </div>
+
+          <ul class="advice" id="advice"></ul>
+
+          <div class="result-actions">
+            <button class="ghost-action" id="copy-res" type="button">Copier mon plan</button>
+            <button class="ghost-action" id="print-res" type="button">Créer mon récapitulatif (PDF)</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="ad"><!-- Emplacement publicitaire (AdSense) --></div>
+
+    <section class="worked-example" aria-labelledby="example-title">
+      <span class="section-kicker">Exemple avec les valeurs de départ</span>
+      <h2 id="example-title">Un achat à 190 000 € : que racontent les chiffres ?</h2>
+      <p>Pour 3 200 € de revenus mensuels, 35 000 € d'apport, un bien ancien à 190 000 € et un prêt de 20 ans à 3,5 % avec 0,34 % d'assurance : le calcul estime une mensualité de 1 042 € assurance comprise. L'endettement ressort à 32,6 % et le reste après 900 € de dépenses conservées à 1 258 €. Change une hypothèse dans le formulaire : les résultats se recalculent immédiatement.</p>
+    </section>
+    <h2>Comment lire ces trois jauges</h2>
+    <p>La première jauge est le <strong>taux d'effort</strong> : la part des revenus consacrée aux remboursements de crédit, assurance comprise. Le repère réglementaire est en principe de 35 % et la durée maximale du prêt est en principe de 25 ans. Des dérogations encadrées existent ; seule la banque peut examiner un dossier complet.</p>
+    <p>La deuxième compare ton <strong>apport aux frais</strong> : notaire, travaux et garantie. Un apport qui couvre les frais évite de financer des dépenses qui ne prennent pas de valeur. Ce n'est pas une obligation légale, mais c'est un repère solide pour négocier.</p>
+    <p>La troisième mesure le <strong>reste à vivre</strong> : ce qu'il te reste chaque mois après la mensualité, les crédits et les charges courantes. C'est la jauge la plus personnelle : deux foyers avec les mêmes revenus n'ont pas les mêmes besoins.</p>
+
+    <h2>Le calcul, en clair</h2>
+    <ul>
+      <li><strong>Mensualité</strong> : formule des annuités constantes, puis assurance ajoutée au taux indiqué sur le capital initial.</li>
+      <li><strong>Frais de notaire</strong> : 7,5 % dans l'ancien, 2,5 % dans le neuf. Ce sont des ordres de grandeur : le taux exact dépend du département et de la nature du bien.</li>
+      <li><strong>Montant emprunté</strong> : prix + frais de notaire + travaux + garantie − apport.</li>
+      <li><strong>Capacité d'achat</strong> : capital maximal finançable avec une mensualité égale à 35 % des revenus, moins les crédits en cours.</li>
+    </ul>
+    <p>Les frais de dossier, de courtage et l'éventuel différé ne sont pas inclus. Le <strong>TAEG</strong> de l'offre bancaire reste le seul chiffre contractuel pour comparer deux propositions.</p>
+
+    <h2>Trois erreurs qui font échouer un dossier</h2>
+    <ul>
+      <li><strong>Compter sur un apport qui n'existe pas encore</strong> : la banque vérifie l'origine des fonds et l'épargne disponible au moment du prêt.</li>
+      <li><strong>Oublier les crédits en cours</strong> : une mensualité auto de 250 € peut faire basculer un dossier de 33 % à 41 %.</li>
+      <li><strong>Financer les frais</strong> : emprunter le notaire et la garantie augmente le coût total sans augmenter la valeur du bien.</li>
+    </ul>
+
+    <h2>Questions fréquentes</h2>
+    <details>
+      <summary>Pourquoi 35 % et pas un autre seuil ?</summary>
+      <p>C'est la recommandation du Haut Conseil de stabilité financière, reprise par la plupart des banques. Ce n'est pas une loi : une banque peut accepter davantage, notamment pour les revenus élevés, mais le seuil reste la référence.</p>
+    </details>
+    <details>
+      <summary>Mon apport doit-il couvrir les frais de notaire ?</summary>
+      <p>C'est fortement recommandé. Financer les frais revient à emprunter pour une dépense qui ne crée pas de valeur, et cela augmente la mensualité. Un apport qui les couvre donne aussi une marge de négociation.</p>
+    </details>
+    <details>
+      <summary>La capacité d'achat affichée est-elle garantie ?</summary>
+      <p>Non. Elle applique le seuil de 35 % à tes revenus, à taux et durée constants. La banque tiendra aussi compte de ton reste à vivre, de ta stabilité professionnelle, de ton épargne et de la qualité du bien.</p>
+    </details>
+
+    <h2>Sources et méthode</h2>
+    <ul>
+      <li>Repères de 35 % et 25 ans : <a href="https://www.economie.gouv.fr/hcsf/mesures/mesure-relative-loctroi-de-credits-immobiliers" target="_blank" rel="noopener">Haut Conseil de stabilité financière</a>.</li>
+      <li>Frais de notaire : ordres de grandeur usuels, à confirmer avec le notaire.</li>
+      <li>Assurance emprunteur : <a href="https://www.service-public.fr/particuliers/vosdroits/F34285" rel="nofollow noopener" target="_blank">service-public.fr</a>.</li>
+    </ul>
+
+    <section class="content-section related-tools">
+      <h2>Aller plus loin</h2>
+      <ul>
+        <li><a href="simulateur-credit-immobilier.html">Simuler la mensualité et le tableau d'amortissement</a></li>
+        <li><a href="comparateur-offres-pret.html">Comparer deux offres de prêt</a></li>
+        <li><a href="renegocier-credit-immobilier.html">Vérifier si une renégociation est rentable</a></li>
+        <li><a href="frais-de-notaire.html">Estimer les frais d'achat en détail</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<div id="print-doc" class="print-doc" aria-hidden="true"></div>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — des simulateurs gratuits, sans inscription. Les calculs restent dans ton navigateur.</p>
+  </div>
+</footer>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+<script>
+var eur = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n).replace('\u202f','\u00a0'); };
+var eur2 = function(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n).replace('\u202f','\u00a0'); };
+var $ = function(i){ return document.getElementById(i); };
+var clamp = function(v, min, max){ return Math.min(max, Math.max(min, v)); };
+
+function annuity(C, tauxA, n){
+  var i = tauxA/100/12;
+  return i === 0 ? C/n : C*i/(1-Math.pow(1+i,-n));
+}
+function capitalFromPayment(m, tauxA, n){
+  var i = tauxA/100/12;
+  return i === 0 ? m*n : m*(1-Math.pow(1+i,-n))/i;
+}
+
+var etat = { ok:false, data:null };
+
+var exemples = {
+  solo: { revenus:2600, credits:220, charges:650, prix:155000, travaux:0, apport:22000, taux:3.5, assurance:0.34, garantie:1.2, duree:20, type:'ancien' },
+  couple: { revenus:4200, credits:240, charges:850, prix:220000, travaux:0, apport:40000, taux:3.5, assurance:0.34, garantie:1.2, duree:20, type:'ancien' }
+};
+
+document.querySelectorAll('.example-choice').forEach(function(button){
+  button.addEventListener('click', function(){
+    var values = exemples[button.dataset.example];
+    if(!values) return;
+    Object.keys(values).forEach(function(key){ $(key).value = values[key]; });
+    $('duree-out').textContent = values.duree + ' ans';
+    $('example-status').textContent = 'Exemple chargé : modifie les montants pour voir ton propre résultat.';
+    calc();
+    $('revenus').focus({preventScroll:true});
+  });
+});
+
+function calc(){
+  var revenus = Number($('revenus').value);
+  var credits = Number($('credits').value);
+  var charges = Number($('charges').value);
+  var prix = Number($('prix').value);
+  var travaux = Number($('travaux').value);
+  var apport = Number($('apport').value);
+  var taux = Number($('taux').value);
+  var annees = Number($('duree').value);
+  var assurance = Number($('assurance').value);
+  var garantiePct = Number($('garantie').value);
+  var notairePct = $('type').value === 'neuf' ? 2.5 : 7.5;
+
+  var err = $('calc-error');
+  var ok = [revenus,credits,charges,prix,travaux,apport,taux,assurance,garantiePct].every(function(v){ return Number.isFinite(v) && v >= 0; })
+    && revenus <= 50000 && prix <= 5000000 && taux <= 20 && assurance <= 5 && garantiePct <= 5
+    && annees >= 5 && annees <= 25;
+
+  if(!ok){
+    err.textContent = 'Vérifie les valeurs : montants positifs, revenus jusqu\'à 50 000 €, taux de 0 à 20 %, assurance et garantie de 0 à 5 %, durée de 5 à 25 ans.';
+    err.hidden = false;
+    etat.ok = false;
+    return;
+  }
+  err.hidden = true;
+
+  var n = Math.round(annees*12);
+  var fraisNotaire = prix * notairePct / 100;
+  var base = prix + fraisNotaire + travaux - apport;
+  var garantie = Math.max(base, 0) * garantiePct / 100;
+  var emprunt = Math.max(0, base + garantie);
+  var m = emprunt > 0 ? annuity(emprunt, taux, n) : 0;
+  var assM = emprunt * assurance / 100 / 12;
+  var mens = m + assM;
+  var interets = m*n - emprunt;
+  var assTotal = assM*n;
+  var coutTotal = interets + assTotal + garantie;
+
+  var endettement = revenus > 0 ? (mens + credits) / revenus * 100 : 0;
+  var reste = revenus - mens - credits - charges;
+  var frais = fraisNotaire + travaux + garantie;
+  var couverture = frais > 0 ? apport / frais * 100 : 100;
+
+  var mensMax = Math.max(0, revenus*0.35 - credits);
+  var perEuro = (emprunt > 0 ? annuity(1, taux, n) : (taux === 0 ? 1/n : 0)) + assurance/100/12;
+  var capitalMax = perEuro > 0 ? mensMax / perEuro : 0;
+  var prixMax = (capitalMax / (1 + garantiePct/100) - travaux + apport) / (1 + notairePct/100);
+  if(!Number.isFinite(prixMax) || prixMax < 0) prixMax = 0;
+
+  $('frais-notaire').textContent = eur(fraisNotaire);
+  $('emprunt').textContent = eur(emprunt);
+  $('summary-mens').innerHTML = eur2(mens) + ' <small>/mois</small>';
+  $('summary-sub').textContent = 'assurance comprise (' + eur2(assM) + ')';
+  $('hero-mens').textContent = eur2(mens);
+
+  $('g-endettement').textContent = endettement.toFixed(1) + ' %';
+  $('bar-endettement').style.width = clamp(endettement/50*100, 0, 100) + '%';
+  $('bar-endettement').className = 'gauge-fill' + (endettement > 35 ? ' is-warn' : ' is-ok');
+
+  $('g-apport').textContent = Math.round(couverture) + ' %';
+  $('bar-apport').style.width = clamp(couverture, 0, 100) + '%';
+  $('bar-apport').className = 'gauge-fill gauge-fill-alt' + (couverture < 100 ? ' is-warn' : ' is-ok');
+
+  $('g-reste').textContent = eur(reste);
+  $('hero-reste').textContent = eur(reste);
+  $('bar-reste').style.width = clamp(reste/2000*100, 0, 100) + '%';
+  $('bar-reste').className = 'gauge-fill gauge-fill-soft' + (reste < 800 ? ' is-warn' : ' is-ok');
+
+  $('hero-endettement').textContent = endettement.toFixed(0) + ' %';
+  $('hero-bar').style.width = clamp(endettement/50*100, 0, 100) + '%';
+  $('hero-bar').className = endettement > 35 ? 'is-warn' : '';
+
+  var total = prix + fraisNotaire + travaux + garantie || 1;
+  $('seg-prix').style.width = (prix/total*100) + '%';
+  $('seg-notaire').style.width = (fraisNotaire/total*100) + '%';
+  $('seg-travaux').style.width = (travaux/total*100) + '%';
+  $('seg-garantie').style.width = (garantie/total*100) + '%';
+  $('stack-total').textContent = eur(total);
+
+  $('capacity').textContent = eur(prixMax);
+  $('capacity-note').textContent = 'soit ' + eur(capitalMax) + ' à emprunter, à taux et durée actuels';
+
+  var status = $('summary-status'), label = status.querySelector('b');
+  var advice = [], good = true;
+  if(mens === 0){
+    status.className = 'summary-status is-good';
+    label.textContent = 'Projet autofinancé';
+  } else if(endettement <= 35 && reste >= 800 && couverture >= 100){
+    status.className = 'summary-status is-good';
+    label.textContent = 'Repères favorables';
+  } else if(endettement <= 40 && reste >= 500){
+    status.className = 'summary-status is-warn';
+    label.textContent = 'À ajuster';
+    good = false;
+  } else {
+    status.className = 'summary-status is-low';
+    label.textContent = 'Trop juste';
+    good = false;
+  }
+
+  if(mens === 0){
+    advice.push('Ton apport couvre tout le projet : aucun prêt n\'est nécessaire. Garde une réserve de précaution.');
+  }
+  if(endettement > 35){
+    var manqueRev = (mens + credits)/0.35 - revenus;
+    advice.push('Endettement à ' + endettement.toFixed(1) + ' % : il faudrait environ ' + eur(Math.max(0, manqueRev)) + ' de revenus en plus par mois, ou réduire le montant emprunté.');
+    good = false;
+  }
+  if(couverture < 100){
+    advice.push('Ton apport couvre ' + Math.round(couverture) + ' % des frais : il manque ' + eur(Math.max(0, frais - apport)) + ' pour les absorber entièrement.');
+    good = false;
+  }
+  if(reste < 800 && mens > 0){
+    advice.push('Reste à vivre de ' + eur(reste) + ' : c\'est serré. Une durée plus longue baisse la mensualité, mais augmente le coût total.');
+    good = false;
+  }
+  if(good){
+    advice.push('Les trois repères sont au vert : endettement sous 35 %, apport qui couvre les frais et reste à vivre confortable.');
+    advice.push('Prochaine étape : compare deux offres de prêt, frais compris, avant de signer.');
+  }
+  var list = $('advice');
+  list.innerHTML = advice.slice(0, 3).map(function(t){ return '<li>' + t + '</li>'; }).join('');
+
+  etat.ok = true;
+  etat.data = { revenus:revenus, credits:credits, charges:charges, prix:prix, travaux:travaux, apport:apport,
+                taux:taux, annees:annees, assurance:assurance, garantiePct:garantiePct, notairePct:notairePct,
+                fraisNotaire:fraisNotaire, garantie:garantie, emprunt:emprunt, m:m, assM:assM, mens:mens,
+                interets:interets, assTotal:assTotal, coutTotal:coutTotal, endettement:endettement, reste:reste,
+                frais:frais, couverture:couverture, capitalMax:capitalMax, prixMax:prixMax, n:n };
+  buildPrint();
+}
+
+['revenus','credits','charges','prix','travaux','apport','taux','assurance','garantie'].forEach(function(id){
+  var el = $(id);
+  if(el){ el.addEventListener('input', function(){ clearTimeout(window.__t); window.__t = setTimeout(calc, 180); }); }
+});
+$('duree').addEventListener('input', function(){
+  $('duree-out').textContent = $('duree').value + ' ans';
+  clearTimeout(window.__t); window.__t = setTimeout(calc, 120);
+});
+$('type').addEventListener('change', calc);
+
+function buildPrint(){
+  if(!etat.ok) return;
+  var d = etat.data, doc = $('print-doc');
+  if(!doc) return;
+  var date = new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
+  doc.innerHTML =
+    '<div class="print-head"><strong>CalcUtile</strong><span>Plan de financement immobilier — ' + date + '</span></div>' +
+    '<h1>Mon projet immobilier</h1>' +
+    '<p class="print-intro">Bien à <strong>' + eur(d.prix) + '</strong> (' + (d.notairePct === 2.5 ? 'neuf' : 'ancien') + '), apport de <strong>' + eur(d.apport) + '</strong>, prêt sur <strong>' + d.annees + ' ans</strong> à <strong>' + d.taux.toFixed(2) + ' %</strong>.</p>' +
+    '<table class="print-table"><tbody>' +
+    '<tr><th>Revenus nets mensuels</th><td>' + eur(d.revenus) + '</td></tr>' +
+    '<tr><th>Crédits en cours</th><td>' + eur(d.credits) + ' / mois</td></tr>' +
+    '<tr><th>Frais de notaire estimés</th><td>' + eur(d.fraisNotaire) + '</td></tr>' +
+    '<tr><th>Travaux</th><td>' + eur(d.travaux) + '</td></tr>' +
+    '<tr><th>Frais de garantie</th><td>' + eur(d.garantie) + '</td></tr>' +
+    '<tr><th>Montant emprunté</th><td><strong>' + eur(d.emprunt) + '</strong></td></tr>' +
+    '<tr><th>Mensualité totale</th><td><strong>' + eur2(d.mens) + '</strong> (assurance ' + eur2(d.assM) + ')</td></tr>' +
+    '<tr><th>Taux d\'endettement</th><td><strong>' + d.endettement.toFixed(1) + ' %</strong></td></tr>' +
+    '<tr><th>Reste à vivre</th><td><strong>' + eur(d.reste) + '</strong></td></tr>' +
+    '<tr><th>Coût total du crédit</th><td>' + eur(d.coutTotal) + '</td></tr>' +
+    '<tr><th>Capacité d\'achat à 35 %</th><td>' + eur(d.prixMax) + '</td></tr>' +
+    '</tbody></table>' +
+    '<h2>Les repères</h2>' +
+    '<ul class="print-list"><li>Endettement sous 35 % des revenus nets, crédits en cours compris.</li>' +
+    '<li>Apport qui couvre les frais de notaire, travaux et garantie.</li>' +
+    '<li>Reste à vivre suffisant après mensualité et charges.</li></ul>' +
+    '<h2>Vérifications avant de signer</h2>' +
+    '<ul class="print-list"><li>Le TAEG de l\'offre et le détail des frais de dossier.</li>' +
+    '<li>Les frais de garantie réels et la possibilité de déléguer l\'assurance.</li>' +
+    '<li>Les conditions de remboursement anticipé et de renégociation.</li>' +
+    '<li>L\'origine des fonds de l\'apport et l\'épargne de précaution restante.</li></ul>' +
+    '<p class="print-foot">Estimation indicative : annuités constantes, frais de notaire approximés (7,5 % ancien / 2,5 % neuf), garantie au taux indiqué, assurance sur capital initial. Elle ne remplace pas les offres de prêt. Calcul réalisé sur littl-spip.github.io.</p>';
+}
+
+$('copy-res').addEventListener('click', function(){
+  if(!etat.ok) return;
+  var d = etat.data, btn = this;
+  var txt = 'Mon projet immobilier — ' + eur(d.prix) + ', apport ' + eur(d.apport) + ', prêt ' + d.annees + ' ans à ' + d.taux.toFixed(2) + ' %\n'
+    + 'Mensualité : ' + eur2(d.mens) + ' — endettement ' + d.endettement.toFixed(1) + '% — reste à vivre ' + eur(d.reste) + '\n'
+    + 'Montant emprunté : ' + eur(d.emprunt) + ' — capacité à 35 % : ' + eur(d.prixMax) + '\n'
+    + 'Estimation CalcUtile — littl-spip.github.io';
+  var ok = function(){ btn.textContent = 'Plan copié ✓'; setTimeout(function(){ btn.textContent = 'Copier mon plan'; }, 2200); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(ok, function(){}); }
+});
+
+$('print-res').addEventListener('click', function(){ if(etat.ok){ buildPrint(); window.print(); } });
+
+$('duree-out').textContent = $('duree').value + ' ans';
+calc();
+if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', calc); }
+</script>
+</body>
+</html>
