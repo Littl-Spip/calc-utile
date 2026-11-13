@@ -703,3 +703,4 @@ main .wrap > p:not(.lead):not(.crumb):not(.note):not(.standfirst):not(.home-visi
 .yt-btn-ghost:before{border-left-color:#c4302b}
 .yt-btn-ghost:hover{background:#fff;border-color:#b9c8de;color:#12233f}
 @media(max-width:640px){.yt-strip{padding:18px}.yt-links{width:100%}.yt-btn{flex:1;justify-content:center}}
+.visual-logo svg{width:24px;height:24px;display:block}
