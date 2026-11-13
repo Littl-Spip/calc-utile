@@ -657,3 +657,30 @@ footer.site .f-links a:hover{color:var(--brand-2)}
   .logo{font-size:1.06rem}
   .logo-mark{width:28px;height:28px}
 }
+
+/* --- correctif : une seule marque dans l'en-tête --- */
+.logo:before{content:none;display:none}
+
+/* --- correctif typographique : respiration des paragraphes et accroche --- */
+main .wrap > p:not(.lead):not(.crumb):not(.note):not(.standfirst):not(.home-visit-link):not(.home-video):not(.home-spotlight){
+  margin:0 0 1.05em;
+}
+.standfirst{
+  margin:34px 0 12px;padding:16px 0 0;border-left:0;border-top:1px solid var(--border);
+  color:#33445e;font-size:1.12rem;font-weight:650;line-height:1.45;letter-spacing:-.012em;
+}
+@media(max-width:560px){.standfirst{font-size:1.04rem;margin-top:26px}}
+/* FAQ : chevron discret à la place du triangle */
+.faq summary{list-style:none;display:flex;gap:10px;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"";width:9px;height:9px;flex:none;margin-top:.5em;
+  border-right:2px solid #8aa0c0;border-bottom:2px solid #8aa0c0;transform:rotate(-45deg);transition:transform .18s ease}
+.faq details[open] summary::before{transform:rotate(45deg);border-color:var(--brand)}
+
+/* --- accueil : puces flottantes et icônes vectorielles --- */
+.visual-float.float-bottom{left:-6px;bottom:8px;top:auto;right:auto}
+.visual-float.float-top{right:6px;top:8px}
+.category-icon svg,.pick-icon svg,.visual-icon svg{display:block}
+.category-card b{font-size:.845rem}
+.category-card small{font-size:.715rem;line-height:1.45}
+@media(max-width:650px){.visual-float.float-bottom{left:0;bottom:-2px}}
