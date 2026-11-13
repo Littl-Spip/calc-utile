@@ -93,4 +93,10 @@
     <loc>https://littl-spip.github.io/checklist-visite-immobiliere.html</loc>
     <lastmod>2026-11-12</lastmod>
   </url>
+  <url>
+    <loc>https://littl-spip.github.io/methodologie-sources.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>

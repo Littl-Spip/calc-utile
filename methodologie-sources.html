@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://littl-spip.github.io/methodologie-sources.html">
+<title>Méthodologie et sources des calculs — CalcUtile</title>
+<meta name="description" content="Comment CalcUtile construit ses calculs : formules utilisées, barèmes datés, arrondis, limites et sources officielles (service-public.fr, impots.gouv.fr, Légifrance, Banque de France, INSEE).">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#2f5bea">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcUtile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Méthodologie et sources des calculs — CalcUtile">
+<meta property="og:description" content="Formules, barèmes datés, arrondis, limites et sources officielles utilisées par les calculateurs CalcUtile.">
+<meta property="og:url" content="https://littl-spip.github.io/methodologie-sources.html">
+<meta property="og:image" content="https://littl-spip.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Méthodologie et sources des calculs — CalcUtile">
+<meta name="twitter:description" content="Formules, barèmes datés, arrondis, limites et sources officielles utilisées par les calculateurs CalcUtile.">
+<meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Méthodologie et sources des calculs", "url": "https://littl-spip.github.io/methodologie-sources.html", "description": "Formules, barèmes datés, arrondis, limites et sources officielles utilisées par les calculateurs CalcUtile.", "inLanguage": "fr-FR", "isPartOf": {"@type": "WebSite", "name": "CalcUtile", "url": "https://littl-spip.github.io/"}}</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><defs><linearGradient id="cuGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#3d6dfb"/><stop offset="1" stop-color="#1b3ea8"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#cuGrad)"/><rect x="7.5" y="17" width="4.2" height="7.5" rx="1.4" fill="#fff" opacity=".78"/><rect x="13.9" y="12" width="4.2" height="12.5" rx="1.4" fill="#fff" opacity=".9"/><rect x="20.3" y="7" width="4.2" height="17.5" rx="1.4" fill="#fff"/></svg><span class="logo-word">Calc<span>Utile</span></span></a>
+    <nav class="top">
+      <a href="index.html">Accueil</a>
+      <a href="outils.html">Outils</a>
+      <a href="guides.html">Guides</a>
+      <a href="radar-economies.html">Radar Éco</a>
+      <a class="nav-cta" href="mon-espace.html">Mon espace</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Accueil</a> › Méthodologie et sources</p>
+
+    <article class="article">
+      <h1>Méthodologie et sources</h1>
+      <p class="lead">Un calculateur n'a de valeur que si l'on sait d'où vient le chiffre affiché. Cette page explique comment les outils CalcUtile sont construits, quels textes officiels servent de référence, et ce qu'ils ne prennent pas en compte.</p>
+
+      <h2>Trois principes</h2>
+      <ul>
+        <li><strong>Un calcul reproductible.</strong> Chaque outil applique une formule publique, décrite en clair sur la page de l'outil ou dans le guide associé. Rien n'est calculé « à l'estime ».</li>
+        <li><strong>Un barème daté.</strong> Les taux, plafonds et seuils portent une année de référence. Quand un texte change, l'outil est mis à jour et la date est rappelée.</li>
+        <li><strong>Un calcul local.</strong> Les montants saisis restent dans le navigateur : ils ne sont ni envoyés, ni stockés sur un serveur.</li>
+      </ul>
+
+      <h2>Comment un outil est construit</h2>
+      <p>Pour chaque calculateur, la démarche est la même : identifier le texte ou la méthode de référence, en extraire les paramètres (taux, plafonds, durées, exonérations), écrire la formule, puis vérifier le résultat sur des cas connus — souvent en le comparant au simulateur officiel de l'administration concernée.</p>
+      <p>Les cas limites sont traités explicitement : quotient familial plafonné, majoration pour personne seule, prorata temporis, seuils d'exonération. Quand une règle dépend d'une situation individuelle que le formulaire ne peut pas connaître, la page l'indique plutôt que de produire un chiffre faux.</p>
+
+      <h2>Les sources utilisées</h2>
+      <p>Les références sont publiques et consultables. Selon les outils, il s'agit de :</p>
+      <ul>
+        <li><strong>Service-Public.fr</strong> pour les règles du quotidien (aides, congés, jours fériés, prestations familiales) et leurs montants revalorisés.</li>
+        <li><strong>Impots.gouv.fr</strong> pour le barème progressif de l'impôt sur le revenu, le quotient familial, la décote et les plafonds d'avantages fiscaux.</li>
+        <li><strong>Légifrance</strong> pour le code du travail (congés, indemnités, jours fériés) et le code de la consommation (crédit, TAEG).</li>
+        <li><strong>Banque de France</strong> et <strong>Autorité de contrôle prudentiel</strong> pour les règles de crédit et les taux d'usure.</li>
+        <li><strong>INSEE</strong> pour les références statistiques (inflation, revenus médians, espérance de vie).</li>
+        <li><strong>URSSAF et Agirc-Arrco</strong> pour les taux de cotisations sociales utilisés dans les conversions brut-net.</li>
+        <li><strong>Notaires de France</strong> pour la structure des frais d'acquisition (droits de mutation, émoluments, débours).</li>
+      </ul>
+      <p>Les liens vers la source précise figurent sur la page de l'outil concerné, au plus près du résultat.</p>
+
+      <h2>Arrondis et tolérances</h2>
+      <p>Les mensualités sont arrondies au centime, les impôts et les cotisations à l'euro, les pourcentages à une décimale. Ces arrondis suffisent à expliquer de petits écarts avec un décompte officiel, sans changer l'ordre de grandeur.</p>
+      <p>Un écart de quelques euros entre deux simulateurs n'est pas forcément une erreur : il vient souvent d'une hypothèse différente (taux d'assurance, frais de dossier, arrondi de la dernière échéance).</p>
+
+      <h2>Ce que les outils ne modélisent pas</h2>
+      <p>Un simulateur généraliste ne remplace pas l'étude d'un dossier. Ne sont pas pris en compte, sauf mention contraire : les frais de dossier et de garantie d'un prêt, les indemnités de remboursement anticipé, les prêts aidés et prêts gigogne, les déductions fiscales spécifiques, les conventions collectives plus favorables que le droit commun, et les situations d'handicap ou de résidence à l'étranger.</p>
+      <p>Ces limites sont assumées : mieux vaut un résultat clair, accompagné de sa limite, qu'un chiffre précis en apparence et faux en pratique.</p>
+
+      <h2>Mise à jour et corrections</h2>
+      <p>Les barèmes sont revus au début de chaque année, quand les textes financiers et sociaux sont publiés, et à chaque changement signalé. La date de dernière mise à jour est affichée en bas des pages concernées.</p>
+      <p>Une erreur reste possible. Si un chiffre te paraît faux, si un barème a évolué ou si une règle a changé, signale-le via la <a href="contact.html">page de contact</a> en précisant l'outil et le cas : la correction est vérifiée puis publiée.</p>
+
+      <div class="cta-box">
+        <div><strong>Vérifier un calcul</strong><p>63 calculateurs gratuits, avec leurs hypothèses affichées.</p></div>
+        <a href="outils.html">Voir les outils →</a>
+      </div>
+
+      <p class="note">Dernière mise à jour : novembre 2026.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>CalcUtile — outils de calcul gratuits. Résultats indicatifs, ne constituent pas un conseil financier.</p>
+    <p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="methodologie-sources.html">Méthodologie</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+<script src="counter.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

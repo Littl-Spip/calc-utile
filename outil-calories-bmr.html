@@ -9,6 +9,9 @@
 <meta name="description" content="Estime ton métabolisme de base et tes besoins caloriques quotidiens selon ton âge, sexe, poids, taille et activité.">
 <meta name="keywords" content="calories, métabolisme de base, BMR, TDEE, poids, santé">
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#2f5bea">
@@ -28,7 +31,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calories : besoins journaliers (BMR & TDEE)", "url": "https://littl-spip.github.io/outil-calories-bmr.html", "description": "Estime ton métabolisme de base et tes besoins caloriques quotidiens selon ton âge, sexe, poids, taille et activité.", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
-<header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
+<header class="site"><div class="wrap"><a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><defs><linearGradient id="cuGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#3d6dfb"/><stop offset="1" stop-color="#1b3ea8"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#cuGrad)"/><rect x="7.5" y="17" width="4.2" height="7.5" rx="1.4" fill="#fff" opacity=".78"/><rect x="13.9" y="12" width="4.2" height="12.5" rx="1.4" fill="#fff" opacity=".9"/><rect x="20.3" y="7" width="4.2" height="17.5" rx="1.4" fill="#fff"/></svg><span class="logo-word">Calc<span>Utile</span></span></a>
 <nav class="top">
       <a href="index.html">Accueil</a>
       <a href="outils.html">Outils</a>
@@ -38,7 +41,7 @@
     </nav></div></header>
 <main><div class="wrap">
 <div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Besoins caloriques journaliers</div>
-<span class="badge">🏃 Santé</span>
+<span class="badge"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>Santé</span>
 <h1>Besoins caloriques journaliers</h1>
 <p class="lead">Estime combien de calories tu dépenses par jour, au repos et selon ton niveau d'activité.</p>
 <div class="card">
@@ -76,7 +79,7 @@
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
 </div></main>
-<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
+<footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="methodologie-sources.html">Méthodologie</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var s=document.getElementById('a').value, a=+document.getElementById('b').value||0, w=+document.getElementById('c').value||0, h=+document.getElementById('d').value||0, act=+document.getElementById('e').value||1.2;
 var bmr = (s==='h')?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;
