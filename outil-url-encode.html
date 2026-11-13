@@ -25,6 +25,7 @@
 <meta name="twitter:title" content="URL encode / decode (encodeURIComponent)">
 <meta name="twitter:description" content="Encode ou décode une URL (espaces, accents, caractères spéciaux) avec encodeURIComponent.">
 <meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "URL encode / decode (encodeURIComponent)", "url": "https://littl-spip.github.io/outil-url-encode.html", "description": "Encode ou décode une URL (espaces, accents, caractères spéciaux) avec encodeURIComponent.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -52,8 +53,7 @@
 
 
 <!-- data-cms -->
-<h2>Encodage d'URL : pourquoi les accents deviennent %C3%A9</h2>
-<h2>Les caractères interdits dans une URL</h2>
+<p class="standfirst">Encodage d'URL : pourquoi les accents deviennent %C3%A9</p><h2>Les caractères interdits dans une URL</h2>
 <p>Une URL ne peut contenir qu'un jeu limité de caractères ASCII : lettres, chiffres et quelques symboles. Tout le reste — espaces, accents, esperluettes, points d'interrogation — doit être encodé en pourcentage : chaque octet est écrit en hexadécimal précédé de %. Le « é » (UTF-8 : C3 A9) devient donc %C3%A9, et l'espace devient %20 ou +.</p>
 <p>Cet encodage s'appelle percent-encoding, ou URL encoding. Il sert autant à construire un lien qu'à lire ce qu'un serveur a réellement reçu.</p>
 <h2>Encoder ou décoder : deux opérations distinctes</h2>

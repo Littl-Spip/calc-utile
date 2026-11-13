@@ -365,7 +365,7 @@ nav.top a.nav-cta{border:1px solid #b9cdef;background:linear-gradient(120deg,#ed
   header.site,nav.top,main,footer,.ad,.save-fab,.toast{display:none!important}
   #print-doc{display:block!important;color:#0b1220}
   .print-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #2f5bea;padding-bottom:10px;margin:0 0 22px;font-size:.9rem}
-  .print-doc h1{font-size:1.5rem;margin:0 0 14px}
+  .print-doc h1,.print-doc .print-h1{font-size:1.5rem;margin:0 0 14px;font-weight:700}
   .print-doc h2{font-size:1.05rem;margin:22px 0 8px;padding-bottom:4px;border-bottom:1px solid #dbe6fb}
   .print-table{width:100%;border-collapse:collapse;font-size:.86rem;margin:8px 0}
   .print-table th,.print-table td{border:1px solid #dfe8f7;padding:7px 9px;text-align:left}
@@ -580,3 +580,15 @@ input.range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;backgroun
 .home-visit-link{display:grid;gap:4px;margin:14px 0 0;padding:13px 16px;border:1px solid #d5e3f7;border-radius:13px;background:linear-gradient(120deg,#fff,#f1f6ff)}.home-visit-link a{color:#2455a8;font-size:.86rem;font-weight:740;text-decoration:none}.home-visit-link a:hover{text-decoration:underline}.home-visit-link small{color:#657895;font-size:.74rem}
 .check-crosslink{margin:12px 0 22px;padding:13px 15px;border:1px solid #d8e5f7;border-radius:12px;background:#f5f8ff;color:#5e6f88;font-size:.83rem}.check-crosslink a{margin-left:5px;color:#2455a8;font-weight:720}
 
+/* --- Qualité éditoriale : phrases d'accroche et titres imprimés (2026-11-13) --- */
+.standfirst{font-size:1.05rem;font-weight:600;color:#16233d;margin:26px 0 4px;padding-left:13px;border-left:3px solid #2f5bea;line-height:1.45}
+@media(max-width:560px){.standfirst{font-size:1rem}}
+
+/* --- Qualité éditoriale (2026-11-13) --- */
+.standfirst{font-size:1.05rem;font-weight:600;color:#16233d;margin:26px 0 4px;padding-left:13px;border-left:3px solid #2f5bea;line-height:1.45}
+.next{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:8px}
+.next li{border:1px solid #e2ecfb;border-radius:10px;background:#fbfdff}
+.next li a{display:block;padding:11px 14px;font-weight:600;color:#1d3fb0;text-decoration:none}
+.next li a:hover{background:#eef5ff}
+.next-hub{margin:14px 0 0;font-size:.9rem;color:#5b6b84}
+@media(max-width:560px){.standfirst{font-size:1rem}}

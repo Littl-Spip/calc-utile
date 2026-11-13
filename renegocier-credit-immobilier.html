@@ -14,6 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#2f5bea">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"À partir de quel écart de taux une renégociation vaut-elle la peine ?","acceptedAnswer":{"@type":"Answer","text":"Il n'y a pas de seuil universel : tout dépend des frais et de la durée restante. En dessous de 0,5 point d'écart, les frais sont rarement amortis avant un remboursement anticipé."}},{"@type":"Question","name":"Puis-je renégocier si mon prêt est récent ?","acceptedAnswer":{"@type":"Answer","text":"Oui, mais l'indemnité de remboursement anticipé et les frais de garantie rendent l'opération souvent peu rentable la première année."}},{"@type":"Question","name":"L'assurance emprunteur peut-elle être changée en même temps ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La délégation d'assurance est possible et peut représenter une économie importante, à comparer avec le contrat groupe de la banque."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Renégocier son crédit immobilier : est-ce rentable ?", "url": "https://littl-spip.github.io/renegocier-credit-immobilier.html", "description": "Calcule l'économie réelle d'une renégociation ou d'un rachat de crédit : mensualité, coût total, frais, indemnités et nombre de mois pour rentrer dans ses frais.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
 <header class="site">
@@ -278,7 +279,7 @@ function buildPrint(){
   var verdict = $('verdict').textContent, sub = $('verdict-sub').textContent;
   doc.innerHTML =
     '<div class="print-head"><strong>CalcUtile</strong><span>Renégociation de crédit — ' + date + '</span></div>' +
-    '<h1>Mon projet de renégociation</h1>' +
+    '<div class="print-h1">Mon projet de renégociation</div>' +
     '<p class="print-intro">Prêt en cours : <strong>' + eur(d.crd) + '</strong> restant sur <strong>' + d.n1 + ' mois</strong> à <strong>' + d.t1.toFixed(2) + ' %</strong>.</p>' +
     '<table class="print-table"><tbody>' +
     '<tr><th>Situation actuelle</th><td>' + eur2(d.mens1) + ' / mois, total restant ' + eur(d.cout1) + '</td></tr>' +

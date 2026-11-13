@@ -25,6 +25,7 @@
 <meta name="twitter:title" content="Salaire brut mensuel en taux horaire">
 <meta name="twitter:description" content="Convertit un salaire mensuel brut en taux horaire net ou brut selon la durée hebdomadaire légale. Gratuit.">
 <meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Salaire brut mensuel en taux horaire", "url": "https://littl-spip.github.io/outil-salaire-horaire.html", "description": "Convertit un salaire mensuel brut en taux horaire net ou brut selon la durée hebdomadaire légale. Gratuit.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -44,7 +45,7 @@
 <div class="grid">
 <div><label for="a">Salaire mensuel brut (€)</label><input id="a" type="number" value="2500"></div>
 <div><label for="b">Heures par semaine</label><input id="b" type="number" value="35"></div>
-<div><label for="c">Weeks/an</label><input id="c" type="number" value="52"></div>
+<div><label for="c">Semaines travaillées par an</label><input id="c" type="number" value="52"></div>
 </div><button id="calc">Calculer</button>
 <div class="result" id="res">
 <div class="big" id="out">— <small>/h brut</small></div>
@@ -57,8 +58,7 @@
 
 
 <!-- data-cms -->
-<h2>Passer du mensuel à l'horaire (et inversement)</h2>
-<h2>La base légale : 151,67 heures</h2>
+<p class="standfirst">Passer du mensuel à l'horaire (et inversement)</p><h2>La base légale : 151,67 heures</h2>
 <p>Un temps plein en France correspond à 35 heures par semaine, soit 151,67 heures par mois en moyenne sur l'année (35 × 52 / 12). C'est ce diviseur qu'il faut utiliser, et non 140 ou 160 : diviser un salaire mensuel par 151,67 donne le taux horaire réel du contrat.</p>
 <p>Exemple : 3 000 € brut mensuel correspondent à un taux horaire de 19,78 € brut. Pour un temps partiel à 28 heures par semaine, le diviseur est 121,33 et le salaire est proratisé.</p>
 <h2>Pourquoi le taux réel diffère du taux contractuel</h2>
@@ -70,8 +70,9 @@
 <details><summary>Pourquoi 151,67 et pas 151,5 ?</summary><p>Parce que 35 h × 52 semaines = 1 820 h par an, divisé par 12 mois = 151,666… heures. C'est la valeur légale, arrondie à deux décimales.</p></details>
 <details><summary>Comment calculer un taux horaire à partir d'un salaire annuel ?</summary><p>Divise le brut annuel par 1 820 (heures légales annuelles) pour un temps plein. Ajoute les primes au numérateur si tu veux le taux réel complet.</p></details>
 </div>
-<h2>Autres outils utiles</h2>
-<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+<h2>Pour aller plus loin</h2>
+<ul class="next"><li><a href="salaire-brut-net.html">Simulateur brut en net</a></li><li><a href="outil-super-brut.html">Coût total pour l'employeur</a></li><li><a href="outil-smic-net.html">SMIC net</a></li></ul>
+<p class="next-hub"><a href="outils.html">Tous les calculateurs gratuits</a> · <a href="guides.html">Les guides</a></p>
 </div></main>
 <footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){

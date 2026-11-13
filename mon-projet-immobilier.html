@@ -13,6 +13,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#2f5bea">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Mon projet immobilier : plan de financement clair", "url": "https://littl-spip.github.io/mon-projet-immobilier.html", "description": "Revenus, apport, frais de notaire, taux, durée : visualise ton projet immobilier en jauges claires. Mensualité, endettement, reste à vivre et capacité d'achat, sans inscription.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
 <header class="site">
@@ -442,7 +443,7 @@ function buildPrint(){
   var date = new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
   doc.innerHTML =
     '<div class="print-head"><strong>CalcUtile</strong><span>Plan de financement immobilier — ' + date + '</span></div>' +
-    '<h1>Mon projet immobilier</h1>' +
+    '<div class="print-h1">Mon projet immobilier</div>' +
     '<p class="print-intro">Bien à <strong>' + eur(d.prix) + '</strong> (' + (d.notairePct === 2.5 ? 'neuf' : 'ancien') + '), apport de <strong>' + eur(d.apport) + '</strong>, prêt sur <strong>' + d.annees + ' ans</strong> à <strong>' + d.taux.toFixed(2) + ' %</strong>.</p>' +
     '<table class="print-table"><tbody>' +
     '<tr><th>Revenus nets mensuels</th><td>' + eur(d.revenus) + '</td></tr>' +

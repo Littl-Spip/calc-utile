@@ -25,6 +25,7 @@
 <meta name="twitter:title" content="Quotient familial (parts fiscales)">
 <meta name="twitter:description" content="Estime ton quotient familial selon ta situation familiale pour anticiper ton impôt sur le revenu.">
 <meta name="twitter:image" content="https://littl-spip.github.io/og-image.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Quotient familial (parts fiscales)", "url": "https://littl-spip.github.io/outil-quotient-familial.html", "description": "Estime ton quotient familial selon ta situation familiale pour anticiper ton impôt sur le revenu.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
 <header class="site"><div class="wrap"><a class="logo" href="index.html">Calc<span>Utile</span></a>
@@ -57,8 +58,7 @@
 
 
 <!-- data-cms -->
-<h2>Quotient familial : comment il change ton impôt</h2>
-<h2>Le principe des parts</h2>
+<p class="standfirst">Quotient familial : comment il change ton impôt</p><h2>Le principe des parts</h2>
 <p>Le quotient familial divise le revenu imposable du foyer par un nombre de parts, puis applique le barème progressif à ce résultat. Le nombre de parts dépend de la situation : une personne seule a une part, un couple deux parts, et chaque enfant ajoute généralement une demi-part (une part entière à partir du troisième enfant).</p>
 <p>Exemple simplifié : un couple avec deux enfants a trois parts. Un revenu imposable de 60 000 € est divisé par 3, soit 20 000 € par part, imposé au barème, puis multiplié par 3. Sans enfants, le même revenu serait divisé par 2.</p>
 <h2>Le plafonnement</h2>
@@ -71,14 +71,16 @@
 <details><summary>Combien de parts pour un parent isolé ?</summary><p>Deux parts en général (une de base, une supplémentaire), et une demi-part de plus si le parent élève seul un enfant et vit sans conjoint depuis au moins cinq ans.</p></details>
 <details><summary>Vaut-il mieux se marier ou se pacser fiscalement ?</summary><p>Cela dépend des revenus des deux partenaires. Un couple avec des revenus très différents gagne souvent au mariage ; deux hauts revenus similaires peuvent y perdre. Le simulateur des impôts permet de comparer les deux scénarios.</p></details>
 </div>
-<h2>Autres outils utiles</h2>
-<p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
+<h2>Pour aller plus loin</h2>
+<ul class="next"><li><a href="impot-revenu.html">Simulateur d'impôt sur le revenu</a></li><li><a href="guide-impot-revenu.html">Guide : barème et quotient familial</a></li><li><a href="outil-pension-alimentaire.html">Pension alimentaire</a></li></ul>
+<p class="next-hub"><a href="outils.html">Tous les calculateurs gratuits</a> · <a href="guides.html">Les guides</a></p>
 </div></main>
 <footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
 var s=+document.getElementById('a').value, e=+document.getElementById('b').value, pi=+document.getElementById('c').value;
 var ad=s, enc=0;
-if(pi && e>=1){ enc+=0.5; } else if(pi && e===0){ enc+=0.5; }
+// majoration parent isolé : +0,5 part, uniquement avec au moins un enfant à charge
+if(pi && e>=1){ enc+=0.5; }
 // enfants : 1er et 2e = 0.5 chacun, 3e+ = 1 chacun
 var enf=0;
 for(var i=0;i<e;i++){ enf += (i<2)?0.5:1; }

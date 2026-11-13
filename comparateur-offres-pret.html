@@ -14,6 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#2f5bea">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le TAEG de la banque sera-t-il identique à cette estimation ?","acceptedAnswer":{"@type":"Answer","text":"Non, il sera généralement un peu plus élevé : l'estimation ne compte que les frais de dossier. Les frais de garantie et de courtage s'y ajoutent souvent."}},{"@type":"Question","name":"Puis-je changer d'assurance après la signature ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La délégation d'assurance est possible et la résiliation est ouverte, avec des conditions de garantie équivalentes à vérifier."}},{"@type":"Question","name":"Pourquoi comparer à mensualité égale plutôt qu'à taux égal ?","acceptedAnswer":{"@type":"Answer","text":"Parce que le taux seul ne dit rien du coût réel : assurance et frais de dossier peuvent créer plusieurs milliers d'euros d'écart."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Comparateur de deux offres de prêt immobilier", "url": "https://littl-spip.github.io/comparateur-offres-pret.html", "description": "Compare deux offres de prêt immobilier : mensualité, coût total, TAEG estimé et économie réelle. Un verdict chiffré, sans inscription.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
 <header class="site">
@@ -249,7 +250,7 @@ function buildPrint(){
   }
   doc.innerHTML =
     '<div class="print-head"><strong>CalcUtile</strong><span>Comparatif de deux offres de prêt — ' + date + '</span></div>' +
-    '<h1>Comparatif de deux offres</h1>' +
+    '<div class="print-h1">Comparatif de deux offres</div>' +
     '<p class="print-intro">Montant emprunté : <strong>' + eur(d.C) + '</strong> sur <strong>' + d.annees + ' ans</strong> (' + d.n + ' mensualités).</p>' +
     '<table class="print-table print-table-3"><thead><tr><th></th><th>Offre A</th><th>Offre B</th></tr></thead><tbody>' +
     ligne('Taux annuel nominal', d.A.taux.toFixed(2) + ' %', d.B.taux.toFixed(2) + ' %') +
