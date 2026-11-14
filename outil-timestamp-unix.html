@@ -64,10 +64,18 @@
 <p>C'est la première source de bug : JavaScript et Java utilisent les millisecondes (13 chiffres), Unix et Python les secondes (10 chiffres). Un timestamp à 13 chiffres divisé par 1 000 donne le bon résultat. À l'inverse, un timestamp à 10 chiffres multiplié par 1 000 évite d'afficher une date en 1970.</p>
 <h2>Le problème de 2038</h2>
 <p>Sur les systèmes 32 bits, un timestamp signé dépasse sa capacité le 19 janvier 2038 à 03:14:07 UTC. Les systèmes 64 bits repoussent la limite à environ 292 milliards d'années. Le passage au 64 bits est donc la seule vraie parade, et il est déjà fait sur la quasi-totalité des serveurs.</p>
+<h2>Lire un timestamp de tête</h2>
+<p>Trois ordres de grandeur suffisent pour situer un timestamp sans calculatrice. Un jour fait 86 400 secondes, une année moyenne 31 557 600 secondes (365,25 jours), un milliard de secondes un peu moins de 32 ans. Le repère le plus utile : 1 000 000 000 correspond au 9 septembre 2001 à 01:46:40 UTC.</p>
+<p>Quelques valeurs à retenir : 0 = 1er janvier 1970 à minuit UTC ; 1 600 000 000 = 13 septembre 2020 ; 1 700 000 000 = 14 novembre 2023. Un timestamp à 10 chiffres couvre donc 2001 à 2286, largement de quoi couvrir les usages courants.</p>
+<h2>Les cas où on en croise vraiment</h2>
+<p>Trois situations reviennent sans cesse. Les journaux d'un serveur horodatent chaque requête en secondes : pour retrouver un incident, on convertit le timestamp de la ligne suspecte. Les jetons d'authentification (JWT) portent une date d'expiration <b>exp</b> exprimée en secondes : un exp dépassé signifie un jeton refusé, même avec un mot de passe correct. Enfin, les API de paiement, de messagerie et de calendrier renvoient des dates dans ce format, plus faciles à trier qu'une chaîne de caractères.</p>
+<h2>Fuseau horaire et heure d'été</h2>
+<p>Un timestamp n'a pas de fuseau : il désigne un instant absolu. La traduction en heure locale dépend du réglage de la machine — à Paris, UTC+1 en hiver et UTC+2 en été. Une date convertie « une heure trop tôt » vient presque toujours d'un affichage en UTC alors qu'on attendait l'heure française, ou d'un timestamp pris en millisecondes. Pour un échange entre deux pays, stocke en UTC et ne convertis qu'à l'affichage.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq">
 <details><summary>Le timestamp dépend-il du fuseau horaire ?</summary><p>Non, il est toujours en UTC. C'est l'affichage qui change selon le fuseau : le même timestamp donne une heure différente à Paris et à Tokyo.</p></details>
-<details><summary>Comment obtenir le timestamp actuel ?</summary><p>En JavaScript : Math.floor(Date.now() / 1000). En Python : int(time.time()). En ligne de commande : date +%s.</p></details>
+<details><summary>Comment obtenir le timestamp actuel ?</summary><p>En JavaScript : Math.floor(Date.now() / 1000). En Python : int(time.time()). En ligne de commande : date +%s.</p></details><details><summary>Pourquoi mon timestamp a-t-il 13 ou 16 chiffres ?</summary><p>13 chiffres = millisecondes (JavaScript, Java). 16 chiffres = microsecondes (certaines bases de données, Python avec time.time_ns()). Divise par 1 000 pour passer des millisecondes aux secondes, par 1 000 000 pour les microsecondes.</p></details>
+<details><summary>Comment convertir un timestamp dans un tableur ?</summary><p>Dans Excel et LibreOffice, avec un timestamp en secondes en A1 : =(A1/86400)+DATE(1970;1;1), puis applique un format date à la cellule. Si la cellule reste un grand nombre, c'est le format qui n'a pas été changé, pas le calcul.</p></details>
 </div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>

@@ -63,10 +63,17 @@
 <p>Une virgule en trop après le dernier élément, un guillemet simple au lieu de guillemets doubles, une clé non entourée de guillemets, un commentaire (interdit en JSON), une valeur NaN ou undefined (interdites aussi). Le message d'erreur indique souvent la ligne et la position : commence toujours par là.</p>
 <h2>JSON et ses cousins</h2>
 <p>JSON5 autorise les commentaires et les virgules finales, YAML est plus lisible mais plus ambigu, et JSONL stocke un objet par ligne pour les gros volumes. Pour des données tabulaires, le CSV reste plus compact.</p>
+<h2>Un cas concret : la réponse d'API illisible</h2>
+<p>Une réponse d'API arrive souvent sur une seule ligne de plusieurs milliers de caractères. La démarche qui marche : coller la réponse, formater, puis chercher la clé qui t'intéresse avec la recherche du navigateur. Les deux vérifications prioritaires portent sur le type et sur la présence. <b>"42"</b> entre guillemets est une chaîne, <b>42</b> sans guillemets est un nombre : un test qui compare les deux échoue. Et une clé absente vaut <b>undefined</b> en JavaScript, alors qu'une clé à <b>null</b> existe bel et bien.</p>
+<h2>Ce que le formatage ne corrige pas</h2>
+<p>Indenter ne répare pas une donnée fausse. Si le JSON est valide mais que la valeur est un texte à la place d'un nombre, le formateur l'acceptera sans broncher : la validation porte sur la syntaxe, pas sur le sens. De même, un document très profond — plusieurs centaines de niveaux imbriqués — peut être syntaxiquement correct et faire échouer le programme qui le lit, par limite de récursion.</p>
+<h2>La précision des nombres</h2>
+<p>JSON ne distingue pas les entiers des décimaux et ne fixe aucune précision. En JavaScript, un nombre au-delà de 9 007 199 254 740 992 perd des chiffres : un identifiant de 19 caractères, comme ceux de certains services de paiement, doit être traité comme une chaîne, sinon il est arrondi et devient invalide. C'est une cause classique de « l'objet n'existe pas » alors que l'identifiant était bon à l'origine.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq">
 <details><summary>Le formateur envoie-t-il mes données quelque part ?</summary><p>Non, le formatage se fait dans ton navigateur. C'est important si le JSON contient des données internes.</p></details>
-<details><summary>Comment minifier du JSON ?</summary><p>Supprime les espaces et retours à la ligne inutiles. La minification réduit la taille de 20 à 40 % sur un JSON indenté, ce qui compte pour une réponse d'API.</p></details>
+<details><summary>Comment minifier du JSON ?</summary><p>Supprime les espaces et retours à la ligne inutiles. La minification réduit la taille de 20 à 40 % sur un JSON indenté, ce qui compte pour une réponse d'API.</p></details><details><summary>Peut-on mettre des commentaires dans un JSON ?</summary><p>Non, la norme n'autorise aucun commentaire. Les fichiers de configuration qui en contiennent utilisent JSONC (Visual Studio Code), JSON5 ou du YAML. Un JSON commenté est refusé par un analyseur standard.</p></details>
+<details><summary>Pourquoi les accents s'affichent-ils mal après formatage ?</summary><p>Le fichier n'est probablement pas en UTF-8 : un « é » encodé en Latin-1 s'affiche « Ã© » une fois lu comme de l'UTF-8. Vérifie l'encodage du fichier avant d'accuser l'outil ; la séquence \u00e9, elle, est sans ambiguïté.</p></details>
 </div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>

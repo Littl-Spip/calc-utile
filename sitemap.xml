@@ -39,19 +39,19 @@
   <url><loc>https://littl-spip.github.io/outil-calories-bmr.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-codebase64.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-compteur-mots.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-convertisseur-data.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-convertisseur-roman.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-convertisseur-unites.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-convertisseur-data.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-convertisseur-roman.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-convertisseur-unites.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-cout-voiture.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-date-plus-jours.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-diff-texte.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-date-plus-jours.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-diff-texte.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-dpa.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-frequencemax.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-hash-md5-sha.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-hex-rgb.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-hex-rgb.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-journees-special-2026.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-jours-entre-dates.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-json-formatter.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-jours-entre-dates.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-json-formatter.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-lorem-ipsum.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-min-maj.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-mot-de-passe.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
@@ -68,8 +68,8 @@
   <url><loc>https://littl-spip.github.io/outil-tableau-amortissement.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-taux-endettement.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-taux-interets.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-timestamp-unix.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/outil-trajet-temps.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-timestamp-unix.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/outil-trajet-temps.html</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-url-encode.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outil-vacances-scolaires.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/outils.html</loc><lastmod>2026-11-12</lastmod><priority>1.0</priority></url>
@@ -84,7 +84,7 @@
   <url><loc>https://littl-spip.github.io/salaire-brut-net-4000.html</loc><lastmod>2026-11-11</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/salaire-brut-net-4500.html</loc><lastmod>2026-11-11</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/salaire-brut-net.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://littl-spip.github.io/simulateur-credit-immobilier.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://littl-spip.github.io/simulateur-credit-immobilier.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/tva.html</loc><lastmod>2026-11-13</lastmod><priority>0.7</priority></url>
   <url><loc>https://littl-spip.github.io/comparateur-offres-pret.html</loc><lastmod>2026-11-13</lastmod><priority>0.8</priority></url>
   <url><loc>https://littl-spip.github.io/renegocier-credit-immobilier.html</loc><lastmod>2026-11-13</lastmod><priority>0.8</priority></url>

@@ -67,10 +67,17 @@
 <p>Pour foncer une couleur sans la salir, réduis la luminosité en HSV plutôt qu'en ajoutant du noir : le résultat reste saturé et cohérent avec la teinte d'origine.</p>
 <h2>Les pièges de la conversion</h2>
 <p>Les couleurs affichées dépendent de l'écran : un même code peut paraître différent sur un écran calibré et sur un téléphone en plein soleil. Et depuis les écrans larges gamut (Display P3), un code sRGB n'est pas interprété de la même façon partout. Pour une charte graphique, fixe tes codes en sRGB et vérifie-les sur au moins deux écrans.</p>
+<h2>Convertir à la main</h2>
+<p>Chaque paire hexadécimale se convertit en multipliant le premier chiffre par 16 et en ajoutant le second, avec A=10, B=11, C=12, D=13, E=14, F=15. Pour #2F5BEA : 2F donne 2 × 16 + 15 = 47, 5B donne 5 × 16 + 11 = 91, EA donne 14 × 16 + 10 = 234, soit rgb(47, 91, 234). L'opération inverse divise par 16 : 200 donne 12 × 16 + 8, soit C8.</p>
+<h2>Construire une palette cohérente</h2>
+<p>Une palette lisible tient en cinq teintes : une couleur principale, une version foncée pour les survols, une version très claire pour les fonds, un gris de texte et un gris de bordure. En CSS, les variables et les fonctions de couleur modernes permettent de dériver ces variantes d'une seule valeur, ce qui évite de maintenir dix codes à la main. Le vieux réflexe — éclaircir en ajoutant du blanc, foncer en ajoutant du noir — désature la couleur et donne un rendu terne.</p>
+<h2>Vérifier un contraste sans outil</h2>
+<p>Le ratio WCAG se calcule à partir de la luminance relative : on linéarise chaque canal, on applique les coefficients 0,2126 pour le rouge, 0,7152 pour le vert et 0,0722 pour le bleu, puis on compare (L1 + 0,05) / (L2 + 0,05). Le seuil est de 4,5:1 pour du texte courant, 3:1 pour du grand texte ou des éléments d'interface. #2F5BEA sur blanc atteint environ 5,5:1 : juste au-dessus du seuil, donc utilisable en texte, mais à éviter en petit corps.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq">
 <details><summary>Combien de couleurs existe-t-il en hexadécimal ?</summary><p>16 777 216 (256 × 256 × 256) en RGB 8 bits, sans compter la transparence.</p></details>
-<details><summary>Comment convertir un code hexadécimal en RGB ?</summary><p>Sépare les paires, puis convertis chaque paire d'hexadécimal en décimal. FF = 255, 80 = 128, 00 = 0.</p></details>
+<details><summary>Comment convertir un code hexadécimal en RGB ?</summary><p>Sépare les paires, puis convertis chaque paire d'hexadécimal en décimal. FF = 255, 80 = 128, 00 = 0.</p></details><details><summary>Que signifie un code à huit chiffres ?</summary><p>Il ajoute un canal alpha : les deux derniers chiffres donnent l'opacité, de 00 (transparent) à FF (opaque). #2F5BEA80 correspond à environ 50 % d'opacité. Les navigateurs récents l'acceptent, les plus anciens non.</p></details>
+<details><summary>Les codes hexadécimaux sont-ils valables en impression ?</summary><p>Pas directement. L'écran affiche en synthèse additive (RVB), l'imprimeur travaille en synthèse soustractive (CMJN) : un bleu vif à l'écran devient souvent terne sur papier. Pour une impression, fournis une référence CMJN ou Pantone plutôt qu'un code hexadécimal.</p></details>
 </div>
 <h2>Autres outils utiles</h2>
 <p><a href="outils.html">Voir tous les calculateurs gratuits →</a> · <a href="radar-economies.html">Radar Économies</a> · <a href="index.html">Accueil</a></p>
