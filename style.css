@@ -1011,3 +1011,27 @@ footer.site{margin-top:56px;border-top:1px solid #e8eef9;background:#fff}
 .short-copy p{margin:0 0 14px;color:#5f7191;font-size:.9rem;line-height:1.6;max-width:46ch}
 .short-link{display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:750;color:#1d4ed8}
 @media(max-width:700px){.short-strip{grid-template-columns:1fr;gap:18px}.short-media{max-width:280px;margin:0 auto}}
+
+/* Mobile : navigation sur une ligne, familles en lignes compactes */
+@media(max-width:620px){
+  header.site .wrap{gap:10px}
+  nav.top{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;min-width:0;flex:1;justify-content:flex-end}
+  nav.top::-webkit-scrollbar{display:none}
+  nav.top a{white-space:nowrap;flex:0 0 auto;font-size:.8rem;padding:7px 9px}
+  .cat2{grid-template-columns:1fr}
+  .cat2 a{flex-direction:row;align-items:center;gap:13px;min-height:0;padding:14px}
+  .cat2 a .tile{flex:0 0 40px;width:40px;height:40px}
+  .cat2 .go{display:none}
+}
+
+@media(max-width:620px){
+  header.site .wrap{flex-wrap:wrap;height:auto;min-height:0;row-gap:8px;padding-top:10px;padding-bottom:9px}
+  nav.top{flex:1 0 100%;justify-content:flex-start}
+}
+
+@media(max-width:620px){
+  nav.top{justify-content:space-between;overflow:visible;gap:0}
+  nav.top a[href="radar-economies.html"]{display:none}
+  nav.top a{font-size:.79rem;padding:7px 6px}
+  nav.top a.nav-cta{padding:7px 12px}
+}
