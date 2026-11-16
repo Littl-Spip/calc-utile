@@ -65,6 +65,7 @@
 <p>Le plus fréquent : oublier que les métacaractères doivent être échappés (un point veut dire « n'importe quel caractère »). Ensuite, la gourmandise : .* avale tout jusqu'à la dernière occurrence, alors que .*? s'arrête à la première. Enfin, les ancres : sans ^ et $, une regex validant un code postal acceptera aussi « 75001abc ».</p>
 <h2>Faut-il valider un e-mail avec une regex ?</h2>
 <p>Non, pas sérieusement. La spécification des adresses e-mail est bien plus permissive qu'on ne le croit. Une regex stricte rejette des adresses valides ; une regex large accepte des adresses fausses. La seule validation fiable est l'envoi d'un message de confirmation.</p>
+<h2>Tester un motif sans faux positifs</h2><p>Dans <code>^[A-Z]{2}[0-9]{3}$</code>, les ancres imposent que toute la cha?ne corresponde, tandis que les accolades fixent le nombre de r?p?titions. Sans ancres, une partie seulement peut correspondre. Essaie un cas valide, un trop court et un avec un caract?re interdit. Le point est g?n?ralement un joker ; ?chappe-le pour chercher un point litt?ral.</p><p>La syntaxe varie selon le langage : ce testeur utilise le moteur JavaScript du navigateur. Une regex v?rifie une forme, pas l?existence d?une adresse ou d?un compte.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq">
 <details><summary>Quelle différence entre match et test ?</summary><p>Selon le langage, match renvoie les correspondances trouvées, test renvoie seulement vrai ou faux. Pour vérifier un format, test suffit et coûte moins cher.</p></details>

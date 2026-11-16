@@ -6,7 +6,7 @@
 <link rel="canonical" href="https://littl-spip.github.io/outil-diff-texte.html">
 <meta name="google-site-verification" content="tLI8q_80Hy8_iRrXEFf3IBbdnOSbba6bKjEGPKuAJPA" />
 <title>Comparateur de texte : différences entre deux versions</title>
-<meta name="description" content="Compare deux textes et affiche les lignes ajoutées, supprimées ou modifiées.">
+<meta name="description" content="Repère les lignes présentes dans une version et absentes de l’autre. Comparaison simple, sans alignement de l’ordre.">
 <meta name="keywords" content="diff texte, comparer, changements, difference">
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,12 +43,12 @@
 <div class="crumb"><a href="index.html">Accueil</a> › <a href="outils.html">Outils</a> › Diff de texte</div>
 <span class="badge"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Dev</span>
 <h1>Diff de texte</h1>
-<p class="lead">Compare deux textes ligne par ligne pour repérer les changements.</p>
+<p class="lead">Repère les lignes présentes dans une version et absentes de l’autre. Cette comparaison simple ne conserve pas l’ordre des lignes.</p>
 <div class="card">
 <div class="grid">
 <div><label for="a">Texte A</label><textarea id="a" rows="5" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:.9rem"></textarea></div>
 <div><label for="b">Texte B</label><textarea id="b" rows="5" style="width:100%;padding:12px;border:1px solid #e6ebf3;border-radius:11px;font-size:.9rem"></textarea></div>
-</div><button id="calc">Comparer</button>
+</div><p class="field-help">Le résultat repère les lignes absentes ou ajoutées ; il ne vérifie pas les déplacements ni le sens des changements.</p><button id="calc">Comparer</button>
 <div class="result" id="res">
 <div id="out" style="font-family:ui-monospace,Menlo,monospace;font-size:.85rem;white-space:pre-wrap"></div>
 </div></div>
@@ -64,9 +64,9 @@
 <h2>Conseils de lecture</h2>
 <p>Sur un texte long, commence par le nombre de différences : s'il y en a 300, tu n'as probablement pas collé les bonnes versions. Ensuite, lis les blocs de trois lignes ou plus en priorité : ce sont ceux où un paragraphe entier a été remplacé, donc là où le sens a le plus de chances d'avoir changé.</p>
 <h2>Comment un diff est calculé</h2>
-<p>Un comparateur cherche la plus longue suite commune aux deux textes, puis marque ce qui reste de part et d'autre. Cette méthode — dite LCS, ou algorithme de Myers dans sa version la plus répandue — garantit un résultat minimal, mais elle dépend du découpage : comparer caractère par caractère signale une différence pour chaque lettre déplacée, alors que comparer mot par mot donne une seule modification lisible. Pour de la prose, le mot est la bonne unité ; pour du code, la ligne.</p>
-<h2>Un cas concret : deux versions d'un bail</h2>
-<p>Un bail envoyé en septembre, puis renvoyé signé en octobre : le comparateur fait ressortir trois changements — le loyer passe de 850 à 880 €, la durée de 3 ans à 2 ans, et une clause d'entretien de la chaudière apparaît. Sans comparaison, ces modifications se glissent dans six pages et passent inaperçues. C'est l'usage le plus rentable de l'outil, bien avant la relecture de style.</p>
+<p>Ce comparateur simple vérifie si chaque ligne de la version A apparaît quelque part dans la version B, puis liste les lignes propres à B. Il ne préserve pas l’ordre des lignes, ne repère pas toujours les déplacements et n’établit pas un diff minimal ; des lignes répétées peuvent compliquer la lecture. Pour une comparaison précise de code ou de document important, utilise un outil qui conserve l’ordre et le contexte, puis relis chaque changement.</p>
+<h2>Exemple fictif : deux versions d'un bail</h2>
+<p>Dans un exemple fictif, un loyer passe de 850 à 880 €, la durée de 3 ans à 2 ans et une clause d'entretien de la chaudière est ajoutée. Un diff peut aider à repérer les lignes concernées, mais ce comparateur ne vérifie ni le sens juridique ni la validité du bail : relis le document complet et fais confirmer toute clause importante par une source compétente.</p>
 <h2>Les limites à connaître</h2>
 <p>Un diff compare du texte, pas une mise en forme : un mot passé en gras n'apparaîtra pas comme modifié. Sur un PDF, l'extraction peut transformer deux colonnes en un texte entremêlé et produire de fausses différences. Et deux versions issues de logiciels différents n'utilisent pas les mêmes caractères invisibles — apostrophe droite contre typographique, espace insécable avant un deux-points : tout le document paraît modifié alors que seule la ponctuation a changé.</p>
 <h2>Questions fréquentes</h2>
@@ -80,12 +80,12 @@
 </div></main>
 <footer class="site"><div class="wrap"><p>CalcUtile — résultats indicatifs. Les valeurs de calcul restent dans ton navigateur.</p><p class="f-links"><a href="demo-video.html">Démo vidéo</a> · <a href="guides.html">Guides</a> · <a href="questions.html">Questions</a> · <a href="outils.html">Outils</a> · <a href="mon-espace.html">Mon espace</a> · <a href="methodologie-sources.html">Méthodologie</a> · <a href="privacy.html">Confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="a-propos.html">À propos</a> · <a href="contact.html">Contact</a></p></div></footer>
 <script>var eur=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);};var eur2=function(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2}).format(n);};document.getElementById('calc').addEventListener('click',function(){
+var escapeHtml=function(s){return s.replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
 var A=document.getElementById('a').value.split('\n'), B=document.getElementById('b').value.split('\n');
-var set=new Set(B), out='';
-for(var i=0;i<A.length;i++){ if(B.indexOf(A[i])===-1) out+='\x1b[31m- '+A[i]+'\x1b[0m\n'; else out+='  '+A[i]+'\n'; }
+var out='';
+for(var i=0;i<A.length;i++){ if(B.indexOf(A[i])===-1) out+='<span style="color:#c0392b">- '+escapeHtml(A[i])+'</span>\n'; else out+='  '+escapeHtml(A[i])+'\n'; }
 out+='\n=== Lignes ajoutées (dans B) ===\n';
-for(var j=0;j<B.length;j++){ if(A.indexOf(B[j])===-1) out+='+ '+B[j]+'\n'; }
-out=out.replace(/\x1b\[31m/g,'<span style="color:#c0392b">').replace(/\x1b\[0m/g,'</span>');
+for(var j=0;j<B.length;j++){ if(A.indexOf(B[j])===-1) out+='+ '+escapeHtml(B[j])+'\n'; }
 document.getElementById('out').innerHTML=out || 'Aucune différence.';
 document.getElementById('res').classList.add('show');
 });</script>

@@ -16,7 +16,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1087976242537233" crossorigin="anonymous"></script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#2f5bea">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le TAEG de la banque sera-t-il identique à cette estimation ?","acceptedAnswer":{"@type":"Answer","text":"Non, il sera généralement un peu plus élevé : l'estimation ne compte que les frais de dossier. Les frais de garantie et de courtage s'y ajoutent souvent."}},{"@type":"Question","name":"Puis-je changer d'assurance après la signature ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La délégation d'assurance est possible et la résiliation est ouverte, avec des conditions de garantie équivalentes à vérifier."}},{"@type":"Question","name":"Pourquoi comparer à mensualité égale plutôt qu'à taux égal ?","acceptedAnswer":{"@type":"Answer","text":"Parce que le taux seul ne dit rien du coût réel : assurance et frais de dossier peuvent créer plusieurs milliers d'euros d'écart."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le TAEG de la banque sera-t-il identique à cette estimation ?","acceptedAnswer":{"@type":"Answer","text":"Les frais de dossier, de garantie et de courtage saisis améliorent l'estimation, mais d'autres frais admissibles et leurs dates de paiement peuvent encore changer le résultat. Le TAEG officiel reste la référence contractuelle."}},{"@type":"Question","name":"Puis-je changer d'assurance après la signature ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La délégation d'assurance est possible et la résiliation est ouverte, avec des conditions de garantie équivalentes à vérifier."}},{"@type":"Question","name":"Pourquoi comparer à mensualité égale plutôt qu'à taux égal ?","acceptedAnswer":{"@type":"Answer","text":"Parce que le taux seul ne dit rien du coût réel : assurance et frais initiaux peuvent faire varier le coût total."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Comparateur de deux offres de prêt immobilier", "url": "https://littl-spip.github.io/comparateur-offres-pret.html", "description": "Compare deux offres de prêt immobilier : mensualité, coût total, TAEG estimé et économie réelle. Un verdict chiffré, sans inscription.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Nécessite JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 </head>
 <body>
@@ -49,6 +49,10 @@
           <input id="a_ass" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.34">
           <label for="a_frais">Frais de dossier</label>
           <input id="a_frais" type="number" inputmode="decimal" min="0" max="100000" step="10" value="900">
+          <label for="a_garantie">Frais de garantie (montant total)</label>
+          <input id="a_garantie" type="number" inputmode="decimal" min="0" max="100000" step="50" value="0">
+          <label for="a_courtier">Frais de courtage (si applicables)</label>
+          <input id="a_courtier" type="number" inputmode="decimal" min="0" max="100000" step="50" value="0">
         </section>
         <section class="offer" aria-labelledby="offre-b">
           <h2 id="offre-b">Offre B</h2>
@@ -58,8 +62,14 @@
           <input id="b_ass" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.42">
           <label for="b_frais">Frais de dossier</label>
           <input id="b_frais" type="number" inputmode="decimal" min="0" max="100000" step="10" value="1200">
+          <label for="b_garantie">Frais de garantie (montant total)</label>
+          <input id="b_garantie" type="number" inputmode="decimal" min="0" max="100000" step="50" value="0">
+          <label for="b_courtier">Frais de courtage (si applicables)</label>
+          <input id="b_courtier" type="number" inputmode="decimal" min="0" max="100000" step="50" value="0">
         </section>
       </div>
+
+      <p class="field-help" role="note">Pour chaque offre, saisis les frais liés au prêt indiqués dans l’offre et requis pour obtenir le crédit ou ses conditions (par exemple une garantie ou un courtage lorsqu’il est obligatoire). Les frais d’acquisition du logement sont à suivre séparément. Le TAEG approché suppose que les frais saisis sont payés au déblocage et que l’assurance est calculée sur le capital initial ; l’offre et sa FISE restent la référence.</p>
 
       <div class="grid" style="margin-top:18px">
         <div><label for="capital">Montant emprunté</label><input id="capital" type="number" inputmode="decimal" min="1" max="10000000" step="1000" value="200000"><span class="field-help">Le même montant pour les deux offres.</span></div>
@@ -98,23 +108,21 @@
     <div class="ad"><!-- Emplacement publicitaire (AdSense) --></div>
 
     <h2>Comment lire ce comparatif</h2>
-    <p>Le <strong>coût total du crédit</strong> additionne les intérêts, l'assurance et les frais de dossier. C'est le seul chiffre qui permet de dire quelle offre coûte le moins cher au final : un taux plus bas peut être annulé par une assurance plus chère ou des frais de dossier plus élevés.</p>
-    <p>Le <strong>TAEG estimé</strong> est calculé en résolvant le taux mensuel qui égalise la somme actualisée des mensualités (assurance comprise) au capital diminué des frais de dossier. C'est une estimation : le TAEG officiel de la banque intègre aussi les frais de garantie, les frais d'expertise et, parfois, des frais de courtage.</p>
+    <p>Le <strong>coût total du crédit</strong> additionne les intérêts, l'assurance et les frais de dossier, de garantie et de courtage saisis. C'est le seul chiffre qui permet de dire quelle offre coûte le moins cher au final : un taux plus bas peut être annulé par une assurance plus chère ou des frais de dossier plus élevés.</p>
+    <p>Le <strong>TAEG approché</strong> résout le taux mensuel qui égalise la valeur actualisée des mensualités (assurance comprise) au capital diminué des frais initiaux saisis (dossier, garantie et courtage). D'autres frais, leur date de paiement et les modalités de l'offre peuvent faire varier le TAEG officiel.</p>
     <p><strong>Une mensualité plus basse ne veut pas dire une offre moins chère.</strong> Sur 25 ans, 20 € de mensualité en moins représentent 6 000 € sur la durée du prêt. Le tableau ci-dessus montre les deux côtés à la fois : ce que tu paies chaque mois et ce que tu paies au total.</p>
 
     <h2>Les frais à ne pas oublier dans la comparaison</h2>
     <ul>
-      <li><strong>Frais de dossier</strong> : souvent 500 à 1 500 €, parfois négociables.</li>
-      <li><strong>Frais de garantie</strong> : caution ou hypothèque, souvent 1 à 2 % du montant emprunté.</li>
-      <li><strong>Assurance emprunteur</strong> : de 0,10 % à 0,60 % par an selon l'âge et l'état de santé ; elle peut être déléguée à un autre assureur.</li>
-      <li><strong>Frais de courtage</strong> : s'il y a un courtier, ils entrent dans le TAEG.</li>
-      <li><strong>Indemnités de remboursement anticipé</strong> : elles dépendent du contrat, pas du taux.</li>
-    </ul>
+      <li><strong>Frais de dossier</strong> : relève le montant figurant dans l’offre et vérifie s’il est dû pour l’obtention du prêt ou des conditions proposées.</li>
+      <li><strong>Frais de garantie</strong> : le montant varie selon la garantie et l’offre ; utilise le chiffrage communiqué par le prêteur.</li>
+      <li><strong>Assurance emprunteur</strong> : compare le coût total, la quotité, les garanties et la base de cotisation indiqués pour chaque proposition.</li>
+      <li><strong>Frais de courtage</strong> : indique-les si le courtage est requis pour obtenir le prêt ou ses conditions ; vérifie leur traitement dans la FISE.</li></ul>
 
     <h2>Questions fréquentes</h2>
     <details>
       <summary>Le TAEG de la banque sera-t-il identique à cette estimation ?</summary>
-      <p>Non, il sera généralement un peu plus élevé : l'estimation ici ne compte que les frais de dossier. Ajoute les frais de garantie et de courtage pour t'approcher du TAEG officiel, qui reste le seul chiffre contractuel.</p>
+      <p>Non, il sera généralement un peu plus élevé : les frais de dossier, de garantie et de courtage saisis améliorent l'estimation, mais d'autres frais admissibles et leurs dates de paiement peuvent encore changer le résultat. Le TAEG officiel de l'offre reste la référence contractuelle.</p>
     </details>
     <details>
       <summary>Puis-je changer d'assurance après la signature ?</summary>
@@ -163,9 +171,9 @@ function mensualite(C, tauxA, n){
 }
 
 /* TAEG estimé : taux mensuel r tel que la valeur actuelle des mensualités (assurance incluse)
-   égale le capital net des frais de dossier. Résolution par dichotomie. */
-function taeg(C, tauxA, n, assA, frais){
-  var net = C - frais;
+   égale le capital net des frais initiaux saisis. Résolution par dichotomie. */
+function taeg(C, tauxA, n, assA, fraisInitiaux){
+  var net = C - fraisInitiaux;
   var m = mensualite(C, tauxA, n) + C*(assA/100)/12;
   var lo = 0, hi = 0.05;
   for (var k = 0; k < 80; k++){
@@ -182,14 +190,15 @@ var etat = { ok:false };
 function calc(){
   var C = Number($('capital').value);
   var annees = Number($('duree').value);
-  var A = { taux:Number($('a_taux').value), ass:Number($('a_ass').value), frais:Number($('a_frais').value) };
-  var B = { taux:Number($('b_taux').value), ass:Number($('b_ass').value), frais:Number($('b_frais').value) };
+  var A = { taux:Number($('a_taux').value), ass:Number($('a_ass').value), frais:Number($('a_frais').value), garantie:Number($('a_garantie').value), courtier:Number($('a_courtier').value) };
+  var B = { taux:Number($('b_taux').value), ass:Number($('b_ass').value), frais:Number($('b_frais').value), garantie:Number($('b_garantie').value), courtier:Number($('b_courtier').value) };
   var err = $('calc-error');
   var valide = Number.isFinite(C) && C >= 1000 && C <= 10000000
     && Number.isInteger(annees) && annees >= 1 && annees <= 40
     && [A.taux,B.taux].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 20; })
     && [A.ass,B.ass].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 5; })
-    && [A.frais,B.frais].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 100000 && t < C; });
+    && [A.frais,A.garantie,A.courtier,B.frais,B.garantie,B.courtier].every(function(t){ return Number.isFinite(t) && t >= 0 && t <= 100000; })
+    && [A,B].every(function(o){ return o.frais + o.garantie + o.courtier < C; });
   if(!valide){
     err.textContent = 'Vérifie les valeurs : montant à partir de 1 000 €, durée entière de 1 à 40 ans, taux de 0 à 20 %, assurance de 0 à 5 % et frais de dossier positifs.';
     err.hidden = false;
@@ -204,9 +213,10 @@ function calc(){
     var totalMens = m + assM;
     var interets = m*n - C;
     var assTotal = assM*n;
-    var cout = interets + assTotal + o.frais;
+    var fraisInitiaux = o.frais + o.garantie + o.courtier;
+    var cout = interets + assTotal + fraisInitiaux;
     return { m:m, assM:assM, totalMens:totalMens, interets:interets, assTotal:assTotal,
-             cout:cout, total:C + cout, taeg:taeg(C, o.taux, n, o.ass, o.frais) };
+             cout:cout, total:C + cout, taeg:taeg(C, o.taux, n, o.ass, fraisInitiaux) };
   }
   var ra = bilan(A), rb = bilan(B);
   $('a_mens').textContent = eur2(ra.totalMens);
@@ -258,6 +268,8 @@ function buildPrint(){
     ligne('Taux annuel nominal', d.A.taux.toFixed(2) + ' %', d.B.taux.toFixed(2) + ' %') +
     ligne('Assurance', d.A.ass.toFixed(2) + ' % / an', d.B.ass.toFixed(2) + ' % / an') +
     ligne('Frais de dossier', eur(d.A.frais), eur(d.B.frais)) +
+    ligne('Frais de garantie', eur(d.A.garantie), eur(d.B.garantie)) +
+    ligne('Frais de courtage', eur(d.A.courtier), eur(d.B.courtier)) +
     ligne('Mensualité totale', eur2(d.ra.totalMens), eur2(d.rb.totalMens)) +
     ligne('Coût total du crédit', '<strong>' + eur(d.ra.cout) + '</strong>', '<strong>' + eur(d.rb.cout) + '</strong>') +
     ligne('Total remboursé', eur(d.ra.total), eur(d.rb.total)) +
@@ -267,15 +279,15 @@ function buildPrint(){
     '<h2>À vérifier avant de choisir</h2>' +
     '<ul class="print-list">' +
     '<li>Le <strong>TAEG officiel</strong> de chaque offre : c\'est le seul chiffre contractuel.</li>' +
-    '<li>Les <strong>frais de garantie</strong> et de courtage, absents de cette estimation.</li>' +
+    '<li>Les frais d\'expertise et autres frais non saisis, qui peuvent modifier le coût.</li>' +
     '<li>Les <strong>conditions de remboursement anticipé</strong> et de renégociation.</li>' +
     '<li>La <strong>possibilité de déléguer l\'assurance</strong> à un contrat individuel.</li>' +
     '<li>Le <strong>différé</strong> éventuel et son coût réel.</li>' +
     '</ul>' +
-    '<p class="print-foot">Estimation indicative : formule des annuités constantes, assurance calculée sur le capital initial, TAEG approché sans frais de garantie ni de courtage. Elle ne remplace pas les offres de prêt. Calcul réalisé sur littl-spip.github.io.</p>';
+    '<p class="print-foot">Estimation indicative : formule des annuités constantes, assurance calculée sur le capital initial, TAEG approché à partir des frais saisis. Elle ne remplace pas les offres de prêt. Calcul réalisé sur littl-spip.github.io.</p>';
 }
 
-['capital','duree','a_taux','a_ass','a_frais','b_taux','b_ass','b_frais'].forEach(function(id){
+['capital','duree','a_taux','a_ass','a_frais','a_garantie','a_courtier','b_taux','b_ass','b_frais','b_garantie','b_courtier'].forEach(function(id){
   var el = $(id);
   if(el){ el.addEventListener('input', function(){ clearTimeout(window.__t); window.__t = setTimeout(calc, 220); }); }
 });

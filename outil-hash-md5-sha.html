@@ -64,6 +64,7 @@
 <p>SHA-256 et SHA-3 résistent aux attaques connues. Pour un mot de passe, n'utilise aucun de ces algorithmes seuls : il faut une fonction lente et salée (bcrypt, scrypt, Argon2).</p>
 <h2>Vérifier un téléchargement</h2>
 <p>Les éditeurs publient souvent une empreinte SHA-256 à côté du fichier. Calcule l'empreinte du fichier téléchargé et compare : si les deux chaînes sont identiques, le fichier est intact. Une différence, même d'un caractère, signifie que le téléchargement est corrompu ou altéré.</p>
+<h2>Choisir le bon m?canisme</h2><p>Un hachage produit une empreinte, Base64 est r?versible et un chiffrement prot?ge le contenu avec une cl? : ces op?rations ne sont pas interchangeables. MD5 ne convient plus aux usages de s?curit? qui exigent la r?sistance aux collisions. SHA-256 peut v?rifier une empreinte, mais une signature est n?cessaire pour authentifier l??metteur.</p><p>Ne stocke jamais de mot de passe avec MD5 ou SHA-256 simple : le hachage de mots de passe doit ?tre lent et d?di?. Ne colle pas de secret dans cet outil.</p>
 <h2>Questions fréquentes</h2>
 <div class="faq">
 <details><summary>Peut-on retrouver un mot de passe à partir de son hash ?</summary><p>Pas par calcul inverse, mais par attaque par dictionnaire : on hache des millions de mots courants et on compare. C'est pourquoi un mot de passe long et unique résiste, et pourquoi un hash non salé est dangereux.</p></details>
